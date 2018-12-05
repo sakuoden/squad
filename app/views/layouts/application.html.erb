@@ -10,6 +10,39 @@
   </head>
 
   <body>
+    <header>
+      <!-- ヘッダーの要素の幅 -->
+      <div class="header_wide">
+
+        <!-- ヘッダー左側要素（タイトル） -->
+        <div class="header_left">
+          Squad
+        </div>
+        <!-- ヘッダー左側要素fin -->
+
+        <!-- ヘッダー真ん中要素（検索） -->
+        <div class="header_center">
+          <span>詳細検索</span>
+          <span>キーワード検索</span>
+        </div>
+        <!-- ヘッダー真ん中要素fin -->
+
+        <!-- ヘッダー右側要素（リンク） -->
+        <div class="header_right">
+          <ul>
+            <li>
+              <%= link_to "ユーザー登録" %>
+            </li>
+            <li>
+              <%= link_to "ログイン" %>
+            </li>
+          </ul>
+        </div>
+          <!-- ヘッダー右側要素fin -->
+
+      </div>
+      <!-- ヘッダーの要素の幅fin -->
+    </header>
     <%= yield %>
   </body>
 </html>

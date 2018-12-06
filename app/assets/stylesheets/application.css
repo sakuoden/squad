@@ -163,15 +163,14 @@ header ul li {
 .user_new_btn {
 	width: 100%;
 	padding: 2% 0;
-	background-color: #ff6600;
+	background-color: #00CC00;
 	color: white;
-	border: solid 1px #d5d2cd;
 	font-size: 18px;
 }
 
 /*ユーザー登録ボタンにマウスを置いたとき*/
 .user_new_btn:hover {
-	background: linear-gradient(to bottom, #E68200, #FF7300);
+	background: linear-gradient(to bottom, #66CC33, #66FF00);
 	cursor: pointer;
 }
 
@@ -191,21 +190,53 @@ header ul li {
 	overflow: hidden;
 }
 
+/*ログインのタイトルの文字*/
+.user_login_position h2{
+	text-align: center;
+	margin: 5% 0;
+	font-size: 30px;
+}
 
+/*ログインの箱の中の文字の位置調整*/
+.user_login_field {
+	margin-bottom: 6%;
+	font-size: 18px;
+}
 
+/*ログインの箱の中の文字の最後の位置だけ*/
+.user_login_field_last {
+	margin-bottom: 4%;
+	font-size: 18px;
+}
 
+/*ログインの箱の中のフォーム*/
+.user_login_form {
+	width: 100%;
+	margin: 0 auto;
+	height: 40px;
+	font-size: 18px;
+	background-color: #eeeeee;
+	border: solid 1px #d5d2cd;
+}
 
+/*ログインボタン*/
+.user_login_btn {
+	width: 100%;
+	padding: 2% 0;
+	background-color: #0099FF;
+	color: white;
+	font-size: 18px;
+}
 
+/*ログインボタンにマウスを置いたとき*/
+.user_login_btn:hover {
+	background: linear-gradient(to bottom, #26A8FF, #32ADFF);
+	cursor: pointer;
+}
 
-
-
-
-
-
-
-
-
-
-
+/*ログインボタンを押したときのログインボタン*/
+.user_login_btn:active {
+	outline: none;
+}
 
 

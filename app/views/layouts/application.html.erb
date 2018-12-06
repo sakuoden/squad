@@ -15,9 +15,11 @@
       <div class="header_wide">
 
         <!-- ヘッダー左側要素（タイトル） -->
-        <div class="header_left">
-          Squad
-        </div>
+        <%= link_to "/", class: "header_left_link" do %>
+          <div class="header_left">
+            Squad
+          </div>
+        <% end %>
         <!-- ヘッダー左側要素fin -->
 
         <!-- ヘッダー真ん中要素（検索） -->
@@ -31,7 +33,7 @@
         <div class="header_right">
           <ul>
             <li>
-              <%= link_to "ユーザー登録" %>
+              <%= link_to "ユーザー登録", new_user_registration_path, class: "header_right_link" %>
             </li>
             <li>
               <%= link_to "ログイン" %>

@@ -1,0 +1,38 @@
+<div class="user_new_error_messages">
+    <%= devise_error_messages! %>
+</div>
+
+<!-- ユーザー登録の箱の位置調整 -->
+<div class="user_new_position">
+
+  <h2>無料ユーザー登録</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <div class="user_new_field">
+      <%= f.label :email, "メールアドレス" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "user_new_field_form" %>
+    </div>
+
+    <div class="user_new_field">
+      <%= f.label :password, "パスワード" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "user_new_field_form" %>
+    </div>
+
+    <div class="user_new_field">
+      <%= f.label :password_confirmation, "パスワード（確認用）" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "user_new_field_form" %>
+    </div>
+
+    <div class="user_new_field_last">
+      <%= f.label :name, "名前" %><br />
+      <%= f.text_field :name, class: "user_new_field_form" %>
+    </div>
+
+    <div>
+      <%= f.submit "ユーザー登録", class: "user_new_btn" %>
+    </div>
+  <% end %>
+
+</div>
+<!-- 登録の箱の位置調整fin -->

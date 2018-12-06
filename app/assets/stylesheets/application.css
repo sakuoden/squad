@@ -6,7 +6,7 @@
 
 body {
 	font-family:Helvetica,HiraKakuProN-W3,'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
-	color: #3c3c3c;
+	color: #333333;
 }
 
 .clearfix:after {
@@ -14,6 +14,9 @@ body {
 	clear: both;
 	display: block;
 }
+
+
+/*----------------------------------------------------ヘッダー------------------------------------------------------*/
 
 header {
 	background-color: #F6891F;
@@ -30,14 +33,33 @@ header {
 
 /*ヘッダー要素の左側(タイトル)*/
 .header_left {
-	width: 15%;
-	font-size: 45px;
+	font-size: 35px;
 	color: white;
-	margin: 1% 0;
+	margin: 0.5% 0;
 	display: inline-block;
 	vertical-align: top;
 	text-align: left;
 }
+
+/*ヘッダー要素左側のリンクの調整(未訪問)*/
+.header_left_link:link {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素左側のリンクの調整(訪問後)*/
+.header_left_link:visited {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素左側のリンクの調整(マウス)*/
+.header_left_link:hover {
+	color: white;
+	cursor: pointer;
+}
+
+
 
 
 /*ヘッダー要素の真ん中（検索）*/
@@ -45,8 +67,8 @@ header {
 	width: 35%;
 	display: inline-block;
 	vertical-align: bottom;
-	margin-bottom: 1%;
-	font-size: 18px;
+	margin-bottom: 0.5%;
+	font-size: 16px;
 	color: white;
 }
 
@@ -57,17 +79,133 @@ header {
 	display: inline-block;
 	text-align: right;
 	vertical-align: bottom;
-	margin-bottom: 1%;
+	margin-bottom: 0.5%;
 }
 
-header ul {
-}
-
+/*ヘッダー要素右側の文字の調整*/
 header ul li {
 	list-style: none;
 	display: inline-block;
 	vertical-align: top;
 	margin-left: 5%;
-	font-size: 18px;
+	font-size: 16px;
 	color: white;
 }
+
+/*ヘッダー要素右側のリンクの調整(未訪問)*/
+.header_right_link:link {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素右側のリンクの調整(訪問後)*/
+.header_right_link:visited {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素右側のリンクの調整(マウス)*/
+.header_right_link:hover {
+	color: white;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+/*----------------------------------------------------ユーザー登録画面------------------------------------------------------*/
+/*エラーメッセージの箱*/
+.user_new_error_messages{
+	background-color: #FDDDDD;
+	width: 100%;
+	margin-top: 2%;
+	text-align: center;
+	color: #FC4C4C;
+}
+
+/*ユーザー登録の箱の位置調整*/
+.user_new_position {
+	width: 25%;
+	margin: 1% auto;
+	margin-bottom: 5%;
+	overflow: hidden;
+}
+
+/*ユーザー登録の文字の位置調整*/
+.user_new_position h2 {
+	text-align: center;
+	margin: 5% 0;
+	font-size: 30px;
+}
+
+/*ユーザー登録のそれぞれの文字の位置調整*/
+.user_new_field {
+	margin-bottom: 6%;
+	font-size: 18px;
+}
+
+/*ユーザー登録のそれぞれの文字の位置調整の最後だけ*/
+.user_new_field_last {
+	margin-bottom: 10%;
+	font-size: 18px;
+}
+
+/*ユーザー登録のフォームの大きさの調整*/
+.user_new_field_form {
+	width: 100%;
+	margin: 0 auto;
+	height: 40px;
+	font-size: 18px;
+	background-color: #eeeeee;
+	border: solid 1px #d5d2cd;
+}
+
+/*ユーザー登録のボタンのスタイルの変更*/
+.user_new_btn {
+	width: 100%;
+	padding: 2% 0;
+	background-color: #ff6600;
+	color: white;
+	border: solid 1px #d5d2cd;
+	font-size: 18px;
+}
+
+/*ユーザー登録ボタンにマウスを置いたとき*/
+.user_new_btn:hover {
+	background: linear-gradient(to bottom, #E68200, #FF7300);
+	cursor: pointer;
+}
+
+/*ユーザー登録ボタンを押したときのボタン*/
+.user_new_btn:active {
+	outline: none;
+}
+
+
+/*------------------------------------------ログイン画面-------------------------------------------------------*/
+
+/*ログインの箱の位置調整*/
+.user_login_position {
+	width: 25%;
+	margin: 1% auto;
+	margin-bottom: 5%;
+	overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

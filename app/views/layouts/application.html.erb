@@ -12,7 +12,7 @@
   <body>
     <header>
       <!-- ヘッダーの要素の幅 -->
-      <div class="header_wide">
+      <div class="header_wide clearfix">
 
         <!-- ヘッダー左側要素（タイトル） -->
         <%= link_to "/", class: "header_left_link" do %>
@@ -24,23 +24,36 @@
 
         <!-- ヘッダー真ん中要素（検索） -->
         <div class="header_center">
-          <span>詳細検索</span>
-          <span>キーワード検索</span>
+          <span class="header_center_detail_search">
+            詳細検索
+          </span>
+          <span class="header_center_search">
+            検索
+          </span>
         </div>
         <!-- ヘッダー真ん中要素fin -->
 
-        <!-- ヘッダー右側要素（リンク） -->
-        <div class="header_right">
-          <ul>
-            <li>
-              <%= link_to "ユーザー登録", new_user_registration_path, class: "header_right_link" %>
-            </li>
-            <li>
-              <%= link_to "ログイン", new_user_session_path, class: "header_right_link" %>
-            </li>
-          </ul>
-        </div>
-          <!-- ヘッダー右側要素fin -->
+
+        <!-- ログインしているとき -->
+        <% if user_signed_in? %>
+          <!-- ヘッダー右側要素（リンク） -->
+          <div class="header_right clearfix">
+            <%= link_to "チームを作る", "/", class: "header_right_link" %>
+            <%= link_to "マイページ", "/", class: "header_right_link" %>
+            <%= link_to "ログアウト", destroy_user_session_path, class: "header_right_link" %>
+          </div>
+            <!-- ヘッダー右側要素fin -->
+
+
+        <!-- ログインしていないとき -->
+        <% else %>
+          <!-- ヘッダー右側要素（リンク） -->
+          <div class="header_right clearfix">
+            <%= link_to "ユーザー登録", new_user_registration_path, class: "header_right_link" %>
+            <%= link_to "ログイン", new_user_session_path, class: "header_right_link" %>
+          </div>
+            <!-- ヘッダー右側要素fin -->
+        <% end %>
 
       </div>
       <!-- ヘッダーの要素の幅fin -->

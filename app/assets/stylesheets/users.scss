@@ -1,0 +1,346 @@
+
+/*----------------------------------------------------ユーザー登録画面------------------------------------------------------*/
+/*エラーメッセージの箱*/
+.user_new_error_messages{
+	background-color: #FDDDDD;
+	width: 100%;
+	margin-top: 2%;
+	text-align: center;
+	color: #FC4C4C;
+}
+
+/*ユーザー登録の箱の位置調整*/
+.user_new_position {
+	width: 25%;
+	margin: 1% auto;
+	margin-bottom: 5%;
+	overflow: hidden;
+}
+
+/*ユーザー登録の文字の位置調整*/
+.user_new_position h2 {
+	text-align: center;
+	margin: 5% 0;
+	font-size: 30px;
+}
+
+/*ユーザー登録のそれぞれの文字の位置調整*/
+.user_new_field {
+	margin-bottom: 6%;
+	font-size: 18px;
+}
+
+/*ユーザー登録のそれぞれの文字の位置調整の最後だけ*/
+.user_new_field_last {
+	margin-bottom: 10%;
+	font-size: 18px;
+}
+
+/*ユーザー登録のフォームの大きさの調整*/
+.user_new_field_form {
+	width: 100%;
+	margin: 0 auto;
+	height: 40px;
+	font-size: 18px;
+	background-color: #eeeeee;
+	border: solid 1px #d5d2cd;
+}
+
+/*ユーザー登録のボタンのスタイルの変更*/
+.user_new_btn {
+	width: 100%;
+	padding: 2% 0;
+	background-color: #00D868;
+	color: white;
+	font-size: 18px;
+}
+
+/*ユーザー登録ボタンにマウスを置いたとき*/
+.user_new_btn:hover {
+	background: linear-gradient(to bottom, #66CC33, #66FF00);
+	cursor: pointer;
+}
+
+/*ユーザー登録ボタンを押したときのボタン*/
+.user_new_btn:active {
+	outline: none;
+}
+
+
+/*------------------------------------------ログイン画面-------------------------------------------------------*/
+
+/*ログインの箱の位置調整*/
+.user_login_position {
+	width: 25%;
+	margin: 1% auto;
+	margin-bottom: 5%;
+	overflow: hidden;
+}
+
+/*ログインのタイトルの文字*/
+.user_login_position h2{
+	text-align: center;
+	margin: 5% 0;
+	font-size: 30px;
+}
+
+/*ログインの箱の中の文字の位置調整*/
+.user_login_field {
+	margin-bottom: 6%;
+	font-size: 18px;
+}
+
+/*ログインの箱の中の文字の最後の位置だけ*/
+.user_login_field_last {
+	margin-bottom: 4%;
+	font-size: 18px;
+}
+
+/*ログインの箱の中のフォーム*/
+.user_login_form {
+	width: 100%;
+	margin: 0 auto;
+	height: 40px;
+	font-size: 18px;
+	background-color: #eeeeee;
+	border: solid 1px #d5d2cd;
+}
+
+/*ログインボタン*/
+.user_login_btn {
+	width: 100%;
+	padding: 2% 0;
+	background-color: #0099FF;
+	color: white;
+	font-size: 18px;
+}
+
+/*ログインボタンにマウスを置いたとき*/
+.user_login_btn:hover {
+	background: linear-gradient(to bottom, #00F275, #00FF7F);
+	cursor: pointer;
+}
+
+/*ログインボタンを押したときのログインボタン*/
+.user_login_btn:active {
+	outline: none;
+}
+
+
+/*----------------------------------------------マイページ画面----------------------------------------------*/
+/*ユーザーマイページの箱*/
+.users_mypage_box {
+	height: 500px;
+	background-color: gray;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 3%;
+}
+
+/*ユーザーマイページの左側の箱*/
+.users_mypage_left_box {
+	height: 500px;
+	background-color: blue;
+	width: 25%;
+	float: left;
+}
+
+/*ユーザーマイページ左側の箱の中の位置調整*/
+.users_mypage_left_box_position {
+	height: 100%;
+	background-color: orange;
+	width: 80%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*ユーザーマイページの左側の箱のプロフ画像の位置*/
+.users_mypage_left_box_image_position {
+	width: 100%;
+	margin-top: 5%;
+}
+
+/*ユーザーマイページの左側の箱のプロフ画像*/
+.users_mypage_left_box_image {
+	border-radius: 100px;
+}
+
+
+
+
+
+
+/*ユーザーマイページの右側の箱*/
+.users_mypage_right_box {
+	height: 500px;
+	background-color: green;
+	width: 75%;
+	float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------マイページ編集画面----------------------------------------------------*/
+
+/*ユーザーマイページ編集全体の箱*/
+.users_mypage_edit_box {
+	height: 500px;
+	width: 65%;
+	margin: 0 auto;
+	margin-top: 3%;
+	border: solid 1px #666666;
+	box-shadow: 0 0 10px 1px #F2F2F2;
+	border-radius: 15px;
+}
+
+/*ユーザーマイページ編集の左側の箱*/
+.users_mypage_edit_left_box {
+	height: 100%;
+	width: 30%;
+	float: left;
+	border-right: solid 1px #666666;
+}
+
+/*ユーザーマイページ編集のプロフィールを編集*/
+.users_mypage_edit_left_box_content1 {
+	height: 100px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 100px;
+	margin-top: 30%;
+	color: #B2B2B2;
+}
+
+/*ユーザーマイページ編集のメールアドレスを変更の内容*/
+.users_mypage_edit_left_box_content2 {
+	height: 100px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 100px;
+	color: #B2B2B2;
+}
+
+/*ユーザーマイページ編集のパスワードの変更の内容*/
+.users_mypage_edit_left_box_content3{
+	height: 100px;
+	text-align: center;
+	font-size: 18px;
+	line-height: 100px;
+	color: #B2B2B2;
+}
+
+/*ユーザーマイページ編集の文字色*/
+.users_mypage_edit_left_box_active {
+	font-size: 20px;
+	color: #0C0C0C;
+}
+
+
+/*フラッシュメッセージ*/
+.users_mypage_edit_right_box_flash {
+	color: red;
+}
+
+
+/*ユーザーマイページ編集の右側の箱*/
+.users_mypage_edit_right_box {
+	height: 500px;
+	width: 70%;
+	float: right;
+	display: none;
+}
+
+/*このクラス名がついていると、display:none; が解除される*/
+.users_mypage_edit_active {
+	display: block;
+}
+
+/*ユーザーマイページ編集の右側の箱の画像表示の部分*/
+.users_mypage_edit_right_image {
+	height: 200px;
+	width: 200px;
+	margin: 0 auto;
+	margin-top: 3%;
+}
+
+/*ユーザーマイページ編集の右側の箱の中の画像自体*/
+.users_mypage_edit_right_image2 {
+	height: 200px;
+	width: 200px;
+	border: dotted 2px #666666;
+}
+
+/*ユーザーマイページ編集の画像選択ボタン*/
+.users_mypage_edit_right_upload {
+	margin-left: 35%;
+}
+
+/*ユーザーマイページ編集の名前のテーブル*/
+.users_mypage_edit_right_row2 table {
+	width: 40%;
+	margin: 0 auto;
+	margin-top: 7%;
+	font-size: 20px;
+}
+
+/*ユーザーマイページ編集のテーブルの名前の枠*/
+.users_mypage_edit_right_row2_name{
+	width: 100%;
+	height: 30px;
+	font-size: 16px;
+}
+
+/*ユーザーマイページ編集のプロフィールの編集変更のボタンの位置*/
+.user_mypage_edit_right_box_save_btn_potition {
+	width: 45%;
+	margin: 0 auto;
+	margin-top: 8%;
+}
+
+/*ユーザーマイページ編集のプロフィールの編集変更のボタン*/
+.user_mypage_edit_right_box_save_btn {
+	background-color: #00D868;
+	padding: 3%;
+	width: 100%;
+	color: white;
+	font-size: 16px;
+}
+
+/*ユーザー登録ボタンにマウスを置いたとき*/
+.user_mypage_edit_right_box_save_btn:hover {
+	background: linear-gradient(to bottom, #00F275, #00FF7F);
+	cursor: pointer;
+}
+
+/*ユーザー登録ボタンを押したとき*/
+.user_mypage_edit_right_box_save_btn:active {
+	outline: none;
+}
+
+
+
+/*--------ユーザーマイページ編集のメールアドレスの変更のページ^-------*/
+
+.users_mypage_edit_right_box2_row table{
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 30%;
+	font-size: 20px;
+}
+
+.users_mypage_edit_right_box2_row table td:nth-child(1){
+	text-align: center;
+}
+
+
+
+
+

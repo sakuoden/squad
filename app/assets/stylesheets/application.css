@@ -1,3 +1,19 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
 * {
 	margin: 0;
 	padding: 0;
@@ -110,131 +126,28 @@ header {
 }
 
 
-/*----------------------------------------------------ユーザー登録画面------------------------------------------------------*/
-/*エラーメッセージの箱*/
-.user_new_error_messages{
-	background-color: #FDDDDD;
-	width: 100%;
-	margin-top: 2%;
-	text-align: center;
-	color: #FC4C4C;
-}
-
-/*ユーザー登録の箱の位置調整*/
-.user_new_position {
-	width: 25%;
-	margin: 1% auto;
-	margin-bottom: 5%;
-	overflow: hidden;
-}
-
-/*ユーザー登録の文字の位置調整*/
-.user_new_position h2 {
-	text-align: center;
-	margin: 5% 0;
-	font-size: 30px;
-}
-
-/*ユーザー登録のそれぞれの文字の位置調整*/
-.user_new_field {
-	margin-bottom: 6%;
-	font-size: 18px;
-}
-
-/*ユーザー登録のそれぞれの文字の位置調整の最後だけ*/
-.user_new_field_last {
-	margin-bottom: 10%;
-	font-size: 18px;
-}
-
-/*ユーザー登録のフォームの大きさの調整*/
-.user_new_field_form {
-	width: 100%;
-	margin: 0 auto;
-	height: 40px;
-	font-size: 18px;
-	background-color: #eeeeee;
-	border: solid 1px #d5d2cd;
-}
-
-/*ユーザー登録のボタンのスタイルの変更*/
-.user_new_btn {
-	width: 100%;
-	padding: 2% 0;
-	background-color: #00CC00;
-	color: white;
-	font-size: 18px;
-}
-
-/*ユーザー登録ボタンにマウスを置いたとき*/
-.user_new_btn:hover {
-	background: linear-gradient(to bottom, #66CC33, #66FF00);
-	cursor: pointer;
-}
-
-/*ユーザー登録ボタンを押したときのボタン*/
-.user_new_btn:active {
-	outline: none;
-}
 
 
-/*------------------------------------------ログイン画面-------------------------------------------------------*/
 
-/*ログインの箱の位置調整*/
-.user_login_position {
-	width: 25%;
-	margin: 1% auto;
-	margin-bottom: 5%;
-	overflow: hidden;
-}
 
-/*ログインのタイトルの文字*/
-.user_login_position h2{
-	text-align: center;
-	margin: 5% 0;
-	font-size: 30px;
-}
 
-/*ログインの箱の中の文字の位置調整*/
-.user_login_field {
-	margin-bottom: 6%;
-	font-size: 18px;
-}
 
-/*ログインの箱の中の文字の最後の位置だけ*/
-.user_login_field_last {
-	margin-bottom: 4%;
-	font-size: 18px;
-}
 
-/*ログインの箱の中のフォーム*/
-.user_login_form {
-	width: 100%;
-	margin: 0 auto;
-	height: 40px;
-	font-size: 18px;
-	background-color: #eeeeee;
-	border: solid 1px #d5d2cd;
-}
 
-/*ログインボタン*/
-.user_login_btn {
-	width: 100%;
-	padding: 2% 0;
-	background-color: #0099FF;
-	color: white;
-	font-size: 18px;
-}
 
-/*ログインボタンにマウスを置いたとき*/
-.user_login_btn:hover {
-	background: linear-gradient(to bottom, #26A8FF, #32ADFF);
-	cursor: pointer;
-}
 
-/*ログインボタンを押したときのログインボタン*/
-.user_login_btn:active {
-	outline: none;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

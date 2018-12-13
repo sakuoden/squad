@@ -131,7 +131,7 @@
 /*ユーザーマイページの箱*/
 .users_mypage_box {
 	height: 500px;
-	background-color: gray;
+/*	background-color: gray;*/
 	width: 90%;
 	margin: 0 auto;
 	margin-top: 3%;
@@ -140,7 +140,7 @@
 /*ユーザーマイページの左側の箱*/
 .users_mypage_left_box {
 	height: 500px;
-	background-color: blue;
+/*	background-color: blue;*/
 	width: 25%;
 	float: left;
 }
@@ -148,7 +148,7 @@
 /*ユーザーマイページ左側の箱の中の位置調整*/
 .users_mypage_left_box_position {
 	height: 100%;
-	background-color: orange;
+/*	background-color: orange;*/
 	width: 80%;
 	margin: 0 auto;
 	overflow: hidden;
@@ -165,6 +165,39 @@
 	border-radius: 100px;
 }
 
+/*ユーザーマイページの左側の編集ページへのリンク*/
+.users_mypage_left_box_edit_page {
+	margin-top: 10%;
+	margin-left: 70%;
+}
+
+/*ユーザーマイページの左側のタイトル(名前)*/
+.users_mypage_left_box_title_name {
+	margin-top: 5%;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/*ユーザーマイページの左側の名前*/
+.users_mypage_left_box_name {
+	margin-left: 7%;
+	font-size: 20px;
+}
+
+/*ユーザーマイページの左側のタイトル(所属チーム)*/
+.users_mypage_left_box_title_team {
+	margin-top: 10%;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/*ユーザーマイページの左側のタイトル*/
+.users_mypage_left_box_team {
+	margin-left: 7%;
+	font-size: 20px;
+}
 
 
 

@@ -10,8 +10,26 @@
 				<%= attachment_image_tag current_user, :image, :fill, 200, 200, fallback: "no_image.jpg", class: "users_mypage_left_box_image" %>
 			</div>
 
+			<div class="users_mypage_left_box_edit_page">
+				<%= link_to user_edit_path do %>
+					<i class="fas fa-2x fa-pencil-alt"></i>
+				<% end %>
+			</div>
+
+			<div class="users_mypage_left_box_title_name">
+				名前
+			</div>
+
 			<div class="users_mypage_left_box_name">
 				<%= current_user.name %>
+			</div>
+
+			<div class="users_mypage_left_box_title_team">
+				所属チーム
+			</div>
+
+			<div class="users_mypage_left_box_team">
+				※所属チームを作成してからここに追記※
 			</div>
 
 		</div>

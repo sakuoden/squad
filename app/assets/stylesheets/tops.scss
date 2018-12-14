@@ -1,3 +1,18 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tops_top_flash_massage {
+	width: 20%;
+	height: 30px;
+	line-height: 30px;
+	background-color: #00aced;
+	fint-size: 20px;
+	color: white;
+	margin-top: 1%;
+	margin-bottom: 2%;
+	margin-left: 1%;
+	text-align: center;
+	border-radius: 30px;
+	box-shadow: 0 0 10px 1px #A3A3A3;
+}

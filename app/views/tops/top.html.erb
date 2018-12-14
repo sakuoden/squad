@@ -1,0 +1,12 @@
+<% if flash[:notice] %>
+	<div class="tops_top_flash_massage">
+		<%= flash[:notice] %>
+	</div>
+<% end %>
+
+
+<script>
+	$(document).ready(function(){
+			$('.tops_top_flash_massage').fadeOut(8000);
+	});
+</script>

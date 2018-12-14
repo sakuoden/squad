@@ -1,3 +1,120 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*----------------------------------------------チームの新規作成画面----------------------------------------------*/
+
+/*チーム新規作成の箱*/
+.teams_new_box {
+/*	background-color: grey;*/
+/*	height: 600px;*/
+	width: 40%;
+	margin: 0 auto;
+	margin-top: 1%;
+	margin-bottom: 2%;
+	border: solid 1px #666666;
+	box-shadow: 0 0 10px 1px #F2F2F2;
+	border-radius: 15px;
+}
+
+/*チーム新規作成の箱の幅*/
+.teams_new_box_wide {
+	width: 300px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*チーム新規作成画面のタイトル*/
+.teams_new_box_title {
+	margin-top: 5%;
+	font-size: 23px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*チーム新規作成画面のチーム名入力フォームのタイトル*/
+.teams_new_box_team_name_form_title {
+	width: 100%;
+	margin-top: 5%;
+}
+
+/*チーム新規作成画面のチーム名入力フォームの位置*/
+.teams_new_box_team_name_form_position {
+/*	height: 40px;
+	background-color: red;*/
+	width: 100%;
+}
+
+/*チーム新規作成画面のチーム名入力フォーム*/
+.teams_new_box_team_neme_form{
+	width: 100%;
+	height: 30px;
+	font-size: 14px;
+	color: #333333;
+}
+
+/*チーム新規作成画面の画像選択のフォームの位置*/
+.teams_new_box_team_image_form_position {
+	margin-top: 5%;
+}
+
+/*チーム新規作成画面の画像のプレビュー表示の位置*/
+.teams_new_box_team_image_preview_position {
+	width: 300px;
+	margin: 0 auto;
+	margin-top: 1%;
+}
+
+/*チーム新規作成画面の画像のプレビュー表示*/
+.teams_new_box_team_image_preview{
+	width: 300px;
+	height: 300px;
+	border: dotted 2px #666666;
+}
+
+/*チーム新規作成画面の新規作成ボタンの位置*/
+.teams_new_box_new_team_btn_position {
+	width: 100;
+	text-align: center;
+}
+
+/*チーム新規作成画面の新規作成ボタン*/
+.teams_new_box_new_team_btn {
+	margin-top: 3%;
+	margin-bottom: 3%;
+	padding: 2%;
+	width: 60%;
+	background-color: #00D868;
+	color: white;
+}
+
+/*チーム新規作成画面の新規作成ボタンにマウスを置いたとき*/
+.teams_new_box_new_team_btn:hover {
+	background: linear-gradient(to bottom, #00F275, #00FF7F);
+	cursor: pointer;
+}
+
+/*チーム新規作成画面の新規作成ボタンを押したとき*/
+.user_mypage_edit_right_box_save_btn:active {
+	outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

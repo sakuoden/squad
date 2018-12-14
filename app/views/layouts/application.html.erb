@@ -39,7 +39,7 @@
         <% if user_signed_in? %>
           <!-- ヘッダー右側要素（リンク） -->
           <div class="header_right clearfix">
-            <%= link_to "チームを作る", "/", class: "header_right_link" %>
+            <%= link_to "チームを作る", new_team_path, class: "header_right_link" %>
             <%= link_to "マイページ", "/user", class: "header_right_link" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header_right_link" %>
           </div>

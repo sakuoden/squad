@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    attachment :image
+	attachment :image
+
+	has_many :indivisuals, dependent: :destroy
+	has_many :teams, through: :indivisuals
+
 end

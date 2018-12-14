@@ -1,0 +1,154 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family:Helvetica,HiraKakuProN-W3,'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+	color: #333333;
+}
+
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+
+/*----------------------------------------------------ヘッダー------------------------------------------------------*/
+
+header {
+	background-color: #F6891F;
+	width: 100%;
+	border: solid 1px #a95607;
+}
+
+/*ヘッダーの要素の幅*/
+.header_wide {
+	width: 70%;
+	margin: 0.5% auto;
+}
+
+/*ヘッダー要素の左側(タイトル)*/
+.header_left {
+	font-size: 40px;
+	color: white;
+	float: left;
+}
+
+/*ヘッダー要素左側のリンクの調整(未訪問)*/
+.header_left_link:link {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素左側のリンクの調整(訪問後)*/
+.header_left_link:visited {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素左側のリンクの調整(マウス)*/
+.header_left_link:hover {
+	color: white;
+	cursor: pointer;
+}
+
+
+/*ヘッダー要素の真ん中の位置調整*/
+.header_center {
+	float: left;
+	margin-top: 2%;
+	margin-left: 8%;
+}
+
+/*ヘッダー要素の真ん中（詳細検索）*/
+.header_center_detail_search {
+	font-size: 16px;
+	color: white;
+}
+
+/*ヘッダー要素の真ん中（検索）*/
+.header_center_search {
+	font-size: 16px;
+	color: white;
+}
+
+
+
+/*ヘッダー要素の右側*/
+.header_right {
+	width: 40%;
+	float: right;
+	text-align: right;
+	margin-top: 2%;
+}
+
+/*ヘッダー要素の位置の調整*/
+.header_right_link {
+	margin-left: 5%;
+}
+
+/*ヘッダー要素右側のリンクの調整(未訪問)*/
+.header_right_link:link {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素右側のリンクの調整(訪問後)*/
+.header_right_link:visited {
+	color: white;
+	text-decoration: none;
+}
+
+/*ヘッダー要素右側のリンクの調整(マウス)*/
+.header_right_link:hover {
+	color: white;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

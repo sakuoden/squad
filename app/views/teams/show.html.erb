@@ -1,0 +1,30 @@
+<!-- チーム詳細の箱 -->
+<div class="teams_show_box">
+
+	<!-- チーム詳細の箱 -->
+	<div class="teams_show_box_row1 clearfix">
+
+		<!-- チーム詳細の左側の画像の箱 -->
+		<div class="teams_show_box_row1_image_position">
+			<%= attachment_image_tag @team, :team_image, :fill, 300, 300, fallback: "no_image.jpg", class: "teams_show_box_row1_image" %>
+		</div>
+		<!-- チーム詳細の左側の画像の箱fin -->
+
+
+		<!-- チーム詳細の右側の箱 -->
+		<div class="teams_show_box_row1_right_position">
+
+			<div class="teams_show_box_row1_team_name">
+				<%= @team.team_name %>
+			</div>
+
+			<div class="props">
+			</div>
+
+		</div>
+		<!-- チーム詳細の右側の箱fin -->
+
+	</div>
+
+</div>
+<!-- チーム詳細の箱fin

@@ -23,6 +23,7 @@
 body {
 	font-family:Helvetica,HiraKakuProN-W3,'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 	color: #333333;
+	background-color: #e6ecf0;
 }
 
 .clearfix:after {
@@ -34,16 +35,24 @@ body {
 
 /*----------------------------------------------------ヘッダー------------------------------------------------------*/
 
+.wrap {
+	width: 100%;
+	position: relative;
+	min-height: 100%;
+}
+
 header {
 	background-color: #F6891F;
 	width: 100%;
+	height: 70px;
 	border: solid 1px #a95607;
+	box-shadow: 0 1px 3px 2px rgba(0,0,0,0.25);
 }
 
 /*ヘッダーの要素の幅*/
 .header_wide {
 	width: 70%;
-	margin: 0.5% auto;
+	margin: 0 auto;
 }
 
 /*ヘッダー要素の左側(タイトル)*/
@@ -51,6 +60,7 @@ header {
 	font-size: 40px;
 	color: white;
 	float: left;
+	line-height: 70px;
 }
 
 /*ヘッダー要素左側のリンクの調整(未訪問)*/
@@ -72,72 +82,64 @@ header {
 }
 
 
-/*ヘッダー要素の真ん中の位置調整*/
-.header_center {
-	float: left;
-	margin-top: 2%;
-	margin-left: 8%;
-}
-
-/*ヘッダー要素の真ん中（詳細検索）*/
-.header_center_detail_search {
-	font-size: 16px;
-	color: white;
-}
-
-/*ヘッダー要素の真ん中（検索）*/
-.header_center_search {
-	font-size: 16px;
-	color: white;
+html,body {
+	height: 100%;
 }
 
 
+.contents {
+	padding-bottom: 70px;
+	clear: left;
+}
 
-/*ヘッダー要素の右側*/
-.header_right {
+
+/*フッダー*/
+footer {
+	width: 100%;
+	background-color: #2a2d33;
+	height: 70px;
+	position: absolute;
+	bottom: 0;
+	border: solid 1px #23262b;
+	box-shadow: 0 -1px 3px 3px rgba(0,0,0,0.25);
+	overflow: hidden;
+}
+
+/*フッターの中身の要素の位置関係*/
+.footer_wide {
+	width: 70%;
+	margin: 0 auto;
+}
+
+/*フッダー要素の中身の右側の位置(リンク3つの要素をまとめてfloat)*/
+.footer_right {
 	width: 40%;
 	float: right;
 	text-align: right;
-	margin-top: 2%;
+	line-height: 70px;
 }
 
-/*ヘッダー要素の位置の調整*/
-.header_right_link {
-	margin-left: 5%;
+/*フッダー要素の右側のリンク関係*/
+.footer_right_link {
+	float: left;
+	text-decoration: none;
+	padding: 0 5%;
 }
 
-/*ヘッダー要素右側のリンクの調整(未訪問)*/
-.header_right_link:link {
+/*フッターの右側に表示されるボタン*/
+.footer_right_link {
 	color: white;
 	text-decoration: none;
 }
 
-/*ヘッダー要素右側のリンクの調整(訪問後)*/
-.header_right_link:visited {
+.footer_right_link:visited {
 	color: white;
 	text-decoration: none;
 }
 
-/*ヘッダー要素右側のリンクの調整(マウス)*/
-.header_right_link:hover {
-	color: white;
-	text-decoration: underline;
-	cursor: pointer;
+.footer_right_link:hover {
+	background-color: #31353c;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

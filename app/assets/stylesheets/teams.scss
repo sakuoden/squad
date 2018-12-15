@@ -99,6 +99,66 @@
 	outline: none;
 }
 
+/*---------------------------------------チーム詳細画面(メンバーが見た場合,メンバー以外が見た場合)---------------------------------------*/
+
+/*チーム詳細画面の箱*/
+.teams_show_box {
+	background-color: grey;
+	height: 800px;
+	width: 60%;
+	margin: 0 auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+/*チーム詳細画面の左の箱*/
+.teams_show_box_row1 {
+	background-color: red;
+	height: 400px;
+	width: 100%;
+	padding: 5%;
+}
+
+/*チーム詳細画面左の箱のチーム画像の位置*/
+.teams_show_box_row1_image_position {
+	float: left;
+}
+
+/*チーム詳細画面左の箱のチーム画像*/
+.teams_show_box_row1_image {
+	width: 300px;
+	height: 300px;
+}
+
+/*チーム詳細画面右側の箱*/
+.teams_show_box_row1_right_position {
+	width: 430px;
+	float: left;
+	text-align: center;
+}
+
+/*チーム詳細画面左の箱のチームの名前*/
+.teams_show_box_row1_team_name {
+	text-align: center;
+	margin-top: 10%;
+	font-weight: bold;
+	font-size: 22px;
+}
+
+/*チーム詳細画面左の箱のレコードボタン*/
+/*.teams_left_box_team_record_btn {
+}
+*/
+
+
+
+
+/*チーム書斎画面の右の箱*/
+.teams_right_box {
+	background-color: green;
+	height: 100px;
+	width: 100%;
+}
 
 
 
@@ -106,6 +166,58 @@
 
 
 
+
+
+
+
+
+
+/*--------------------------------------------------------チームメンバー画面--------------------------------------------------------*/
+
+/*チームメンバー編集画面の箱*/
+.teams_member_box {
+	background-color: grey;
+	height: 500px;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 2%;
+	overflow: hidden;
+}
+
+/*チームメンバー編集画面のタイトル*/
+.teams_member_box_title {
+	width: 100%;
+	text-align: center;
+	font-size: 23px;
+	margin-top: 3%;
+	font-weight: bold;
+}
+
+
+
+
+
+
+/*----------------------------------------------------チームメンバー編集画面----------------------------------------------------*/
+
+/*チームメンバー編集画面の箱*/
+.teams_member_edit_box {
+	background-color: grey;
+	height: 500px;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 2%;
+	overflow: hidden;
+}
+
+/*チームメンバー編集画面のタイトル*/
+.teams_member_edit_box_title {
+	width: 100%;
+	text-align: center;
+	font-size: 23px;
+	margin-top: 3%;
+	font-weight: bold;
+}
 
 
 

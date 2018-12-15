@@ -1,0 +1,48 @@
+<!-- ユーザー詳細ページの箱(他の人から見た) -->
+<div class="users_show_box clearfix">
+
+	<!-- ユーザーマイページ左側の箱 -->
+	<div class="users_show_left_box">
+		<div class="users_show_left_box_position">
+
+			<!-- ユーザーマイページ左側の箱のプロフ画像 -->
+			<div class="users_show_left_box_image_position">
+				<%= attachment_image_tag current_user, :image, :fill, 200, 200, fallback: "no_image.jpg", class: "users_show_left_box_image" %>
+			</div>
+
+			<div class="users_show_left_box_inviting_btn_position">
+				<%= link_to user_edit_path do %>
+					<div class="users_show_left_box_inviting_btn">
+						チームに招待する
+					</div>
+				<% end %>
+			</div>
+
+			<div class="users_show_left_box_title_name">
+				名前
+			</div>
+
+			<div class="users_show_left_box_name">
+				<%= current_user.name %>
+			</div>
+
+			<div class="users_show_left_box_title_team">
+				所属チーム
+			</div>
+
+			<div class="users_show_left_box_team">
+				※所属チームを作成してからここに追記※
+			</div>
+
+		</div>
+	</div>
+	<!-- ユーザーマイページ左側の箱fin -->
+
+
+	<!-- ユーザーマイページ右側の箱(ユーザーが投稿したコンテンツ) -->
+	<div class="users_show_right_box">
+	</div>
+	<!-- ユーザーマイページ右側の箱fin -->
+
+</div>
+<!-- ユーザー詳細ページの箱(他の人から見た)fin -->

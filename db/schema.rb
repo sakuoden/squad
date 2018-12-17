@@ -10,9 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_133743) do
+ActiveRecord::Schema.define(version: 2018_12_16_025702) do
 
-  create_table "indivisuals", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
     t.integer "user_id"
     t.integer "team_id"
     t.string "position"

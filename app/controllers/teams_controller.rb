@@ -10,7 +10,6 @@ class TeamsController < ApplicationController
 		@user = current_user
 		@team = @user.teams.new(team_params)
 		if @user.save
-			@indivisual = Indivisual.find_by(user_id: current_user.id)
 			flash[:notice] = "チームの作成を完了しました"
 			redirect_to '/'
 		end
@@ -18,6 +17,7 @@ class TeamsController < ApplicationController
 
 	def show
 		@team = Team.find(params[:id])
+		@favorites = Favorite.where(team_id: @team.id)
 	end
 
 	def member
@@ -31,6 +31,6 @@ class TeamsController < ApplicationController
 
 	private
 	def team_params
-		params.require(:team).permit(:team, :team_image)
+		params.require(:team).permit(:team_name, :team_image)
 	end
 end

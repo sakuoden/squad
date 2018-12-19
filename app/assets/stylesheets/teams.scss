@@ -209,24 +209,172 @@
 
 /*--------------------------------------------------------チームメンバー画面--------------------------------------------------------*/
 
-/*チームメンバー編集画面の箱*/
+/*チームメンバー画面の箱*/
 .teams_member_box {
-	background-color: grey;
-	height: 500px;
-	width: 50%;
+/*	background-color: grey;*/
+/*	height: 900px;*/
+	width: 80%;
 	margin: 0 auto;
 	margin-top: 2%;
+	margin-bottom: 2%;
+	padding-top: 1%;
+	border: solid 1px #e6ecf0;
+	box-shadow: 0 0 10px 1px #F2F2F2;
+	background-color: white;
+}
+
+/*チムメンバー画面の箱にマウスが乗るとき*/
+.teams_member_box_member_box {
+	cursor: hand;
+	cursor: pointer;
+}
+
+/*チームメンバー画面のタイトル*/
+.teams_member_box_title {
+	width: 40%;
+	margin: 0 auto;
+	font-size: 23px;
+	font-weight: bold;
+	text-decoration: underline;
+	margin-bottom: 1%;
+	display: inline-block;
+	text-align: center;
+}
+
+/*チームメンバーのボタンの位置*/
+.teams_member_box_btn_position {
+	display: inline-block;
+}
+
+/*チームメンバー作成のボタン*/
+.teams_member_box_create_team_btn {
+}
+
+
+
+/*タイトル下のチームメンバー全員が入る箱*/
+.teams_member_box_all_member_box {
+/*	height: 700px;*/
+/*	background-color: yellow;*/
+	width: 90%;
+	margin: 0 auto;
+	padding: 2%;
+	text-align: center;
+
+}
+
+/*チームメンバー1人が入る箱*/
+.teams_member_box_member_box {
+/*	height: 500px;*/
+/*	background-color: blue;*/
+	width: 48%;
+	display: inline-block;
+	padding: 1% 1%;
+	border: solid 1px #666666;
+	box-shadow: 0 0 10px 1px #F2F2F2;
+	border-radius: 15px;
+}
+
+/*チームメンバー1人の画像の位置*/
+.teams_member_box_member_box_image_position {
+	width: 100%;
+}
+
+/*チームメンバー1人の画像*/
+.teams_member_box_member_image{
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+}
+
+/*チームメンバー1人の名前のタイトル*/
+.teams_member_box_member_box_name_title {
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: left;
+}
+
+/*チームメンバー1人の名前*/
+.teams_member_box_member_box_name {
+	text-align: left;
+	margin-bottom: 3%;
 	overflow: hidden;
 }
 
-/*チームメンバー編集画面のタイトル*/
-.teams_member_box_title {
-	width: 100%;
-	text-align: center;
-	font-size: 23px;
-	margin-top: 3%;
+/*チームメンバー1人のポジションのタイトル*/
+.teams_member_box_member_box_position_title {
+	text-decoration: underline;
 	font-weight: bold;
+	font-size: 18px;
+	text-align: left;
 }
+
+/*チームメンバー1人のポジション*/
+.teams_member_box_member_box_position {
+	text-align: left;
+	margin-bottom: 3%;
+	overflow: hidden;
+}
+
+/*チームメンバー1人の紹介のタイトル*/
+.teams_member_box_member_box_introduction_title {
+	text-decoration: underline;
+	font-weight: bold;
+	font-size: 18px;
+	text-align: left;
+}
+
+.teams_member_box_member_box_introduction {
+	text-align: left;
+	margin-bottom: 3%;
+	overflow: hidden;
+}
+
+.teams_memver_box_member_box_modal {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	display: none;
+	text-align: center;
+}
+
+.teams_member_box_member_box_after_click {
+	width: 600px;
+	height: 600px;
+	padding-top: 1%;
+	border: solid 1px #666666;
+	box-shadow: 0 0 10px 1px #F2F2F2;
+	background-color: white;
+	text-align: center;
+	margin-top: 3%;
+}
+
+
+
+
+
+
+/*----------------------------------------------------チームメンバー新規加入画面----------------------------------------------------*/
+
+/*メンバー新規加入画面の箱*/
+.teams_member_new_member {
+	height: 500px;
+	background-color: white;
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	border: solid 1px #e6ecf0;
+	box-shadow: 0 0 10px 1px #F2F2F2;
+}
+
+
+
 
 
 

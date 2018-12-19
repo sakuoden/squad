@@ -16,7 +16,7 @@
 
     <header>
       <!-- ヘッダーの要素の幅 -->
-      <div class="header_wide">
+      <div class="header_wide clearfix">
 
         <!-- ヘッダー左側要素（タイトル） -->
         <%= link_to "/", class: "header_left_link clearfix" do %>
@@ -29,6 +29,7 @@
       </div>
       <!-- ヘッダーの要素の幅fin -->
     </header>
+
 
     <div class="contents clearfix">
       <%= yield %>
@@ -83,7 +84,6 @@
 
 
   </body>
-
 
 
 </html>

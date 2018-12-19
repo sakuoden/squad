@@ -20,8 +20,15 @@ class TeamsController < ApplicationController
 		@favorites = Favorite.where(team_id: @team.id)
 	end
 
+
+
 	def member
 		@team = Team.find(params[:id])
+	end
+
+	def member_new
+		@team = Team.find(params[:id])
+		@members = @team.members
 	end
 
 	def member_edit

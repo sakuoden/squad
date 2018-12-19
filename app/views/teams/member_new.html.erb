@@ -1,0 +1,21 @@
+<!-- メンバー以外がURLを直接入力した場合 -->
+<% if @members.where(user_id: current_user.id).exists? %>
+
+	<!-- メンバーだった場合 -->
+
+	<!-- メンバー新規加入画面の箱 -->
+	<div class="teams_member_new_member">
+		<div class="team">
+		</div>
+	</div>
+	<!-- メンバー新規加入画面の箱end -->
+
+
+
+<% else %>
+
+	<!-- メンバーじゃなかった場合 -->
+	<% redirect_to '/' %>
+
+<% end %>
+<!-- メンバー以外がURLを直接入力した場合fin -->

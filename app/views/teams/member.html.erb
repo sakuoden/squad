@@ -1,12 +1,117 @@
-<!-- チームメンバー画面の箱 -->
+<!-- チームメンバー1人の箱をクリックすると出て来るモーダル -->
+<div class="teams_memver_box_member_box_modal">
+</div>
+
+
+<!-- チームメンバー画面の箱(チームメンバーが見た場合) -->
 <div class="teams_member_box">
 
 	<!-- チームメンバー画面のタイトル -->
 	<div class="teams_member_box_title">
-		<%= "#{@team.team}　メンバー" %>
+		<%= "#{@team.team_name}　メンバー" %>
 	</div>
 	<!-- チームメンバー画面のタイトルタイトルfin -->
 
 
+	<!-- チームメンバーが見たときと見ないときで異なるのはこの箇所のみ -->
+	<%= link_to "/member/#{@team.id}/new", class:"teams_member_box_btn_position" do %>
+		<div class="teams_member_box_create_team_btn">メンバーを加入する</div>
+	<% end %>
+
+
+	<%= link_to "/", class:"teams_member_box_btn_position" do %>
+		<div class="teams_member_box_edit_team_btn">メンバーを編集する</div>
+	<% end %>
+	<!-- チームメンバーが見たときと見ないときで異なるのはこの箇所のみfin -->
+
+
+
+
+	<!-- タイトルの下のチームメンバー全員が入る箱 -->
+	<div class="teams_member_box_all_member_box">
+
+		<!-- チームメンバー1人が入る箱 -->
+		<% @team.users.each do |user| %>
+		<div class="teams_member_box_member_box">
+
+			<div class="teams_member_box_member_box_image_position">
+				<%= attachment_image_tag user, :image, :fill, 300, 300, fallback: "no_image.jpg", class:"teams_member_box_member_image" %>
+			</div>
+
+			<div class="teams_member_box_member_box_name_title">
+				Name
+			</div>
+
+			<div class="teams_member_box_member_box_name">
+				<%= "　" + user.name %>
+			</div>
+
+			<div class="teams_member_box_member_box_position_title">
+				Position
+			</div>
+
+			<div class="teams_member_box_member_box_position">
+				<% @member = Member.find_by(user_id: user.id) %>
+				<% if @member.position == nil %>
+				<%= "　" %>
+				<% else %>
+				<%= "　" + @member.position %>
+				<% end %>
+			</div>
+
+			<div class="teams_member_box_member_box_introduction_title">
+				Introduction
+			</div>
+
+			<div class="teams_member_box_member_box_introduction">
+				<% if @member.introduction == nil %>
+				<%= "　" %>
+				<% else %>
+				<%= "　" + @member.introduction %>
+				<% end %>
+			</div>
+
+
+		</div>
+		<% end %>
+	</div>
+	<!-- タイトルの下のチームメンバー全員が入る箱fin -->
+
+
 </div>
 <!-- ユーザーメンバー画面の箱fin -->
+
+
+<script>
+$(document).ready(function() {
+
+$('.teams_member_box_member_box').click(function(){
+	$('.teams_memver_box_member_box_modal').fadeIn('slow');
+
+	var e = $(this).clone().addClass('teams_member_box_member_box_after_click');
+	e.appendTo('.teams_memver_box_member_box_modal');
+
+
+});
+
+$('.teams_memver_box_member_box_modal').click(function(){
+	$(this).fadeOut('slow');
+	$('.teams_member_box_member_box_after_click').fadeOut('slow');
+
+});
+
+	var box_width = $('.teams_member_box').width();
+	var title_width = $('.teams_member_box_title').width();
+	var title_left = box_width - title_width ;
+	var half_title_left = title_left / 2
+
+	$('.teams_member_box_title').css('margin-left', half_title_left + "px")
+
+
+});
+</script>
+
+
+
+
+

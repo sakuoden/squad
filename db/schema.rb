@@ -10,18 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_031042) do
+ActiveRecord::Schema.define(version: 2018_12_18_080855) do
 
-  create_table "indivisuals", force: :cascade do |t|
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "members", force: :cascade do |t|
     t.integer "user_id"
     t.integer "team_id"
     t.string "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "introduction"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "talks", force: :cascade do |t|
+    t.text "content"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "team"
+    t.string "team_name"
     t.string "team_image_id"
     t.boolean "notification"
     t.datetime "created_at", null: false
@@ -44,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_031042) do
     t.text "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "invited_team_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

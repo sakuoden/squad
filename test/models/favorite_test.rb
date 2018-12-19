@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class IndivisualTest < ActiveSupport::TestCase
+class FavoriteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

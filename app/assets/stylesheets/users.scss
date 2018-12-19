@@ -128,36 +128,23 @@
 
 
 /*----------------------------------------------マイページ画面----------------------------------------------*/
-/*ユーザーマイページの箱*/
-.users_mypage_box {
-	height: 500px;
-/*	background-color: gray;*/
-	width: 90%;
-	margin: 0 auto;
-	margin-top: 3%;
-}
 
 /*ユーザーマイページの左側の箱*/
-.users_mypage_left_box {
-	height: 500px;
-/*	background-color: blue;*/
+.users_mypage_box {
+	background-color: white;
 	width: 25%;
-	float: left;
-}
-
-/*ユーザーマイページ左側の箱の中の位置調整*/
-.users_mypage_left_box_position {
-	height: 100%;
-/*	background-color: orange;*/
-	width: 80%;
 	margin: 0 auto;
-	overflow: hidden;
+	margin-top: 2%;
+	padding: 1% 2%;
+	border: solid 1px #666666;
+	box-shadow: 0 0px 10px 1px rgba(0,0,0,0.25);
+	border-radius: 15px;
 }
 
 /*ユーザーマイページの左側の箱のプロフ画像の位置*/
 .users_mypage_left_box_image_position {
 	width: 100%;
-	margin-top: 5%;
+	text-align: center;
 }
 
 /*ユーザーマイページの左側の箱のプロフ画像*/
@@ -167,8 +154,8 @@
 
 /*ユーザーマイページの左側の編集ページへのリンク*/
 .users_mypage_left_box_edit_page {
-	margin-top: 10%;
-	margin-left: 70%;
+	margin-top: 5%;
+	text-align: right;
 }
 
 /*ユーザーマイページの左側のタイトル(名前)*/
@@ -182,7 +169,7 @@
 /*ユーザーマイページの左側の名前*/
 .users_mypage_left_box_name {
 	margin-left: 7%;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 /*ユーザーマイページの左側のタイトル(所属チーム)*/
@@ -193,23 +180,21 @@
 	text-decoration: underline;
 }
 
-/*ユーザーマイページの左側のタイトル*/
+/*ユーザーマイページの左側の所属チーム*/
 .users_mypage_left_box_team {
 	margin-left: 7%;
-	font-size: 20px;
+	margin-top: 3%;
+}
+
+/*ユーザーマイページの左側の所属チームの行*/
+.users_mypage_left_box_team_row {
+	font-size: 16px;
+	overflow-x: scroll;
+	height: 35px;
+	white-space: nowrap;
 }
 
 
-
-
-
-/*ユーザーマイページの右側の箱*/
-.users_mypage_right_box {
-	height: 500px;
-	background-color: green;
-	width: 75%;
-	float: left;
-}
 
 
 
@@ -372,6 +357,113 @@
 .users_mypage_edit_right_box2_row table td:nth-child(1){
 	text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ユーザー詳細ページ(他の人が見た場合)*/
+/*ユーザーマイページの箱*/
+.users_show_box {
+	height: 500px;
+/*	background-color: gray;*/
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 3%;
+}
+
+/*ユーザーマイページの左側の箱*/
+.users_show_left_box {
+	height: 500px;
+/*	background-color: blue;*/
+	width: 25%;
+	float: left;
+}
+
+/*ユーザーマイページ左側の箱の中の位置調整*/
+.users_show_left_box_position {
+	height: 100%;
+/*	background-color: orange;*/
+	width: 80%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*ユーザーマイページの左側の箱のプロフ画像の位置*/
+.users_show_left_box_image_position {
+	width: 100%;
+	margin-top: 5%;
+}
+
+/*ユーザーマイページの左側の箱のプロフ画像*/
+.users_show_left_box_image {
+	border-radius: 100px;
+}
+
+/*ユーザーマイページの左側のタイトル(名前)*/
+.users_show_left_box_title_name {
+	margin-top: 5%;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/*ユーザーマイページの左側の名前*/
+.users_show_left_box_name {
+	margin-left: 7%;
+	font-size: 20px;
+}
+
+/*ユーザーマイページの左側のタイトル(所属チーム)*/
+.users_show_left_box_title_team {
+	margin-top: 10%;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/*ユーザーマイページの左側のタイトル*/
+.users_show_left_box_team {
+	margin-left: 7%;
+	font-size: 20px;
+}
+
+
+
+
+
+/*ユーザーマイページの右側の箱*/
+.users_show_right_box {
+	height: 500px;
+	background-color: green;
+	width: 75%;
+	float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

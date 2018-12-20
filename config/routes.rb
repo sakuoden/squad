@@ -9,7 +9,8 @@ Rails.application.routes.draw do
  	patch 'user/edit' => 'users#mypage_update'
 
  	resources :teams, only: [:new, :create, :show]
- 	get '/member/:id' => 'teams#member'
- 	get 'member/:id/new' => 'teams#member_new'
- 	get '/member/:id/edit' => 'teams#member_edit'
+ 	post 'teams/:id/member/create' => 'teams#member_create'
+ 	get 'teams/:id/member/new' => 'teams#member_new'
+ 	get 'teams/:id/member' => 'teams#member'
+ 	get 'teams/:id/member/edit' => 'teams#member_edit'
 end

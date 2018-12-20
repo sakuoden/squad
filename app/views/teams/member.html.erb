@@ -14,7 +14,7 @@
 
 
 	<!-- チームメンバーが見たときと見ないときで異なるのはこの箇所のみ -->
-	<%= link_to "/member/#{@team.id}/new", class:"teams_member_box_btn_position" do %>
+	<%= link_to "/teams/#{@team.id}/member/new", class:"teams_member_box_btn_position" do %>
 		<div class="teams_member_box_create_team_btn">メンバーを加入する</div>
 	<% end %>
 

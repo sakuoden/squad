@@ -1,16 +1,90 @@
-<!-- メンバー以外がURLを直接入力した場合 -->
+<!-- URLを直接入力した場合 -->
 <% if @members.where(user_id: current_user.id).exists? %>
 
 	<!-- メンバーだった場合 -->
 
 	<!-- メンバー新規加入画面の箱 -->
 	<div class="teams_member_new_member">
-		<div class="team">
+
+		<div class="teams_member_new_member_title">
+			<%= @team.team_name + "メンバー追加" %>
 		</div>
+
+
+		<!-- メンバー新規加入画面の検索フォーム -->
+		<div class="teams_member_new_member_search_form_position">
+			<%= form_tag "/teams/#{@team.id}/member/new", method: :get do %>
+				<%= text_field_tag :result, "",placeholder: "名前を入力してください", class:"teams_member_new_member_search_form" %>
+				<%= submit_tag("検索") %>
+			<% end %>
+		</div>
+		<!-- メンバー新規加入画面の検索フォームfin -->
+
+
+		<!-- メンバー検索結果 -->
+		<!-- メンバーに追加する人を送るform -->
+		<%= form_tag "/teams/#{@team.id}/member/create", method: :post do %>
+
+			<!-- メンバー検索結果の位置 -->
+			<div class="teams_member_new_member_search_result_position">
+				<table>
+					<tr>
+						<th></th>
+						<th></th>
+						<th>名前</th>
+						<th>所属チーム</th>
+					</tr>
+						<% if @users != nil %>
+							<% if @users == "ユーザーは存在しません" %>
+								<div class="search_result_no_user"><%= @users %></div>
+
+							<%else %>
+							<!-- メンバー新規加入画面の検索結果 -->
+							<% @users.each do |user| %>
+
+								<tr class="teams_member_new_member_search_result">
+									<td>
+										<%= radio_button_tag :member, user.id %>
+									</td>
+									<td>
+										<%= attachment_image_tag user, :image, :fill, 200, 200,fallback:"no_image.jpg", class:"teams_member_new_member_search_result_image"  %>
+									</td>
+									<td>
+										<%= user.name %>
+									</td>
+									<td>
+										<% user.teams.each do |team| %>
+										<%= team.team_name %>
+										<br>
+										<% end %>
+									</td>
+
+								</tr>
+
+							<% end %>
+							<!-- eachのend -->
+
+							<% end %>
+							<!-- ユーザーは存在しませんのend -->
+							<!-- メンバー新規加入画面の検索結果fin -->
+						<% end %>
+				</table>
+			</div>
+
+
+			<!-- メンバー新規加入画面のメンバー追加ボタンの位置 -->
+			<div class="temes_member_new_member_new_member_btn_position">
+				<%= submit_tag("メンバーを追加する") %>
+			</div>
+			<!-- メンバー新規加入画面のメンバー追加ボタンの位置fin -->
+
+		<% end %>
+		<!-- メンバーに追加する人を送るform fin -->
+		<!-- メンバー検索結果fin -->
+
+
 	</div>
 	<!-- メンバー新規加入画面の箱end -->
-
-
 
 <% else %>
 
@@ -18,4 +92,61 @@
 	<% redirect_to '/' %>
 
 <% end %>
-<!-- メンバー以外がURLを直接入力した場合fin -->
+<!-- URLを直接入力した場合fin -->
+
+
+<script>
+	$(document).ready(function(){
+
+
+//ラジオボタンでやるので選択式は諦める
+//		$('.teams_member_new_member_search_result').click(function(){
+
+//			$('.teams_member_new_member_search_result').removeClass('teams_member_new_member_search_result_action');
+
+//			$('.teams_member_new_member_search_result_hidden').remove('.teams_member_new_member_search_result_hidden')
+
+//			$(this).addClass('teams_member_new_member_search_result_action');
+
+
+//			var number = $('.teams_member_new_member_search_result').index(this);
+//			$(this).append(`<input type="hidden" name="number" value=${number} class="teams_member_new_member_search_result_hidden">`);
+
+
+//		});
+
+
+
+
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

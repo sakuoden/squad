@@ -21,7 +21,6 @@ class TeamsController < ApplicationController
 	end
 
 
-
 	def member
 		@team = Team.find(params[:id])
 	end
@@ -29,7 +28,37 @@ class TeamsController < ApplicationController
 	def member_new
 		@team = Team.find(params[:id])
 		@members = @team.members
+
+
+		@result = params[:result]
+		if @result
+			if User.where(['name Like?', "%#{@result}%"]).exists?
+				@users = User.where(['name Like?', "%#{@result}%"])
+			else
+				@users = "ユーザーは存在しません"
+			end
+		elsif @result == ""
+			@users = User.all
+		else
+			@users = nil
+		end
+
+		# ラジオボタンでやるので、選択式は諦める
+		# number = params[:value].to_i
+		# users = @users
+		# member_user = users[number]
 	end
+
+	def member_create
+		member = Member.new
+		member.user_id = params[:member]
+		member.team_id = params[:id]
+		member.save
+		# リダイレクトせずひとまずここまで後でやる
+
+	end
+
+
 
 	def member_edit
 		@team = Team.find(params[:id])

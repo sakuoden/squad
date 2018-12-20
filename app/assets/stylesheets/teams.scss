@@ -363,15 +363,151 @@
 
 /*メンバー新規加入画面の箱*/
 .teams_member_new_member {
-	height: 500px;
+/*	height: 1000px;*/
 	background-color: white;
-	width: 70%;
+	width: 80%;
 	margin: 0 auto;
 	margin-top: 2%;
 	margin-bottom: 2%;
 	border: solid 1px #e6ecf0;
 	box-shadow: 0 0 10px 1px #F2F2F2;
+	padding: 1%;
 }
+
+/*チームメンバー新規加入の箱のタイトル*/
+.teams_member_new_member_title {
+	width: 100%;
+	text-align: center;
+	font-size: 23px;
+	font-weight: bold;
+	margin-bottom: 5%;
+}
+
+/*チームメンバー新規加入の箱のメンバーの検索フォームの位置*/
+.teams_member_new_member_search_form_position {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 3%;
+}
+
+/*チームメンバー新規加入の箱のメンバー検索フォーム*/
+.teams_member_new_member_search_form {
+	width: 30%;
+	height: 30px;
+	font-size: 15px;
+}
+
+/*チームメンバー新規加入箱の検索結果の位置*/
+.teams_member_new_member_search_result_position {
+/*	background-color: grey;*/
+	width: 80%;
+	margin: 0 auto;
+	padding-bottom: 2%;
+}
+
+/*チームメンバー新規加入箱の検索結果の表示*/
+.teams_member_new_member_search_result {
+/*	height: 50px;*/
+/*	background-color: green;*/
+	width: 100%;
+	margin-bpttom: 2%;
+}
+
+/*メンバー新規加入画面のメンバー検索結果の画像*/
+.teams_member_new_member_search_result_image {
+	width: 200px;
+	height: 200px;
+	vertical-align: top;
+}
+
+/*メンバー新規加入画面のテーブルタグ自体*/
+.teams_member_new_member_search_result_position table {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+
+/*メンバー新規加入画面のテーブルタグのタイトル行*/
+.teams_member_new_member_search_result_position th {
+	padding-bottom: 2%;
+}
+
+/*メンバー新規加入画面のテーブルタグの行*/
+.teams_member_new_member_search_result_position tr:nth-child(2) {
+	width: 100%;
+}
+
+/*メンバー新規加入画面のテーブルタグの行*/
+.teams_member_new_member_search_result_position tr:nth-child(3) {
+	border: solid 1px #666666;
+}
+
+
+/*メンバー新規加入画面のテーブルのタイトル1列目 画像のとこ*/
+.teams_member_new_member_search_result_position th:nth-child(2) {
+	width: 200px;
+}
+
+/*メンバー新規加入画面のテーブルのタイトル2列目 名前のとこ*/
+.teams_member_new_member_search_result_position th:nth-child(3) {
+	width: 20%;
+
+}
+
+/*メンバー新規加入画面のテーブルのタイトル3列目 所属チームのとこ*/
+.teams_member_new_member_search_result_position th:nth-child(4) {
+	width: 70%;
+}
+
+
+
+/*メンバー新規加入画面のテーブルの1列目 画像のとこ*/
+.teams_member_new_member_search_result_position td:nth-child(2) {
+	width: 200px;
+}
+
+/*メンバー新規加入画面のテーブルの2列目 名前のとこ*/
+.teams_member_new_member_search_result_position td:nth-child(3) {
+	width: 20%;
+	text-align: center;
+}
+
+/*メンバー新規加入画面のテーブルの3列目 所属チームのとこ*/
+.teams_member_new_member_search_result_position td:nth-child(4) {
+	width: 70%;
+	text-align: center;
+}
+
+/*jqueryで表示させる(value: user.idも追加)*/
+.teams_member_new_member_search_result_action {
+    color: #5d627b;
+    box-shadow: 0 0 2px 5px #CCFFCC;
+    outline: solid 3px #99FF99;
+}
+
+/*メンバー新規加入画面のメンバー追加ボタンの位置*/
+.temes_member_new_member_new_member_btn_position {
+	width: 100%;
+	text-align: center;
+}
+
+/*検索結果で誰も存在しない場合*/
+.search_result_no_user {
+	width: 100%;
+	text-align: center;
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -7,7 +7,7 @@
 	<div class="teams_member_new_member">
 
 		<div class="teams_member_new_member_title">
-			<%= @team.team_name + "メンバー追加" %>
+			<%= @team.team_name + "　メンバー招待" %>
 		</div>
 
 
@@ -86,14 +86,6 @@
 	</div>
 	<!-- メンバー新規加入画面の箱end -->
 
-<% else %>
-
-	<!-- メンバーじゃなかった場合 -->
-	<% redirect_to '/' %>
-
-<% end %>
-<!-- URLを直接入力した場合fin -->
-
 
 <script>
 	$(document).ready(function(){
@@ -123,14 +115,13 @@
 
 
 
+<% else %>
 
+	<!-- メンバーじゃなかった場合 -->
+	<% redirect_to '/' %>
 
-
-
-
-
-
-
+<% end %>
+<!-- URLを直接入力した場合fin -->
 
 
 

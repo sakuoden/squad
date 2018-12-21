@@ -1,12 +1,92 @@
-<!-- チームメンバー編集画面の箱 -->
-<div class="teams_member_edit_box">
+<!-- URLを直接入力した場合 -->
+<% if @members.where(user_id: current_user.id).exists? %>
+	<!-- チームメンバー編集画面の箱 -->
+	<div class="teams_member_edit_box">
 
-	<!-- チームメンバー編集画面のタイトルタイトル -->
-	<div class="teams_member_edit_box_title">
-		<%= "#{@team.team}　メンバー編集" %>
+		<!-- チームメンバー編集画面のタイトル -->
+		<div class="teams_member_edit_box_member_title">
+			<%= "#{@team.team_name}　メンバー情報変更" %>
+		</div>
+		<!-- チームメンバー編集画面のタイトルfin -->
+
+		<!-- チームメンバー編集画面のメンバー画像 -->
+		<div class="teams_member_edit_box_member_image_potision">
+			<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image.jpg", class:"teams_member_edit_box_member_image" %>
+		</div>
+		<!-- チームメンバー編集画面のメンバー画像fin -->
+
+		<!-- チームメンバー編集画面のタイトル、画像以下の幅 -->
+		<div class="teams_member_edit_box_member_width">
+
+			<%= form_for(@member, url: teams_member_edit_path, html: {method: :patch}) do |f| %>
+
+			<!-- チームメンバー編集画面のメンバーの名前のタイトル -->
+			<div class="teams_member_edit_box_member_name_title">
+				Name
+			</div>
+			<!-- チームメンバー編集画面のメンバーの名前のタイトルfin -->
+
+			<!-- チームメンバー編集画面のメンバーの名前 -->
+			<div class="teams_member_edit_box_member_name">
+				<%= "　" + @user.name %>
+			</div>
+			<!-- チームメンバー編集画面のメンバーの名前fin -->
+
+
+			<!-- チームメンバー編集画面のメンバーのポジションのタイトル -->
+			<div class="teams_member_edit_box_member_position_title">
+				Position
+			</div>
+			<!-- チームメンバー編集画面のメンバーのポジションのタイトルfin -->
+
+			<!-- チームメンバー編集画面のメンバーのポジション -->
+			<div class="teams_member_edit_box_member_position">
+				<%= f.text_field :position, class:"teams_member_edit_box_member_position_form"  %>
+			</div>
+			<!-- チームメンバー編集画面のメンバーのポジションfin -->
+
+
+			<!-- チームメンバー編集画面のメンバー紹介のタイトル -->
+			<div class="teams_member_edit_box_member_introduction_title">
+				Introduction
+			</div>
+			<!-- チームメンバー編集画面のメンバー紹介のタイトルfin -->
+
+			<!-- チームメンバー編集画面のメンバーの紹介 -->
+			<div class="teams_member_edit_box_member_introduction">
+				<%= f.text_area :introduction, class:"teams_member_edit_box_member_introduction_form"  %>
+			</div>
+			<!-- チームメンバー編集画面のメンバーの紹介fin -->
+
+			<%= f.hidden_field :user_id, :value => @user.id %>
+			<%= f.hidden_field :team_id, :value => @team.id %>
+
+			<!-- チームメンバー編集画面の情報変更ボタンの位置 -->
+			<div class="temas_member_edit_box_member_change_btn">
+				<%= f.submit "メンバー情報を変更する" %>
+			</div>
+
+			<% end %>
+			<!-- form_tagのend -->
+
+		</div>
+		<!-- チームメンバー編集画面のタイトル、画像以下の幅fin -->
+
 	</div>
-	<!-- チームメンバー編集画面のタイトルタイトルfin -->
+	<!-- ユーザーメンバー編集画面の箱fin -->
 
 
-</div>
-<!-- ユーザーメンバー編集画面の箱fin -->
+	<%= link_to "/teams/#{@team.id}/member", class:"back_btn_link" do %>
+		<div class="back_btn">＜</div>
+	<% end %>
+
+<% else %>
+
+
+<% else %>
+
+	<!-- メンバーじゃなかった場合 -->
+	<% redirect_to '/' %>
+
+<% end %>
+<!-- URLを直接入力した場合fin -->

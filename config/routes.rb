@@ -6,10 +6,12 @@ Rails.application.routes.draw do
  	resources :users, only: [:show]
  	get '/user' => 'users#mypage'
  	get '/user/edit' => 'users#mypage_edit'
- 	patch 'user/edit' => 'users#mypage_update'
+ 	patch '/user/edit' => 'users#mypage_update'
 
  	resources :teams, only: [:new, :create, :show]
- 	get '/member/:id' => 'teams#member'
- 	get 'member/:id/new' => 'teams#member_new'
- 	get '/member/:id/edit' => 'teams#member_edit'
+ 	post '/teams/:id/member/create' => 'teams#member_create'
+ 	get '/teams/:id/member/new' => 'teams#member_new'
+ 	get '/teams/member/edit' => 'teams#member_edit'
+ 	patch '/teams/member/edit' => 'teams#member_update'
+ 	get '/teams/:id/member' => 'teams#member'
 end

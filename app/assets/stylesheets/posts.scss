@@ -1,0 +1,99 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*新規投稿画面の箱*/
+.posts_new_box {
+/*	height: 1000px;*/
+	width: 700px;
+	margin: 0 auto;
+	background-color: white;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 2%;
+}
+
+
+
+/*新規投稿画面のタイトル*/
+.posts_new_box_title {
+	width: 100%;
+	text-align: center;
+	font-size: 23px;
+	font-weight: bold;
+	margin-bottom: 4%;
+}
+
+
+
+
+
+/*新規投稿画面の画像選択ボタンを隠す*/
+.posts_new_box_image_select{
+	display: none;
+}
+
+/*新規投稿画面のプレビュー画面の箱*/
+.posts_new_box_image_preview_box {
+	background-color: #CCCCCC;
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+	border: dashed 1px #666666;
+	margin-bottom: 5%;
+}
+
+/*新規投稿画面の画像選択文章*/
+.posts_new_box_image_preview_box p {
+	width: 100%;
+	text-align: center;
+	line-height: 400px;
+}
+
+/*新規投稿画面のプレビュー画面の箱のマウスのカーソル*/
+.posts_new_box_image_preview_box:hover {
+	cursor: hand;
+	cursor: pointer;
+}
+
+/*選択されたプレビュー画像*/
+.posts_new_box_image_preview {
+	width: 400px;
+	height: 400px;
+	z-index: 20;
+	display: none;
+}
+
+
+
+/*文章の投稿の箱*/
+.post_new_box_post_sentence_box {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 5%;
+}
+
+/*文章の投稿フォーム*/
+.post_new_box_post_sentence {
+	width: 70%;
+	height: 150px;
+	font-size: 18px;
+}
+
+
+
+
+/*新規投稿画面の投稿ボタンの箱*/
+.post_new_box_post_btn_box {
+	width: 100%;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+

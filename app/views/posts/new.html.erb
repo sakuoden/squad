@@ -1,0 +1,71 @@
+<!-- 新規投稿画面の箱 -->
+<div class="posts_new_box">
+
+<%= form_for @post do |f| %>
+
+	<!-- 新規投稿のタイトル -->
+	<div class="posts_new_box_title">
+		新規投稿
+	</div>
+	<!-- 新規投稿のタイトルfin -->
+
+	<!-- 投稿画像のプレビュー表示 -->
+	<%= f.attachment_field :post_image, class:"posts_new_box_image_select", id:"post_new_box_image_select" %>
+	<label for="post_new_box_image_select">
+	<div class="posts_new_box_image_preview_box">
+		<img class="attachment post post_image posts_new_box_image_preview fallback">
+		<p class="posts_new_box_image_preview_box_p">クリックして画像を選択してください</p>
+	</div>
+	</label>
+	<!-- 新規投稿のプレビューfin -->
+
+	<!-- 文章の投稿の箱 -->
+	<div class="post_new_box_post_sentence_box">
+		<%= f.text_area :post_content, class:"post_new_box_post_sentence" %>
+	</div>
+	<!-- 文章の投稿fin -->
+
+	<%= f.hidden_field :member_id, :value => @member.id %>
+
+	<div class="post_new_box_post_btn_box">
+		<%= f.submit '投稿' %>
+	</div>
+
+<% end %>
+<!-- form_forのend -->
+
+</div>
+<!-- 新規投稿画面の箱fin -->
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function(){
+
+
+		$('.posts_new_box_image_select').change(function(){
+
+			var reader = new FileReader();
+
+			reader.readAsDataURL(this.files[0]);
+
+			reader.onload = function(e){
+				$('.posts_new_box_image_preview').attr('src', e.target.result)
+			};
+
+		$('.posts_new_box_image_preview').css('display', 'inline-block')
+		$('.posts_new_box_image_preview_box_p').css('display', 'none')
+
+		});
+
+
+
+	});
+</script>
+
+
+

@@ -198,6 +198,46 @@
 }
 
 
+/*チーム詳細画面の画像投稿ボタンのリンク*/
+.teams_show_new_post_btn_link {
+	text-decoration: none;
+	color: white;
+}
+
+/*チーム詳細画面の画像投稿ボタン*/
+.teams_show_new_post_btn {
+	width: 120px;
+	height: 120px;
+	text-align: center;
+	border-radius: 60px;
+	font-size: 25px;
+	position: fixed;
+	bottom: 5%;
+	right: 10%;
+	z-index: 10;
+	background-color: #87CEFA;
+	color: white;
+}
+
+.fa-camera {
+	color: white;
+	font-size: 40px;
+	margin-top: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -48,13 +48,15 @@
 
 	<!-- チーム詳細画面の右側の箱 -->
 	<div class="teams_show_box_right_box">
-
+		<% @posts.each do |post| %>
 
 			<!-- チーム詳細画面で投稿した内容 -->
 			<div class="teams_show_right_box_post">
-				@post.id
+				<%= attachment_image_tag post, :post_image,  :fill, 200, 200, fallback: "no_image.jpg" %>
 			</div>
 			<!-- チーム詳細画面で投稿した内容fin -->
+
+		<% end %>
 
 
 	</div>

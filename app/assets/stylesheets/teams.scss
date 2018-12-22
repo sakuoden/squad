@@ -168,16 +168,88 @@
 
 /*チーム詳細画面の右側の箱*/
 .teams_show_box_right_box {
-	height: 600px;
+	height: 1200px;
 	background-color: blue;
-	width: 60%;
+	width: 35%;
 	display: inline-block;
+	padding: 2%;
+	margin-left: 3%;
 }
 
-/*チーム詳細画面で投稿した内容*/
+/*チーム詳細画面で投稿した人*/
+.teams_show_right_box_post_author {
+	text-align: left;
+	margin-bottom: 3%;
+}
+
+/*チーム詳細画面で投稿した人の画像*/
+.teams_show_rihgt_box_post_author_image {
+	border-radius: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*チーム詳細画面で投稿した人の名前*/
+.teams_show_right_box_post_user_name {
+	line-height: 40px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 3%;
+}
+
+/*チーム詳細画面で投稿した投稿画像*/
+.teams_show_rihgt_box_post_image {
+	width: 300px;
+	height: 300px;
+	vertical-align: bottom;
+}
+
+/*チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱*/
+.teams_show_right_box_post_good_comment_box {
+	width: 300px;
+	height: 36px;
+	background-color: pink;
+	margin: 0 auto;
+	text-align: left;
+}
+
+/*いいねの大きさ*/
+.fa-heart {
+	font-size: 35px;
+}
+
+/*コメントの大きさ*/
+.fa-comment {
+	font-size: 35px;
+	margin-left: 2%;
+}
 
 
+/*チーム詳細画面で投稿した投稿のコメント*/
+.teams_show_right_box_post_content {
+	position: relative;
+	display: inline-block;
+ 	margin: 1.2em 0;
+	padding: 7px 10px;
+	min-width: 100%;
+ 	max-width: 100%;
+ 	width: 100%;
+ 	height: 150px;
+	background: yellow;
+	text-align: left;
+	font-size: 18px;
+}
 
+.teams_show_right_box_post_content:before{
+	content: "";
+	position: absolute;
+	top: -30px;
+	left: 20%;
+ 	margin-left: -15px;
+	border: 15px solid transparent;
+	border-bottom: 15px solid yellow;
+}
 
 
 

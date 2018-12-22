@@ -1,3 +1,4 @@
 class PostFavorite < ApplicationRecord
-	belongs_to :post
+	has_many :posts, through: :post_favorite_middle
+	has_many :post_favorite_middles, dependent: :destroy
 end

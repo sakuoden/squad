@@ -1,87 +1,71 @@
-<!-- チーム詳細の箱 -->
+<!-- チーム詳細画面全体の箱 -->
 <div class="teams_show_box">
 
-	<!-- チーム詳細の1行目の箱 -->
-	<div class="teams_show_box_row1 clearfix">
+	<!-- チーム詳細の左の箱 -->
+	<div class="teams_show_left_box clearfix">
 
-		<!-- チーム詳細の1行目の画像の位置 -->
-		<div class="teams_show_box_row1_image_position">
+		<!-- チーム詳細の左の箱の画像の位置 -->
+		<div class="teams_show_left_box_image_position">
 			<%= attachment_image_tag @team, :team_image, :fill, 300, 300, fallback: "no_image.jpg", class: "teams_show_box_row1_image" %>
 		</div>
-		<!-- チーム詳細の1行目の画像の位置fin -->
+		<!-- チーム詳細左の箱の画像の位置fin -->
+
+		<!-- チーム詳細の左側の箱のチーム名 -->
+		<div class="teams_show_left_box_team_name">
+			<%= @team.team_name %>
+		</div>
+		<!-- チーム詳細の左側の箱のチーム名fin -->
+
+		<!-- チーム詳細の左側の箱の、いいね総計、投稿数、メンバー数の行 -->
+		<div class="teams_show_left_box_row1">
+			<span class="teams_show_left_box_row1_title">いいね総計
+			</span>
+			<span class="teams_show_left_box_row1_count">
+				<%= "#{@favorites.count} " %>
+			</span>
 
 
-		<!-- チーム詳細の1行目の右側の箱 -->
-		<div class="teams_show_box_row1_right_position">
+			<span class="teams_show_left_box_row1_title">投稿総数
+			</span>
+			<span class="teams_show_left_box_row1_count">
+				<%= "#{@favorites.count} " %>
+			</span>
 
-			<!-- チーム詳細の1行目の右側のチーム名 -->
-			<div class="teams_show_box_row1_team_name">
-				<%= @team.team_name %>
+
+			<span class="teams_show_left_box_row1_title">メンバー総数
+			</span>
+			<span class="teams_show_left_box_row1_count">
+				<%= "#{@favorites.count} " %>
+			</span>
+		</div>
+		<!-- チーム詳細の左側の箱の、いいね総計、投稿数、メンバー数の行fin -->
+
+	</div>
+	<!-- チーム詳細の左の箱fin -->
+
+
+
+
+	<!-- チーム詳細画面の右側の箱 -->
+	<div class="teams_show_box_right_box">
+
+
+			<!-- チーム詳細画面で投稿した内容 -->
+			<div class="teams_show_right_box_post">
+				@post.id
 			</div>
-			<!-- チーム詳細の1行目の右側のチーム名fin -->
+			<!-- チーム詳細画面で投稿した内容fin -->
 
-			<!-- チーム詳細の1行目の右側のお気に入りの数 -->
-			<div class="teams_show_box_row1_props">
-				<span class="teams_show_box_row1_props_favorite">FAVORITE
-				</span>
-				<span class="teams_show_box_row1_props_favorite_count">
-					<%= @favorites.count %>
-				</span>
-			</div>
-			<!-- チーム詳細の1行目の右側のお気に入りの数fin -->
-
-		</div>
-		<!-- チーム詳細の1行目の右側の箱fin -->
 
 	</div>
-	<!-- チーム詳細の1行目の箱fin -->
+	<!-- チーム詳細画面の右側の箱fin -->
 
 
 
-	<!-- チーム詳細の2行目の箱 -->
-	<div class="teams_show_box_row2">
-
-		<!-- チーム詳細の2行目のMEMBERボタン -->
-		<div class="teams_show_box_row2_btn">
-			RECORD
-		</div>
-
-		<!-- チーム詳細の2行目のTALKボタン -->
-		<div class="teams_show_box_row2_btn">
-			TALK
-		</div>
-
-		<!-- チーム詳細の2行目のRECORDボタン -->
-		<div class="teams_show_box_row2_btn">
-			MEMBER
-		</div>
-	</div>
-	<!-- チーム詳細の2行目の箱fin -->
 
 
-
-	<!-- チーム詳細の3行目の箱(レコード) -->
-	<div class="teams_show_box_row3">
-	</div>
-	<!-- チーム詳細の3行目の箱fin -->
-
-	<!-- チーム詳細の3行目の箱(トーク) -->
-	<div class="teams_show_box_row3">
-		<div class="teams_show_box_row3_talk_box">
-		</div>
-	</div>
-	<!-- チーム詳細の3行目の箱(トーク)fin -->
-
-	<!-- チーム詳細の3行目の箱(メンバー) -->
-	<div class="teams_show_box_row3">
-	</div>
-	<!-- チーム詳細の3行目の箱(メンバー)fin -->
-
-
-
+<!-- チーム詳細画面全体の箱fin -->
 </div>
-<!-- チーム詳細の箱fin -->
-
 
 
 <% if @team.members.where(user_id: current_user.id).exists? %>

@@ -101,26 +101,28 @@
 
 /*---------------------------------------チーム詳細画面(メンバーが見た場合,メンバー以外が見た場合)---------------------------------------*/
 
-/*チーム詳細画面の箱*/
+/*チーム詳細画面の全体の箱*/
 .teams_show_box {
 	background-color: grey;
-	width: 60%;
-	margin: 0 auto;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	clear: both;
+	margin: 2%;
+	text-align: center;
 }
 
-/*チーム詳細画面の1行目の箱*/
-.teams_show_box_row1 {
+
+
+/*チーム詳細画面の左の箱*/
+.teams_show_left_box {
 	background-color: red;
-	width: 100%;
-	padding: 5%;
+	width: 30%;
+	padding: 2%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
 }
 
-/*チーム詳細の1行目の画像の位置*/
-.teams_show_box_row1_image_position {
-	float: left;
+/*チーム詳細の左の画像の位置*/
+.teams_show_left_box_image_position {
+	text-align: center;
 }
 
 /*チーム詳細画面のチーム画像*/
@@ -129,17 +131,11 @@
 	height: 300px;
 }
 
-/*チーム詳細の1行目の右側の箱*/
-.teams_show_box_row1_right_position {
-	width: 430px;
-	float: left;
-	text-align: center;
-}
 
-/*チーム詳細の1行目の右側のチーム名*/
-.teams_show_box_row1_team_name {
+/*チーム詳細の左側の箱のチーム名*/
+.teams_show_left_box_team_name {
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 5%;
 	font-weight: bold;
 	font-size: 24px;
 	white-space: nowrap;
@@ -148,54 +144,45 @@
 }
 
 /*チーム詳細の1行目の右側のお気に入りの数*/
-.teams_show_box_row1_props {
+.teams_show_left_box_row1 {
 	margin-top: 5%;
 }
 
 /*チーム詳細の1行目 FAVORITEの文字*/
-.teams_show_box_row1_props_favorite {
-	font-size: 18px;
+.teams_show_left_box_row1_title {
+	font-size: 16px;
 }
 
 /*チーム詳細の1行目のFAVORITEの数*/
-.teams_show_box_row1_props_favorite_count {
-	font-size: 26px;
+.teams_show_left_box_row1_count {
+	font-size: 24px;
 	font-weight: bold;
 }
 
 
 
-/*チーム詳細の2行目*/
-.teams_show_box_row2 {
-	background-color: green;
-	text-align: center;
-}
 
-/*チーム詳細の2行目のボタン*/
-.teams_show_box_row2_btn {
-	background-color: blue;
-	width: 20%;
-	display: inline-block;
-	margin: 0 2%;
-	font-size: 28px;
-	height: 50px;
-	line-height: 50px;
-}
 
-/*チーム詳細の3行目の箱(3つとも)*/
-.teams_show_box_row3 {
-	background-color: orange;
-	height: 1000px;
-	border: solid 1px #666666;
-}
 
-/*チーム詳細の3行目の箱トーク*/
-.teams_show_box_row3_talk_box {
-	background-color: pink;
+
+
+/*チーム詳細画面の右側の箱*/
+.teams_show_box_right_box {
 	height: 600px;
-	width: 80%;
-	margin: 0 auto;
+	background-color: blue;
+	width: 60%;
+	display: inline-block;
 }
+
+/*チーム詳細画面で投稿した内容*/
+
+
+
+
+
+
+
+
 
 
 /*チーム詳細画面の画像投稿ボタンのリンク*/

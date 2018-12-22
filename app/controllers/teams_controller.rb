@@ -18,6 +18,9 @@ class TeamsController < ApplicationController
 	def show
 		@team = Team.find(params[:id])
 		@favorites = Favorite.where(team_id: @team.id)
+
+		# なぜかエラーが出る
+		@posts = Post.where(team_id: @team.id)
 	end
 
 

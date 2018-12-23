@@ -214,9 +214,18 @@
 	text-align: left;
 }
 
+/*チーム詳細画面のいいねとコメントのリンク*/
+.teams_show_right_box_post_good_comment_link {
+	color:  #333333;
+	text-decoration: none;
+}
+
+
+
 /*いいねの大きさ*/
 .fa-heart {
 	font-size: 35px;
+	margin-left: 2%;
 }
 
 /*コメントの大きさ*/
@@ -226,7 +235,7 @@
 }
 
 
-/*チーム詳細画面で投稿した投稿のコメント*/
+/*チーム詳細画面で投稿した投稿のコメントの枠*/
 .teams_show_right_box_post_content {
 	position: relative;
 	display: inline-block;
@@ -241,6 +250,7 @@
 	font-size: 18px;
 }
 
+/*チーム詳細が麺で投稿した投稿の枠の吹き出し*/
 .teams_show_right_box_post_content:before{
 	content: "";
 	position: absolute;

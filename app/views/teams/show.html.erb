@@ -68,11 +68,8 @@
 					<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱 -->
 					<div class="teams_show_right_box_post_good_comment_box">
 
-						<% if PostFavoriteMiddle.where(post_id: post.id).exists? %>
-						<% else %>
-							<%= link_to  %>
-								<i class="far fa-heart"></i>
-						<% end %>
+						<%= render partial: 'teams/like_position', locals: {post: post} %>
+
 
 
 							<i class="far fa-comment"></i>

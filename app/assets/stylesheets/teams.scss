@@ -101,26 +101,30 @@
 
 /*---------------------------------------チーム詳細画面(メンバーが見た場合,メンバー以外が見た場合)---------------------------------------*/
 
-/*チーム詳細画面の箱*/
+/*チーム詳細画面の全体の箱*/
 .teams_show_box {
-	background-color: grey;
-	width: 60%;
-	margin: 0 auto;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	clear: both;
+/*	background-color: grey;*/
+	margin: 2%;
+	text-align: center;
 }
 
-/*チーム詳細画面の1行目の箱*/
-.teams_show_box_row1 {
-	background-color: red;
-	width: 100%;
-	padding: 5%;
+
+
+/*チーム詳細画面の左の箱*/
+.teams_show_left_box {
+/*	background-color: red;*/
+	width: 30%;
+	padding: 2%;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	border: solid 1px #e6ecf0;
+	background-color: white;
 }
 
-/*チーム詳細の1行目の画像の位置*/
-.teams_show_box_row1_image_position {
-	float: left;
+/*チーム詳細の左の画像の位置*/
+.teams_show_left_box_image_position {
+	text-align: center;
 }
 
 /*チーム詳細画面のチーム画像*/
@@ -129,17 +133,11 @@
 	height: 300px;
 }
 
-/*チーム詳細の1行目の右側の箱*/
-.teams_show_box_row1_right_position {
-	width: 430px;
-	float: left;
-	text-align: center;
-}
 
-/*チーム詳細の1行目の右側のチーム名*/
-.teams_show_box_row1_team_name {
+/*チーム詳細の左側の箱のチーム名*/
+.teams_show_left_box_team_name {
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 5%;
 	font-weight: bold;
 	font-size: 24px;
 	white-space: nowrap;
@@ -147,55 +145,161 @@
 	height: 45px;
 }
 
-/*チーム詳細の1行目の右側のお気に入りの数*/
-.teams_show_box_row1_props {
+/*チーム詳細の左側の箱の、いいね総計、投稿数、メンバー数の行 */
+.teams_show_left_box_row1 {
 	margin-top: 5%;
 }
 
 /*チーム詳細の1行目 FAVORITEの文字*/
-.teams_show_box_row1_props_favorite {
-	font-size: 18px;
+.teams_show_left_box_row1_title {
+	font-size: 16px;
 }
 
 /*チーム詳細の1行目のFAVORITEの数*/
-.teams_show_box_row1_props_favorite_count {
-	font-size: 26px;
+.teams_show_left_box_row1_count {
+	font-size: 24px;
 	font-weight: bold;
 }
 
 
 
-/*チーム詳細の2行目*/
-.teams_show_box_row2 {
-	background-color: green;
-	text-align: center;
-}
 
-/*チーム詳細の2行目のボタン*/
-.teams_show_box_row2_btn {
-	background-color: blue;
-	width: 20%;
+
+
+
+
+/*チーム詳細画面の右側の箱*/
+.teams_show_box_right_box {
+/*	height: 1200px;
+	background-color: blue;*/
+	width: 35%;
 	display: inline-block;
-	margin: 0 2%;
-	font-size: 28px;
-	height: 50px;
-	line-height: 50px;
+	padding: 0 2% 2% 0;
+	margin-left: 3%;
 }
 
-/*チーム詳細の3行目の箱(3つとも)*/
-.teams_show_box_row3 {
-	background-color: orange;
-	height: 1000px;
-	border: solid 1px #666666;
+/*チーム詳細画面で投稿した内容*/
+.teams_show_right_box_post {
+	border: solid 1px #e6ecf0;
+	padding: 2%;
+	padding-bottom: 10%;
+	background-color: white;
 }
 
-/*チーム詳細の3行目の箱トーク*/
-.teams_show_box_row3_talk_box {
-	background-color: pink;
-	height: 600px;
-	width: 80%;
+/*チーム詳細画面で投稿した人*/
+.teams_show_right_box_post_author {
+	text-align: left;
+	margin-bottom: 3%;
+}
+
+/*チーム詳細画面で投稿した人の画像*/
+.teams_show_rihgt_box_post_author_image {
+	border-radius: 20px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+/*チーム詳細画面で投稿した人の名前*/
+.teams_show_right_box_post_user_name {
+	line-height: 40px;
+	height: 40px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 3%;
+}
+
+
+
+
+
+/*チーム詳細画面で投稿した投稿画像*/
+.teams_show_rihgt_box_post_image {
+	width: 300px;
+	height: 300px;
+	vertical-align: bottom;
+	border: solid 1px #B8BCC0;
+}
+
+
+
+
+
+/*チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱*/
+.teams_show_right_box_post_good_comment_box {
+	width: 300px;
+	height: 20px;
+/*	background-color: pink;*/
 	margin: 0 auto;
+	text-align: left;
+	border-right: solid 1px #B8BCC0;
+	border-left: solid 1px #B8BCC0;
+	border-bottom: solid 1px #B8BCC0;
 }
+
+
+/*チーム詳細画面のいいねとコメントのリンク*/
+.teams_show_right_box_post_good_comment_link {
+	color:  #333333;
+	text-decoration: none;
+}
+
+/*いいねの大きさ*/
+.fa-heart {
+	font-size: 20px;
+	margin-left: 2%;
+}
+
+/*いいねの色*/
+.fas {
+	color: red;
+}
+
+/*コメントの大きさ*/
+.fa-comment {
+	font-size: 20px;
+	margin-left: 2%;
+}
+
+
+
+
+
+/*チーム詳細画面で投稿した投稿の内容の枠*/
+.teams_show_right_box_post_content {
+ 	width: 300px;
+ 	height: 100px;
+ 	margin: 0 auto;
+/*	background: yellow;*/
+	text-align: left;
+	font-size: 18px;
+	overflow-x: visible;
+	overflow-y: scroll;
+	border-right: solid 1px #B8BCC0;
+	border-left: solid 1px #B8BCC0;
+	border-bottom: solid 1px #B8BCC0;
+}
+
+
+/*チーム詳細画面で投稿した内容に対するコメント*/
+.teams_show_right_box_post_content_comment {
+/*	background-color: purple;*/
+	width: 300px;
+	height: 70px;
+	margin: 0 auto;
+	border-right: solid 1px #B8BCC0;
+	border-left: solid 1px #B8BCC0;
+	border-bottom: solid 1px #B8BCC0;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /*チーム詳細画面の画像投稿ボタンのリンク*/

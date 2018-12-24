@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def new
-  	@members = Member.where(team_id: params[:team_id])
+  	@team = Team.find(params[:team_id])
+  	@members = Member.where(team_id: @team.id)
   	@member = @members.find_by(user_id: current_user.id)
 
   	@post = Post.new
@@ -9,22 +10,20 @@ class PostsController < ApplicationController
   def create
   	@post = Post.new(member_params)
 
-  	@member = Member.find(params[:post][:member_id])
+  	@team = Team.find(params[:post][:team_id])
 
-  	@post.member_id = @member.id
-
-  	@team = @member.team
+  	@post.team_id = @team.id
+  	@post.user_id = current_user.id
 
   	if @post.save
   		redirect_to team_path(@team.id)
   	else
+	  	@members = Member.where(team_id: @team.id)
   		render 'posts/new'
   	end
 
   end
 
-  def index
-  end
 
 
 private

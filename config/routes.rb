@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/new'
  	get '/' => 'tops#top'
 
  	devise_for :users
@@ -17,4 +16,6 @@ Rails.application.routes.draw do
  	get '/teams/:id/member' => 'teams#member'
 
  	resources :posts, only: [:new, :create]
+
+ 	resources :post_favorites, only: [:create, :destroy]
 end

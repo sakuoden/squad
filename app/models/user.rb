@@ -8,5 +8,6 @@ class User < ApplicationRecord
 
 	has_many :members, dependent: :destroy
 	has_many :teams, through: :members
+	has_many :posts, dependent: :destroy
 
 end

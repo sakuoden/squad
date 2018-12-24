@@ -18,6 +18,10 @@ class TeamsController < ApplicationController
 	def show
 		@team = Team.find(params[:id])
 		@favorites = Favorite.where(team_id: @team.id)
+
+
+		@posts = Post.where(team_id: @team.id)
+		@post_favorite = PostFavorite.find_by(post_favorite_user: current_user.id)
 	end
 
 

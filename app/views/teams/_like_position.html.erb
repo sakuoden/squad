@@ -1,6 +1,5 @@
 <span class="like_position_like">
-	<% number = post.id %>
-	<span id="like_position_like_zone_<%= number %>">
+	<span id="like_position_like_zone_<%= post.id %>">
 		<%= render partial: 'teams/favorite', locals: {post: post} %>
 	</span>
 </span>

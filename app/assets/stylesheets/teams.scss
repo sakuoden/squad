@@ -103,7 +103,7 @@
 
 /*チーム詳細画面の全体の箱*/
 .teams_show_box {
-	background-color: grey;
+/*	background-color: grey;*/
 	margin: 2%;
 	text-align: center;
 }
@@ -112,12 +112,14 @@
 
 /*チーム詳細画面の左の箱*/
 .teams_show_left_box {
-	background-color: red;
+/*	background-color: red;*/
 	width: 30%;
 	padding: 2%;
 	display: inline-block;
 	vertical-align: top;
 	text-align: left;
+	border: solid 1px #e6ecf0;
+	background-color: white;
 }
 
 /*チーム詳細の左の画像の位置*/
@@ -143,7 +145,7 @@
 	height: 45px;
 }
 
-/*チーム詳細の1行目の右側のお気に入りの数*/
+/*チーム詳細の左側の箱の、いいね総計、投稿数、メンバー数の行 */
 .teams_show_left_box_row1 {
 	margin-top: 5%;
 }
@@ -168,12 +170,20 @@
 
 /*チーム詳細画面の右側の箱*/
 .teams_show_box_right_box {
-	height: 1200px;
-	background-color: blue;
+/*	height: 1200px;
+	background-color: blue;*/
 	width: 35%;
 	display: inline-block;
-	padding: 2%;
+	padding: 0 2% 2% 0;
 	margin-left: 3%;
+}
+
+/*チーム詳細画面で投稿した内容*/
+.teams_show_right_box_post {
+	border: solid 1px #e6ecf0;
+	padding: 2%;
+	padding-bottom: 10%;
+	background-color: white;
 }
 
 /*チーム詳細画面で投稿した人*/
@@ -198,21 +208,34 @@
 	margin-left: 3%;
 }
 
+
+
+
+
 /*チーム詳細画面で投稿した投稿画像*/
 .teams_show_rihgt_box_post_image {
 	width: 300px;
 	height: 300px;
 	vertical-align: bottom;
+	border: solid 1px #B8BCC0;
 }
+
+
+
+
 
 /*チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱*/
 .teams_show_right_box_post_good_comment_box {
 	width: 300px;
-	height: 36px;
-	background-color: pink;
+	height: 20px;
+/*	background-color: pink;*/
 	margin: 0 auto;
 	text-align: left;
+	border-right: solid 1px #B8BCC0;
+	border-left: solid 1px #B8BCC0;
+	border-bottom: solid 1px #B8BCC0;
 }
+
 
 /*チーム詳細画面のいいねとコメントのリンク*/
 .teams_show_right_box_post_good_comment_link {
@@ -220,46 +243,58 @@
 	text-decoration: none;
 }
 
-
-
 /*いいねの大きさ*/
 .fa-heart {
-	font-size: 35px;
+	font-size: 20px;
 	margin-left: 2%;
+}
+
+/*いいねの色*/
+.fas {
+	color: red;
 }
 
 /*コメントの大きさ*/
 .fa-comment {
-	font-size: 35px;
+	font-size: 20px;
 	margin-left: 2%;
 }
 
 
-/*チーム詳細画面で投稿した投稿のコメントの枠*/
+
+
+
+/*チーム詳細画面で投稿した投稿の内容の枠*/
 .teams_show_right_box_post_content {
-	position: relative;
-	display: inline-block;
- 	margin: 1.2em 0;
-	padding: 7px 10px;
-	min-width: 100%;
- 	max-width: 100%;
- 	width: 100%;
- 	height: 150px;
-	background: yellow;
+ 	width: 300px;
+ 	height: 100px;
+ 	margin: 0 auto;
+/*	background: yellow;*/
 	text-align: left;
 	font-size: 18px;
+	overflow-x: visible;
+	overflow-y: scroll;
+	border-right: solid 1px #B8BCC0;
+	border-left: solid 1px #B8BCC0;
+	border-bottom: solid 1px #B8BCC0;
 }
 
-/*チーム詳細が麺で投稿した投稿の枠の吹き出し*/
-.teams_show_right_box_post_content:before{
-	content: "";
-	position: absolute;
-	top: -30px;
-	left: 20%;
- 	margin-left: -15px;
-	border: 15px solid transparent;
-	border-bottom: 15px solid yellow;
+
+/*チーム詳細画面で投稿した内容に対するコメント*/
+.teams_show_right_box_post_content_comment {
+/*	background-color: purple;*/
+	width: 300px;
+	height: 70px;
+	margin: 0 auto;
+	border-right: solid 1px #B8BCC0;
+	border-left: solid 1px #B8BCC0;
+	border-bottom: solid 1px #B8BCC0;
 }
+
+
+
+
+
 
 
 

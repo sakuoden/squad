@@ -60,6 +60,7 @@
 					</div>
 					<!-- チーム詳細画面で投稿した人 -->
 
+
 					<!-- チーム詳細画面で投稿した投稿画像 -->
 					<%= attachment_image_tag post, :post_image,  :fill, 300, 300, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_image" %>
 					<!-- チーム詳細画面で投稿した投稿画像fin -->
@@ -70,18 +71,35 @@
 
 						<%= render partial: 'teams/like_position', locals: {post: post} %>
 
-
-
 							<i class="far fa-comment"></i>
 					</div>
 					<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱fin -->
 
 
-					<!-- チーム詳細画面で投稿した投稿のコメント -->
+					<!-- チーム詳細画面で投稿した投稿内容 -->
 					<div class="teams_show_right_box_post_content">
 						<%= post.post_content %>
 					</div>
-					<!-- チーム詳細画面で投稿した投稿のコメントfin -->
+					<!-- チーム詳細画面で投稿した投稿内容fin -->
+
+
+					<!-- チーム詳細画面で投稿した内容に対するコメント -->
+					<div class="teams_show_right_box_post_content_comment">
+
+						<!-- チーム詳細画面の投稿内容に対するコメント1つ1つ -->
+						<div>
+						</div>
+						<!-- チーム詳細画面の投稿内容に対するコメント1つ1つfin -->
+
+					</div>
+					<!-- チーム詳細画面で投稿した内容に対するコメントfin -->
+
+					<!-- チーム詳細投稿画面のコメント入力欄 -->
+					<div class="teams_show_right_box_post_comment_form_position">
+					</div>
+					<!-- チーム詳細投稿画面のコメント入力欄fin -->
+
+
 
 			</div>
 			<!-- チーム詳細画面で投稿した内容fin -->

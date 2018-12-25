@@ -50,68 +50,77 @@
 	<div class="teams_show_box_right_box">
 		<% @posts.each do |post| %>
 
-			<!-- チーム詳細画面で投稿した内容 -->
-			<div class="teams_show_right_box_post">
+			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
 
-					<!-- チーム詳細画面で投稿した人 -->
-					<div class="teams_show_right_box_post_author clearfix">
-						<%= attachment_image_tag post.user, :image,  :fill, 40, 40, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_author_image" %>
-						<div class="teams_show_right_box_post_user_name"><%= post.user.name %></div>
-					</div>
-					<!-- チーム詳細画面で投稿した人 -->
+				<!-- チーム詳細画面で投稿した内容 -->
+				<div class="teams_show_right_box_post">
 
-
-					<!-- チーム詳細画面で投稿した投稿画像 -->
-					<%= attachment_image_tag post, :post_image,  :fill, 300, 300, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_image" %>
-					<!-- チーム詳細画面で投稿した投稿画像fin -->
-
-
-					<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱 -->
-					<div class="teams_show_right_box_post_good_comment_box">
-
-						<%= render partial: 'teams/like_position', locals: {post: post} %>
-
-							<i class="far fa-comment"></i>
-					</div>
-					<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱fin -->
-
-
-					<!-- チーム詳細画面で投稿した投稿内容 -->
-					<div class="teams_show_right_box_post_content">
-						<%= post.post_content %>
-					</div>
-					<!-- チーム詳細画面で投稿した投稿内容fin -->
-
-
-					<!-- チーム詳細画面で投稿した内容に対するコメント -->
-					<div class="teams_show_right_box_post_content_comment">
-
-						<!-- チーム詳細画面の投稿内容に対するコメント1つ1つ -->
-						<div>
+						<!-- チーム詳細画面で投稿した人 -->
+						<div class="teams_show_right_box_post_author clearfix">
+							<%= attachment_image_tag post.user, :image,  :fill, 40, 40, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_author_image" %>
+							<div class="teams_show_right_box_post_user_name"><%= post.user.name %></div>
 						</div>
-						<!-- チーム詳細画面の投稿内容に対するコメント1つ1つfin -->
-
-					</div>
-					<!-- チーム詳細画面で投稿した内容に対するコメントfin -->
-
-					<!-- チーム詳細投稿画面のコメント入力欄 -->
-					<div class="teams_show_right_box_post_comment_form_position">
-					</div>
-					<!-- チーム詳細投稿画面のコメント入力欄fin -->
+						<!-- チーム詳細画面で投稿した人 -->
 
 
+						<!-- チーム詳細画面で投稿した投稿画像 -->
+						<%= attachment_image_tag post, :post_image,  :fill, 300, 300, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_image" %>
+						<!-- チーム詳細画面で投稿した投稿画像fin -->
 
-			</div>
-			<!-- チーム詳細画面で投稿した内容fin -->
+
+						<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱 -->
+						<div class="teams_show_right_box_post_good_comment_box">
+
+							<%= render partial: 'teams/like_position', locals: {post: post} %>
+
+								<i class="far fa-comment"></i>
+						</div>
+						<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱fin -->
+
+
+						<!-- チーム詳細画面で投稿した投稿内容 -->
+						<div class="teams_show_right_box_post_content">
+							<%= post.post_content %>
+						</div>
+						<!-- チーム詳細画面で投稿した投稿内容fin -->
+
+
+						<!-- チーム詳細画面で投稿した内容に対するコメント -->
+						<div class="teams_show_right_box_post_content_comment">
+
+							<!-- チーム詳細画面の投稿内容に対するコメント1つ1つ -->
+							<div class="teams_show_right_box_content_one_comment">
+								<%= render partial: 'teams/comment_position', locals: {post: post} %>
+							</div>
+							<!-- チーム詳細画面の投稿内容に対するコメント1つ1つfin -->
+
+						</div>
+						<!-- チーム詳細画面で投稿した内容に対するコメントfin -->
+
+
+						<!-- チーム詳細画面のコメント入力欄 -->
+						<div class="teams_show_right_box_post_comment_form_position clearfix">
+							<%= f.text_field :post_comment, placeholder: "コメントを入力", class:"teams_show_right_box_post_comment_form" %>
+							<div class="teams_show_right_box_post_btn_position">
+								<%= f.hidden_field :post_id, :value => post.id %>
+								<%= f.submit "追加", class:"teams_show_right_box_post_btn" %>
+							</div>
+						</div>
+						<!-- チーム詳細画面のコメント入力欄fin -->
+
+
+				</div>
+				<!-- チーム詳細画面で投稿した内容fin -->
+
+			<% end %>
+			<!-- form_forのend -->
 
 		<% end %>
+		<!-- @postのeachのend -->
 
 
 	</div>
 	<!-- チーム詳細画面の右側の箱fin -->
-
-
-
 
 
 <!-- チーム詳細画面全体の箱fin -->
@@ -128,7 +137,6 @@
 	<% end %>
 	<!-- チーム詳細画面の投稿ボタンfin -->
 <% end %>
-
 
 
 

@@ -1,0 +1,6 @@
+<% post.post_comments.each do |post_comment| %>
+	<% @user = User.find(post_comment.post_comment_user_id) %>
+	<%= @user.name %>
+	<%= "　" + post_comment.post_comment %><br>
+
+<% end %>

@@ -284,13 +284,70 @@
 .teams_show_right_box_post_content_comment {
 /*	background-color: purple;*/
 	width: 300px;
-	height: 70px;
+	height: 72px;
 	margin: 0 auto;
+	border-right: solid 1px #B8BCC0;
+	border-left: solid 1px #B8BCC0;
+	border-bottom: solid 1px #B8BCC0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+
+/*チーム詳細画面で投稿した内容に対するコメント1つ1つ*/
+.teams_show_right_box_content_one_comment {
+	font-size: 12px;
+	text-align: left;
+}
+
+
+
+/*チーム詳細画面のコメント入力欄の位置*/
+.teams_show_right_box_post_comment_form_position {
+/*	background-color: brown;*/
+/*	height: 50px;*/
+	width: 300px;
+	margin: 0 auto;
+	text-align: left;
 	border-right: solid 1px #B8BCC0;
 	border-left: solid 1px #B8BCC0;
 	border-bottom: solid 1px #B8BCC0;
 }
 
+/*チーム詳細画面のコメント入力欄*/
+.teams_show_right_box_post_comment_form {
+	height: 30px;
+	font-size: 15px;
+	outline: none;
+	border: 0px;
+	width: 250px;
+	float: left;
+}
+
+/*チーム詳細画面のコメント入力ボタンの位置*/
+.teams_show_right_box_post_btn_position {
+	width: 48px;
+	height: 30px;
+	background-color: white;
+	float: left;
+	border-left: solid 1px #B8BCC0;
+}
+
+/*チーム詳細画面のコメント入力ボタン*/
+.teams_show_right_box_post_btn {
+	outline: none;
+	width: 43px;
+	padding: 5.5px 0px;
+	background-color: white;
+	border: solid 0px;
+	vertical-align: top;
+}
+
+/*チーム詳細画面のコメント入力ボタンにマウスを乗せたとき*/
+.teams_show_right_box_post_btn:hover {
+	cursor: pointer;
+	cursor: hand;
+}
 
 
 

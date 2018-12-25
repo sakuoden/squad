@@ -1,0 +1,5 @@
+$("#comment_position_<%= @post.id %>").html("<%= j(render partial: 'teams/comment', locals: {post: @post}) %>")
+
+
+$(".teams_show_right_box_post_comment_form").val("");
+

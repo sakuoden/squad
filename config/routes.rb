@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'post_comments/create'
  	get '/' => 'tops#top'
 
  	devise_for :users
@@ -18,4 +19,6 @@ Rails.application.routes.draw do
  	resources :posts, only: [:new, :create]
 
  	resources :post_favorites, only: [:create, :destroy]
+
+ 	resources :post_comments, only: [:create]
 end

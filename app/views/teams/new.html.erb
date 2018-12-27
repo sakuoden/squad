@@ -39,7 +39,7 @@
 
 		<!-- チーム新規作成画面の画像のプレビュー表示 -->
 		<div class="teams_new_box_team_image_preview_position">
-			<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image.jpg", class: "teams_new_box_team_image_preview" %>
+			<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "teams_new_box_team_image_preview" %>
 		</div>
 		<!-- チーム新規作成画面の画像のプレビュー表示fin -->
 

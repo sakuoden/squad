@@ -47,7 +47,7 @@
 										<%= radio_button_tag :member, user.id %>
 									</td>
 									<td>
-										<%= attachment_image_tag user, :image, :fill, 200, 200,fallback:"no_image.jpg", class:"teams_member_new_member_search_result_image"  %>
+										<%= attachment_image_tag user, :image, :fill, 200, 200,fallback:"/images/no_image.jpg", class:"teams_member_new_member_search_result_image"  %>
 									</td>
 									<td>
 										<%= user.name %>

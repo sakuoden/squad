@@ -87,6 +87,12 @@ class TeamsController < ApplicationController
 	end
 
 
+	# 20
+	def nagano_place
+		@teams = Team.where(place: "nagano")
+	end
+
+
 	private
 	def team_params
 		params.require(:team).permit(:team_name, :team_image)

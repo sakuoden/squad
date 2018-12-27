@@ -9,7 +9,7 @@
 
 		<!-- チーム新規作成画面のタイトル -->
 		<div class="teams_new_box_title">
-			チーム新規作成画面
+			チーム新規作成
 		</div>
 		<!-- チーム新規作成画面のタイトルfin -->
 
@@ -42,6 +42,35 @@
 			<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image.jpg", class: "teams_new_box_team_image_preview" %>
 		</div>
 		<!-- チーム新規作成画面の画像のプレビュー表示fin -->
+
+
+
+		<!-- チーム新規作成画面の都道県の入力フォーム -->
+		<div class="teams_new_box_place_form_position">
+			チームの所在地
+<%= f.select :place, [["北海道","hokkaido"],
+					  ["青森","aomori"],
+					  ["岩手","iwate"],
+					  ["宮城","miyagi"],
+					  ["秋田","akita"],
+					  ["山形","yamagata"],
+					  ["福島","hukushima"],
+					  ["茨城","ibaraki"],
+					  ["栃木","tochigi"],
+					  ["群馬","gunnma"],
+					  ["埼玉","saitama"],
+					  ["千葉","chiba"],
+					  ["東京","tokyo"],
+					  ["神奈川","kanagawa"],
+					  ["新潟","nigata"],
+					  
+
+					  ] %>
+		</div>
+		<!-- チーム新規作成画面の都道県の入力フォームfin -->
+
+
+
 
 		<!-- チーム新規作成画面の作成ボタンの位置 -->
 		<div class="teams_new_box_new_team_btn_position">

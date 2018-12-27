@@ -76,6 +76,13 @@ header {
 	cursor: pointer;
 }
 
+/*ヘッダー要素のポイントのリンク*/
+.header_right_link {
+	float: right;
+	height: 70px;
+	line-height: 69px;
+}
+
 
 html,body {
 	height: 100%;
@@ -142,12 +149,26 @@ footer {
 	background-color: #31353c;
 }
 
+/*ログインしていないときに表示されるのの調整*/
+.footer_right_link_blank {
+	width: 100px;
+	height: 1px;
+	float: left;
+}
+
+
 
 /*戻るボタンのリンク設定*/
 .back_btn_link{
 	text-decoration: none;
 	color: white;
 }
+
+
+
+
+
+
 
 
 /*戻るボタン*/

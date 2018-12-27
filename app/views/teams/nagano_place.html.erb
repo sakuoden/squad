@@ -1,0 +1,65 @@
+<!-- 県毎のチーム画面の箱 -->
+<div class="teams_place_box">
+
+	<!-- 各県のチーム画面の箱のタイトル -->
+	<div class="teams_place_box_title">
+		長野県のチーム一覧
+	</div>
+	<!-- 各県のチーム画面の箱のタイトルfin -->
+
+
+	<% @teams.each do |team| %>
+		<%= link_to team_path(team.id), class:"teams_place_box_link" do %>
+			<!-- 県毎のチーム画面の各チームの箱 -->
+			<div class="teams_place_box_a_team">
+
+				<table>
+					<tr>
+						<td><%= attachment_image_tag team, :team_image, :fill, 100, 100, fallback: "no_image.jpg", class:"teams_place_box_a_team_image"  %>
+						</td>
+						<td><%= team.team_name %>
+						</td>
+						<td>メンバー　<%= team.members.count %>人
+						</td>
+						<td>Point
+						</td>
+					</tr>
+				</table>
+
+			</div>
+			<!-- 県毎のチーム画面の各チームの箱fin -->
+		<% end %>
+		<!-- link_to のend -->
+	<% end %>
+	<!-- @taems.eachのend -->
+
+
+</div>
+<!-- 県毎のチーム画面の箱fin -->
+
+
+
+
+<script>
+	$(document).ready(function(){
+		$('.teams_place_box_a_team').filter(":last").css('border-bottom','solid 2px #808080');
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

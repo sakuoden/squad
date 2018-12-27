@@ -44,6 +44,7 @@
 	font-size: 18px;
 	background-color: #eeeeee;
 	border: solid 1px #d5d2cd;
+	outline: none;
 }
 
 /*ユーザー登録のボタンのスタイルの変更*/
@@ -104,6 +105,7 @@
 	font-size: 18px;
 	background-color: #eeeeee;
 	border: solid 1px #d5d2cd;
+	outline: none;
 }
 
 /*ログインボタン*/
@@ -117,7 +119,7 @@
 
 /*ログインボタンにマウスを置いたとき*/
 .user_login_btn:hover {
-	background: linear-gradient(to bottom, #00F275, #00FF7F);
+	background: linear-gradient(to bottom, #26A8FF, #3FB2FF);
 	cursor: pointer;
 }
 
@@ -132,13 +134,12 @@
 /*ユーザーマイページの左側の箱*/
 .users_mypage_box {
 	background-color: white;
-	width: 25%;
+	width: 30%;
 	margin: 0 auto;
 	margin-top: 2%;
+	margin-bottom: 2%;
 	padding: 1% 2%;
-	border: solid 1px #666666;
-	box-shadow: 0 0px 10px 1px rgba(0,0,0,0.25);
-	border-radius: 15px;
+	border: solid 1px #e6ecf0;
 }
 
 /*ユーザーマイページの左側の箱のプロフ画像の位置*/
@@ -158,12 +159,18 @@
 	text-align: right;
 }
 
+/*ユーザーマイページの編集リンクのボタン*/
+.fa-ellipsis-h {
+	color: #333333;
+	font-size: 20px;
+}
+
+
 /*ユーザーマイページの左側のタイトル(名前)*/
 .users_mypage_left_box_title_name {
 	margin-top: 5%;
 	font-size: 20px;
 	font-weight: bold;
-	text-decoration: underline;
 }
 
 /*ユーザーマイページの左側の名前*/
@@ -177,13 +184,16 @@
 	margin-top: 10%;
 	font-size: 20px;
 	font-weight: bold;
-	text-decoration: underline;
 }
 
 /*ユーザーマイページの左側の所属チーム*/
 .users_mypage_left_box_team {
+/*	background-color: red;
+	height: 100px;*/
 	margin-left: 7%;
 	margin-top: 3%;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 /*ユーザーマイページの左側の所属チームの行*/
@@ -194,10 +204,18 @@
 	white-space: nowrap;
 }
 
+/*ユーザーマイページのポイントタイトル*/
+.users_mypage_point_title {
+	margin-top: 10%;
+	font-size: 20px;
+	font-weight: bold;
+}
 
-
-
-
+/*ユーザーマイページのポイント*/
+.users_mypage_point {
+	margin-left: 7%;
+	font-size: 16px;
+}
 
 
 
@@ -213,10 +231,10 @@
 	height: 500px;
 	width: 65%;
 	margin: 0 auto;
-	margin-top: 3%;
-	border: solid 1px #666666;
-	box-shadow: 0 0 10px 1px #F2F2F2;
-	border-radius: 15px;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	border: solid 1px #e6ecf0;
+	background-color: white;
 }
 
 /*ユーザーマイページ編集の左側の箱*/

@@ -1,15 +1,15 @@
 <!-- ユーザーマイページ左側の箱 -->
 <div class="users_mypage_box">
 
+		<div class="users_mypage_left_box_edit_page">
+			<%= link_to user_edit_path do %>
+				<i class="fas fa-ellipsis-h"></i>
+			<% end %>
+		</div>
+
 		<!-- ユーザーマイページ左側の箱のプロフ画像 -->
 		<div class="users_mypage_left_box_image_position">
 			<%= attachment_image_tag current_user, :image, :fill, 200, 200, fallback: "no_image.jpg", class: "users_mypage_left_box_image" %>
-		</div>
-
-		<div class="users_mypage_left_box_edit_page">
-			<%= link_to user_edit_path do %>
-				<i class="fas fa-2x fa-pencil-alt"></i>
-			<% end %>
 		</div>
 
 		<div class="users_mypage_left_box_title_name">
@@ -24,6 +24,7 @@
 			所属チーム
 		</div>
 
+		<!-- 所属しているチームの表示 -->
 		<div class="users_mypage_left_box_team">
 			<% current_user.teams.each do |team| %>
 				<div class="users_mypage_left_box_team_row">
@@ -31,6 +32,21 @@
 				</div>
 			<% end %>
 		</div>
+		<!-- 所属しているチームの表示fin -->
+
+		<!-- 所持ポイントのタイトル -->
+		<div class="users_mypage_point_title">
+			所持ポイント
+		</div>
+		<!-- 所持ポイントのタイトルfin -->
+
+		<!-- 所持ポイント -->
+		<div class="users_mypage_point">
+			<%= "#{@user_point.point} pt" %>
+		</div>
+		<!-- 所持ポイントfin -->
+
+
 
 </div>
 <!-- ユーザーマイページ左側の箱fin -->

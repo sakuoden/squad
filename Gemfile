@@ -73,6 +73,7 @@ gem "refile-mini_magick"
 
 gem "jquery-rails"
 
+gem 'pry-byebug', group: :developmentra
 
 
 

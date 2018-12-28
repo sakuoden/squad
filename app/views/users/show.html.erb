@@ -7,7 +7,7 @@
 
 			<!-- ユーザーマイページ左側の箱のプロフ画像 -->
 			<div class="users_show_left_box_image_position">
-				<%= attachment_image_tag current_user, :image, :fill, 200, 200, fallback: "no_image.jpg", class: "users_show_left_box_image" %>
+				<%= attachment_image_tag current_user, :image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "users_show_left_box_image" %>
 			</div>
 
 			<div class="users_show_left_box_inviting_btn_position">

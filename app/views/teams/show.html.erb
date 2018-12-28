@@ -6,7 +6,7 @@
 
 		<!-- チーム詳細の左の箱の画像の位置 -->
 		<div class="teams_show_left_box_image_position">
-			<%= attachment_image_tag @team, :team_image, :fill, 300, 300, fallback: "no_image.jpg", class: "teams_show_box_row1_image" %>
+			<%= attachment_image_tag @team, :team_image, :fill, 300, 300, fallback: "/images/no_image.jpg", class: "teams_show_box_row1_image" %>
 		</div>
 		<!-- チーム詳細左の箱の画像の位置fin -->
 
@@ -73,7 +73,9 @@
 
 							<%= render partial: 'teams/like_position', locals: {post: post} %>
 
-								<i class="far fa-comment"></i>
+								<label for="teams_show_right_box_post_comment_form_id">
+									<i class="far fa-comment"></i>
+								</label>
 						</div>
 						<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱fin -->
 
@@ -100,13 +102,17 @@
 
 						<!-- チーム詳細画面のコメント入力欄 -->
 						<div class="teams_show_right_box_post_comment_form_position clearfix">
-							<%= f.text_field :post_comment, placeholder: "コメントを入力", class:"teams_show_right_box_post_comment_form" %>
+							<%= f.text_field :post_comment, placeholder: "コメントを入力", class:"teams_show_right_box_post_comment_form", id:"teams_show_right_box_post_comment_form_id" %>
 							<div class="teams_show_right_box_post_btn_position">
 								<%= f.hidden_field :post_id, :value => post.id %>
-								<%= f.submit "追加", class:"teams_show_right_box_post_btn" %>
+								<%= button_tag type:"submit", class:"teams_show_right_box_post_btn" do %>
+									<i class="fab fa-telegram-plane"></i>
+								<% end %>
+
 							</div>
 						</div>
 						<!-- チーム詳細画面のコメント入力欄fin -->
+
 
 
 				</div>
@@ -114,6 +120,12 @@
 
 			<% end %>
 			<!-- form_forのend -->
+
+
+				<!-- チーム詳細画面のモーダル画面 -->
+				<div class="teams_show_favorite_count_modal_">
+				</div>
+				<!-- チーム詳細画面のモーダル画面fin -->
 
 		<% end %>
 		<!-- @postのeachのend -->
@@ -143,6 +155,15 @@
 
 
 
+<script>
+	$(document).ready(function(){
+
+		$('.teams_show_right_box_good_count').click(function(){
+			$('.teams_show_favorite_count_modal')
+		});
+
+	});
+</script>
 
 
 

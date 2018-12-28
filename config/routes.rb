@@ -21,4 +21,7 @@ Rails.application.routes.draw do
  	resources :post_favorites, only: [:create, :destroy]
 
  	resources :post_comments, only: [:create]
+
+ 	resources :user_points, only: [:create]
+
 end

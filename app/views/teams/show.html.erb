@@ -72,7 +72,6 @@
 						<div class="teams_show_right_box_post_good_comment_box">
 
 							<%= render partial: 'teams/like_position', locals: {post: post} %>
-							<span class="teams_show_right_box_good_count"><%= post.post_favorite_middles.count %></span>
 
 								<label for="teams_show_right_box_post_comment_form_id">
 									<i class="far fa-comment"></i>
@@ -106,10 +105,14 @@
 							<%= f.text_field :post_comment, placeholder: "コメントを入力", class:"teams_show_right_box_post_comment_form", id:"teams_show_right_box_post_comment_form_id" %>
 							<div class="teams_show_right_box_post_btn_position">
 								<%= f.hidden_field :post_id, :value => post.id %>
-								<%= f.submit "追加", class:"teams_show_right_box_post_btn" %>
+								<%= button_tag type:"submit", class:"teams_show_right_box_post_btn" do %>
+									<i class="fab fa-telegram-plane"></i>
+								<% end %>
+
 							</div>
 						</div>
 						<!-- チーム詳細画面のコメント入力欄fin -->
+
 
 
 				</div>
@@ -117,6 +120,12 @@
 
 			<% end %>
 			<!-- form_forのend -->
+
+
+				<!-- チーム詳細画面のモーダル画面 -->
+				<div class="teams_show_favorite_count_modal_">
+				</div>
+				<!-- チーム詳細画面のモーダル画面fin -->
 
 		<% end %>
 		<!-- @postのeachのend -->
@@ -142,22 +151,19 @@
 <% end %>
 
 
-<!-- チーム詳細画面のモーダル画面 -->
-<div class="teams_show_favorite_count_modal">
-</div>
-<!-- チーム詳細画面のモーダル画面fin -->
+
 
 
 
 <script>
 	$(document).ready(function(){
 
-		$(".teams_show_right_box_good_count").click(function(){
-
+		$('.teams_show_right_box_good_count').click(function(){
+			$('.teams_show_favorite_count_modal')
 		});
+
 	});
 </script>
-
 
 
 

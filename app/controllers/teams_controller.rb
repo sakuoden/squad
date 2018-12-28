@@ -24,6 +24,8 @@ class TeamsController < ApplicationController
 		@post_favorite = PostFavorite.find_by(post_favorite_user: current_user.id)
 
 		@post_comment = PostComment.new
+
+		@post_favorite_middles = PostFavoriteMiddle.all
 	end
 
 
@@ -84,12 +86,6 @@ class TeamsController < ApplicationController
 		else
 			render 'teams/member_edit'
 		end
-	end
-
-
-	# 20
-	def nagano_place
-		@teams = Team.where(place: "nagano")
 	end
 
 

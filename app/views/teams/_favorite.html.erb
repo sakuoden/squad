@@ -2,18 +2,13 @@
 <% if post.post_favorite_middles.where(post_favorite_id: current_user.id).exists? %>
 	<%= link_to post_favorite_path(post.id), method: :delete, class:"teams_show_right_box_post_good_comment_link", remote: true do %>
 		<i class="fas fa-heart"></i>
+		<span class="teams_show_right_box_good_count"><%= post.post_favorite_middles.count %></span>
 	<% end %>
 <% else %>
 	<%= link_to post_favorites_path(post_id: post.id), method: :post, class:"teams_show_right_box_post_good_comment_link", remote: true do %>
 		<i class="far fa-heart"></i>
+		<span class="teams_show_right_box_good_count"><%= post.post_favorite_middles.count %></span>
 	<% end %>
 <% end %>
 
 
-<script>
-	$(document).ready(function(){
-
-
-
-	});
-</script>

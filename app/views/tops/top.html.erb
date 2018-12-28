@@ -1,7 +1,7 @@
 <script>
 	$(document).ready(function(){
 		$('.tops_top_flash_massage').fadeOut(8000);
-		<% link_to '','#{}' %>
+
 
   var areas = [
 		{code : 1, name: "北海道", color: "#7f7eda", hoverColor: "#b3b2ee", prefectures: [1]},
@@ -53,10 +53,10 @@
 		{code : 47, name: "沖縄", color: "#eb98ff", hoverColor: "#f5c9ff", prefectures: [47]},
     ];
 
-
-    var placelinks = {
-    	20:"/teams/nagano"
-    };
+    // リンクする場合
+    // var placelinks = {
+    // 	20:"/teams/nagano"
+    // };
 
 
 
@@ -79,14 +79,24 @@
 					var id = data.area.code;
 					$('#team_' + id).fadeIn();
 					$('.top_map_all_modal').fadeIn();
+					$('.top_map_modal_title').text(`${data.name}のチーム一覧`);
 
+
+					// リンクする場合
 					// location.href = placelinks[data.area.code];
-
             	}
 			}
 		);
 
+		$('.top_map_all_modal').click(function(){
+			$('.top_map_all_modal').fadeOut();
+			$('.top_map_modal').fadeOut();
+		});
 
+		$('.fa-window-close').click(function(){
+			$('.top_map_all_modal').fadeOut();
+			$('.top_map_modal').fadeOut();
+		});
 
 
 
@@ -111,12 +121,69 @@
 
 <% areas = [*1..47] %>
 <% areas.each do |area| %>
+
+<!-- モーダル画面 -->
 	<div class="top_map_modal" id="team_<%=area%>">
+		<div class="top_map_modal_close_position">
+			<i class="fas fa-window-close"></i>
+		</div>
+
+		<!-- モーダル部分のタイトル -->
+		<div class="top_map_modal_title">
+		</div>
+		<!-- モーダル部分のタイトルfin -->
+
 		<% @teams.where(place: area).each do |team| %>
-			<%= team.team_name %>
+
+			<%= link_to team_path(team.id), class:"tops_map_modal_link" do %>
+
+				<!-- モーダル画面のチーム1つずつの箱 -->
+				<div class="top_map_modal_box_a_team">
+					<table>
+						<tr>
+							<td><%= attachment_image_tag team, :team_image, :fill, 100, 100, fallback:"/images/no_image.jpg", class:"top_map_modal_box_a_team_image" %>
+							</td>
+							<td><%= team.team_name %>
+							</td>
+							<td>メンバー　<%= team.members.count %>人
+							</td>
+							<td>Point
+							</td>
+						</tr>
+					</table>
+
+				</div>
+				<!-- モーダル画面のチーム1つずつの箱fin -->
+
+			<% end %>
+			<!-- link_toのend -->
+
 		<% end %>
+		<!-- @teams.where.eachのend -->
+		<div class="top_map_modal_box_last_border"></div>
+
 	</div>
+<!-- モーダル画面fin -->
+
 <% end %>
+<!-- areas.eachのend -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

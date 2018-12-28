@@ -74,15 +74,14 @@
 	border: dotted 2px #666666;
 }
 
-/*チーム新規作成画面の都道府県入力フォーム*/
+/*チーム新規作成画面の都道府県選択フォームの位置*/
 .teams_new_box_place_form_position {
-	background-color: pink;
+/*	background-color: pink;*/
 	height: 50px;
 	width: 300px;
 	margin: 0 auto;
 	margin-bottom: 8%;
 }
-
 
 
 /*チーム新規作成画面の新規作成ボタンの位置*/
@@ -272,7 +271,7 @@
 
 /*いいねの色*/
 .fas {
-	color: orange;
+	color: red;
 }
 
 /*いいねの数の箇所*/
@@ -328,6 +327,12 @@
 	overflow-y: scroll;
 }
 
+/*コメントマークにマウスを乗せたとき*/
+.fa-comment {
+	cursor: pointer;
+}
+
+
 
 /*チーム詳細画面で投稿した内容に対するコメント1つ1つ*/
 .teams_show_right_box_content_one_comment {
@@ -376,6 +381,11 @@
 	background-color: white;
 	border: solid 0px;
 	vertical-align: top;
+}
+
+/*入力ボタンの色*/
+.fa-telegram-plane {
+	font-size: 18px;
 }
 
 /*チーム詳細画面のコメント入力ボタンにマウスを乗せたとき*/
@@ -427,14 +437,15 @@
 
 
 
-/*モーダル表示*/
+/*いいねの個数を押したときのモーダル表示*/
 .teams_show_favorite_count_modal {
 	width: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100vh;
-	background: rgba(0, 0, 0, 0.7);
+	background: rgba(0, 0, 0, 0.5);
+	display: none;
 }
 
 
@@ -938,6 +949,7 @@
 
 
 
+
 /*県毎のチーム画面の箱のタイトル*/
 .teams_place_box_title {
 	width: 100%;
@@ -945,6 +957,7 @@
 	margin-bottom: 3%;
 	font-size: 19px;
 }
+
 
 
 

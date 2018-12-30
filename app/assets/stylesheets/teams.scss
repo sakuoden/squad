@@ -133,13 +133,14 @@
 /*チーム詳細画面の左の箱*/
 .teams_show_left_box {
 /*	background-color: red;*/
-	width: 30%;
+	width: 500px;
 	padding: 2%;
-	display: inline-block;
-	vertical-align: top;
 	text-align: left;
-	border: solid 1px #e6ecf0;
-	background-color: white;
+/*	border: solid 1px #e6ecf0;*/
+/*	background-color: white;*/
+	position: fixed;
+	top: 15%;
+	left: 15%;
 }
 
 /*チーム詳細の左の画像の位置*/
@@ -165,42 +166,62 @@
 	height: 45px;
 }
 
-/*チーム詳細の左側の箱の、いいね総計、投稿数、メンバー数の行 */
-.teams_show_left_box_row1 {
+/*チーム詳細画面の左側のボタンの行*/
+.teams_show_left_box_btn_row {
+/*	background-color: gold;*/
+	width: 300px;
+	margin: 0 auto;
+}
+
+/*チーム詳細画面の左側のボタンのリンク*/
+.teams_show_left_box_btn_row_link {
+	text-decoration: none;
+	color: #333333;
+}
+
+
+/*チーム詳細画面の左側のボタン*/
+.teams_show_left_box_btn {
+	display: inline-block;
+	height: 40px;
+	line-height: 40px;
+	width: 95px;
+	text-align: center;
+	background-color: #737678;
+	border-radius: 50px;
+	border: solid 1px #ccc;
+}
+
+/*チーム詳細画面の左側のボタンが押されたとき*/
+.teams_show_left_box_btn_active {
+	background-color: white;
+}
+
+
+
+
+
+
+
+
+
+/*チーム詳細画面右側の箱*/
+#barba-wrapper {
+	margin-left: 50%;
 	margin-top: 5%;
 }
 
-/*チーム詳細の1行目 FAVORITEの文字*/
-.teams_show_left_box_row1_title {
-	font-size: 16px;
-}
-
-/*チーム詳細の1行目のFAVORITEの数*/
-.teams_show_left_box_row1_count {
-	font-size: 24px;
-	font-weight: bold;
-}
-
-
-
-
-
-
-
-
 /*チーム詳細画面の右側の箱*/
 .teams_show_box_right_box {
-/*	height: 1200px;
-	background-color: blue;*/
-	width: 35%;
-	display: inline-block;
-	padding: 0 2% 2% 0;
-	margin-left: 3%;
+/*	height: 1200px;*/
+/*	background-color: blue;*/
+	width: 500px;
+	padding: 0 2% 2% 2%;
 }
 
 /*チーム詳細画面で投稿した内容*/
 .teams_show_right_box_post {
-	border: solid 1px #e6ecf0;
+	border: solid 1px #ccc;
 	padding: 2%;
 	padding-bottom: 10%;
 	background-color: white;
@@ -419,7 +440,7 @@
 	font-size: 25px;
 	position: fixed;
 	bottom: 5%;
-	right: 10%;
+	right: 5%;
 	z-index: 10;
 	background-color: #87CEFA;
 	color: white;
@@ -430,11 +451,6 @@
 	font-size: 40px;
 	margin-top: 20%;
 }
-
-
-
-
-
 
 
 /*いいねの個数を押したときのモーダル表示*/
@@ -454,189 +470,71 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 /*--------------------------------------------------------チームメンバー画面--------------------------------------------------------*/
 
-/*チームメンバー画面の箱*/
-.teams_member_box {
-/*	background-color: grey;*/
-/*	height: 900px;*/
-	width: 700px;
-	margin: 0 auto;
-	margin-top: 2%;
-	margin-bottom: 2%;
-	padding: 2%;
-	border: solid 1px #e6ecf0;
-	box-shadow: 0 0 10px 1px #F2F2F2;
+/*チームメンバーの1行*/
+.teams_show_box_right_member_a_row {
+	/*background-color: pink;*/
+	padding: 5%;
 	background-color: white;
+	border: solid 1px #e6ecf0;
+	box-shadow:1px 1px 5px 1px #555;
+	margin-bottom: 2%;
 }
 
-/*チムメンバー画面の箱にマウスが乗るとき(モーダル表示やめたのでなし)*/
-/*.teams_member_box_member_box {
-	cursor: hand;
-	cursor: pointer;
-}*/
-
-/*チームメンバー画面のタイトル*/
-.teams_member_box_title {
-	width: 100%;
-	margin: 0 auto;
-	font-size: 23px;
-	font-weight: bold;
-	text-decoration: underline;
-	margin-bottom: 1%;
-	text-align: center;
+/*チームメンバーの右側の箱の画像の位置*/
+.teams_show_box_right_member_a_row_image_position {
+	/*background-color: orange;*/
+	width: 100px;
+	height: 100px;
+	float: left;
 }
 
-/*タイトル下のチームメンバー全員が入る箱*/
-.teams_member_box_all_member_box {
-/*	height: 700px;*/
-/*	background-color: yellow;*/
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
-}
-
-
-
-
-
-/*チームメンバー画面1人が入る箱*/
-.teams_member_box_member_box {
-/*	height: 500px;*/
-/*	background-color: blue;*/
-	width: 40%;
-	display: inline-block;
-	padding: 1% 1%;
-	border: solid 1px #666666;
-	box-shadow: 0 0 10px 1px #F2F2F2;
-	border-radius: 15px;
-}
-
-
-/*チームメンバー画面1人の画像*/
-.teams_member_box_member_image{
-	width: 200px;
-	height: 200px;
-	border-radius: 100px;
-}
-
-
-
-/*チームメンバー1人が入る箱の画像より下の部分の箱*/
-.teams_member_box_member_width {
-/*	background-color: pink;*/
-	width: 90%;
-	margin: 0 auto;
-}
-
-
-/*チームメンバー1人の編集へのリンク*/
-.teams_member_box_member_edit_link_position{
-	font-size: 28px;
-	text-align: right;
-}
-
-/*チームメンバー画面1人の編集へのリンク*/
-.teams_member_box_member_edit_link {
-	color: #004400;
-}
-
-
-
-
-/*チームメンバー1人の名前のタイトル*/
-.teams_member_box_member_box_name_title {
-	text-decoration: underline;
-	font-weight: bold;
-	font-size: 21px;
-	text-align: left;
-	margin-bottom: 1%;
-}
-
-/*チームメンバー1人の名前*/
-.teams_member_box_member_box_name {
-	text-align: left;
-	margin-bottom: 8%;
-	overflow: hidden;
-}
-
-
-
-/*チームメンバー1人のポジションのタイトル*/
-.teams_member_box_member_box_position_title {
-	text-decoration: underline;
-	font-weight: bold;
-	font-size: 21px;
-	text-align: left;
-	margin-bottom: 1%;
-}
-
-/*チームメンバー1人のポジション*/
-.teams_member_box_member_box_position {
-	text-align: left;
-	margin-bottom: 8%;
-	overflow: hidden;
-}
-
-
-
-
-/*チームメンバー1人の紹介のタイトル*/
-.teams_member_box_member_box_introduction_title {
-	text-decoration: underline;
-	font-weight: bold;
-	font-size: 21px;
-	text-align: left;
-	margin-bottom: 1%;
-}
-
-/*チームメンバー1人の紹介*/
-.teams_member_box_member_box_introduction {
-	text-align: left;
-	margin-bottom: 8%;
-	overflow-y: scroll;
-	overflow-x: hidden;
+/*チームメンバーの画像*/
+.teams_show_box_right_member_a_row_image {
+	width: 100px;
 	height: 100px;
 }
 
+/**/
+.teams_show_box_right_member_a_row_letter {
+	/*background-color: gold;*/
+	width: 70%;
+/*	max-height: 200px;*/
+	float: left;
+	padding-left: 7%;
+}
+
+.teams_show_box_right_member_a_row_name_title {
+	/*background-color: green;*/
+	text-align: left;
+	font-weight: bold;
+}
+
+.teams_show_box_right_member_a_row_name {
+	/*background-color: orange;*/
+	text-align: left;
+	margin-left: 5%;
+}
+
+.teams_show_box_right_member_a_row_introduction_title {
+	/*background-color: green;*/
+	text-align: left;
+	font-weight: bold;
+}
+
+.teams_show_box_right_member_a_row_introduction {
+	/*background-color: orange;*/
+	text-align: left;
+	margin-left: 5%;
+	max-height: 150px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
 
 
 
 
-/*モーダル表示させる予定だったけど、邪魔なので却下*/
-/*.teams_memver_box_member_box_modal {
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0,0,0,0.5);
-	position: fixed;
-	top: 0px;
-	left: 0px;
-	z-index: 10;
-	display: none;
-	text-align: center;
-}*/
-
-/*モーダル表示させる予定だったけど、邪魔なので却下*/
-/*.teams_member_box_member_box_after_click {
-	width: 600px;
-	height: 600px;
-	padding-top: 1%;
-	border: solid 1px #666666;
-	box-shadow: 0 0 10px 1px #F2F2F2;
-	background-color: white;
-	text-align: center;
-	margin-top: 3%;
-}*/
 
 
 

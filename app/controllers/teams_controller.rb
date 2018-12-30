@@ -31,6 +31,16 @@ class TeamsController < ApplicationController
 
 	def member
 		@team = Team.find(params[:id])
+
+		@favorites = Favorite.where(team_id: @team.id)
+
+
+		@posts = Post.where(team_id: @team.id)
+		@post_favorite = PostFavorite.find_by(post_favorite_user: current_user.id)
+
+		@post_comment = PostComment.new
+
+		@post_favorite_middles = PostFavoriteMiddle.all
 	end
 
 	def member_new
@@ -91,7 +101,7 @@ class TeamsController < ApplicationController
 
 	private
 	def team_params
-		params.require(:team).permit(:team_name, :team_image)
+		params.require(:team).permit(:team_name, :team_image, :place)
 	end
 
 	def member_position_params

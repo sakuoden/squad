@@ -8,10 +8,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
+    <script src="javascripts/barba.min.js" type="text/javascript"></script>
   </head>
 
   <body>
+
   <!-- wrap -->
   <div class="wrap">
 
@@ -26,21 +27,6 @@
           </div>
         <% end %>
         <!-- ヘッダー左側要素fin -->
-
-        <% if user_signed_in? %>
-          <!-- 付与ポイント -->
-          <% @user_point = UserPoint.find_by(user_id: current_user.id) %>
-          <% @t = Time.new %>
-          <% @ty = @t.year.to_s %>
-          <% @tm = @t.month.to_s %>
-          <% @tt = @t.day.to_s %>
-          <% @current_ymt = @ty + @tm + @tt %>
-          <% if @user_point.time = @current_ymt %>
-          <% else %>
-            <%= link_to "今日のポイントを受け取る", user_points_path, method: :post, class:"header_right_link" %>
-          <% end %>
-          <!-- 付与ポイントfin -->
-        <% end %>
 
       </div>
       <!-- ヘッダーの要素の幅fin -->

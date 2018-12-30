@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 	before_action :authenticate_user!, only: [:mypage, :mypage_edit, :mypage_update]
 
 	def mypage
-		@user_point = UserPoint.find_by(user_id: current_user.id)
 	end
 
 	def mypage_edit

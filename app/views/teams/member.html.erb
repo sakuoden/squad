@@ -1,94 +1,122 @@
-<!-- チームメンバー1人の箱をクリックすると出て来るモーダル -->
-<div class="teams_memver_box_member_box_modal">
-</div>
+<!-- チーム詳細画面全体の箱 -->
+<div class="teams_show_box">
 
+	<!-- チーム詳細の左の箱 -->
+	<div class="teams_show_left_box clearfix">
 
-<!-- チームメンバー画面の箱(チームメンバーが見た場合) -->
-<div class="teams_member_box">
+		<!-- チーム詳細の左の箱の画像の位置 -->
+		<div class="teams_show_left_box_image_position">
+			<%= attachment_image_tag @team, :team_image, :fill, 300, 300, fallback: "/images/no_image.jpg", class: "teams_show_box_row1_image" %>
+		</div>
+		<!-- チーム詳細左の箱の画像の位置fin -->
 
-	<!-- チームメンバー画面のタイトル -->
-	<div class="teams_member_box_title">
-		<%= "#{@team.team_name}　メンバー" %>
-	</div>
-	<!-- チームメンバー画面のタイトルタイトルfin -->
+		<!-- チーム詳細の左側の箱のチーム名 -->
+		<div class="teams_show_left_box_team_name">
+			<%= @team.team_name %>
+		</div>
+		<!-- チーム詳細の左側の箱のチーム名fin -->
 
+		<!-- チーム詳細の左側の箱の、いいね総計、投稿数、メンバー数の行 -->
+		<div class="teams_show_left_box_row1">
+			<div class="teams_show_left_box_row1_title">
 
-
-	<!-- タイトルの下のチームメンバー全員が入る箱 -->
-	<div class="teams_member_box_all_member_box">
-
-		<!-- チームメンバー1人が入る箱 -->
-		<% @team.users.each do |user| %>
-		<div class="teams_member_box_member_box">
-
-			<div class="teams_member_box_member_box_image_position">
-				<%= attachment_image_tag user, :image, :fill, 200, 200, fallback: "/images/no_image.jpg", class:"teams_member_box_member_image" %>
-			</div>
-
-			<!-- チームメンバー1人が入る箱の画像より下の部分の幅 -->
-			<div class="teams_member_box_member_width">
-
-				<div class="teams_member_box_member_edit_link_position">
-				<%= link_to teams_member_edit_path(team_id: @team.id, user_id: user.id), method: :get, class:"teams_member_box_member_edit_link" do %>
-					<i class="fas fa-pencil-alt"></i>
+				<%= link_to "/teams/#{@team.id}/member", class:"teams_show_left_box_row1_post_link" do %>
+					<div class="teams_show_left_box_row1_btn">
+						<div>投稿</div>
+						<div><%= @team.posts.count %></div>
+					</div>
 				<% end %>
+
+			</div>
+
+			<div class="teams_show_left_box_row1_title">
+
+				<%= link_to "/teams/#{@team.id}/member", class:"teams_show_left_box_row1_post_link" do %>
+					<div class="teams_show_left_box_row1_btn">
+						<div>投稿</div>
+						<div><%= @team.posts.count %></div>
+					</div>
+				<% end %>
+
+			</div>
+		</div>
+		<!-- チーム詳細の左側の箱の、いいね総計、投稿数、メンバー数の行fin -->
+
+	</div>
+	<!-- チーム詳細の左の箱fin -->
+
+
+	<!-- pjaxで入れ替える全体の箱 -->
+	<main id="barba-wrapper">
+	<div class="barba-container">
+
+
+
+	<!-- チーム詳細画面の右側の箱 -->
+	<div class="teams_show_box_right_box">
+
+		<% @team.members.each do |member| %>
+
+		<div class="teams_show_box_right_member_a_row clearfix">
+
+			<!-- チームメンバーの右側の箱の画像の位置 -->
+			<div class="teams_show_box_right_member_a_row_image_position">
+				<%= attachment_image_tag member.user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class:"teams_show_box_right_member_a_row_image" %>
+			</div>
+			<!-- チームメンバーの右側の箱の画像の位置fin -->
+
+
+			<!-- チームメンバーの右側の箱の文字部分 -->
+			<div class="teams_show_box_right_member_a_row_letter">
+
+				<div class="teams_show_box_right_member_a_row_name_title">
+					名前
 				</div>
 
-				<div class="teams_member_box_member_box_name_title">
-					Name
+				<div class="teams_show_box_right_member_a_row_name">
+					<%= member.user.name %>
 				</div>
 
-				<div class="teams_member_box_member_box_name">
-					<%= "　" + user.name %>
+				<div class="teams_show_box_right_member_a_row_introduction_title">
+					ひとこと紹介
 				</div>
 
-				<div class="teams_member_box_member_box_position_title">
-					Position
-				</div>
-
-				<div class="teams_member_box_member_box_position">
-					<% @members = Member.where(team_id: @team.id) %>
-					<% @member = @members.find_by(user_id: user.id) %>
-					<% if @member.position == nil %>
-					<%= "　" %>
-					<% else %>
-					<%= "　" + @member.position %>
-					<% end %>
-				</div>
-
-				<div class="teams_member_box_member_box_introduction_title">
-					Introduction
-				</div>
-
-				<div class="teams_member_box_member_box_introduction">
-					<% if @member.introduction == nil %>
-					<%= "　" %>
-					<% else %>
-					<%= "　" + @member.introduction %>
-					<% end %>
+				<div class="teams_show_box_right_member_a_row_introduction">
+					<%= member.introduction %>
 				</div>
 
 			</div>
-			<!-- チームメンバー1人が入る箱の画像より下の部分の幅fin -->
+			<!-- チームメンバーの右側の箱の文字部分fin -->
 
 		</div>
-		<!-- チームメンバー1人が入る箱fin -->
 
 		<% end %>
+		<!-- @team.members.eachのend -->
+
+
 	</div>
-	<!-- タイトルの下のチームメンバー全員が入る箱fin -->
+	<!-- チーム詳細画面の右側の箱fin -->
 
 
+	</div>
+	</main>
+	<!-- pjaxで入れ替える全体の箱fin -->
+
+
+<!-- チーム詳細画面全体の箱fin -->
 </div>
-<!-- チームメンバー画面の箱(チームメンバーが見た場合)fin-->
 
-	<!-- チームメンバーが見たときと見ないときで異なるのはこの箇所のみ -->
-	<% if @members.where(user_id: current_user.id).exists?  %>
-		<%= link_to "/teams/#{@team.id}/member/new", class:"teams_member_box_btn_link" do %>
-			<div class="teams_member_box_create_team_btn">招待</div>
-		<% end %>
+
+<% if @team.members.where(user_id: current_user.id).exists? %>
+	<!-- チーム詳細画面の画像投稿ボタン -->
+	<%= link_to new_post_path(team_id: @team.id), class:"teams_show_new_post_btn_link" do %>
+		<div class="teams_show_new_post_btn">
+			<i class="fas fa-camera"></i>
+			<p>投稿</p>
+		</div>
 	<% end %>
-	<!-- チームメンバーが見たときと見ないときで異なるのはこの箇所のみfin -->
+	<!-- チーム詳細画面の投稿ボタンfin -->
+<% end %>
 
 
 
@@ -96,35 +124,15 @@
 
 
 <script>
-$(document).ready(function() {
+	$(document).ready(function(){
 
+		Barba.Pjax.start();
 
-//やっぱり邪魔なので以下、使用せず。画像拡大に使うといいかも
+		$('.teams_show_right_box_good_count').click(function(){
+			$('.teams_show_favorite_count_modal')
+		});
 
-//$('.teams_member_box_member_box').click(function(){
-//	$('.teams_memver_box_member_box_modal').fadeIn('slow');
-
-//	var e = $(this).clone().addClass('teams_member_box_member_box_after_click');
-//	e.appendTo('.teams_memver_box_member_box_modal');
-
-
-//});
-
-//$('.teams_memver_box_member_box_modal').click(function(){
-//	$(this).fadeOut('slow');
-//	$('.teams_member_box_member_box_after_click').fadeOut('slow');
-
-//});
-
-//	var box_width = $('.teams_member_box').width();
-//	var title_width = $('.teams_member_box_title').width();
-//	var title_left = box_width - title_width ;
-//	var half_title_left = title_left / 2
-
-//	$('.teams_member_box_title').css('margin-left', half_title_left + "px")
-
-
-});
+	});
 </script>
 
 

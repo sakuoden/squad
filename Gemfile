@@ -75,7 +75,7 @@ gem "jquery-rails"
 
 gem 'pry-byebug', group: :developmentra
 
-
+gem 'websocket-rails'
 
 
 

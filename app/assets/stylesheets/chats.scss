@@ -6,15 +6,14 @@
 
 /*チーム詳細画面のチャット画面の全体の箱*/
 .teams_show_box_right_chat_box {
-	height: 1000px;
+/*	height: 1000px;*/
 /*	background-color: blue;*/
 	width: 500px;
-	padding: 0 2% 2% 2%;
+	padding: 0 2% 0 2%;
 }
 
 /*チーム詳細画面のチャット画面のサイズ合わせの箱*/
 .teams_show_box_right_chat_smallbox {
-	height: 100%;
 /*	background-color: orange;*/
 	width: 100%;
 	border: solid 1px #ccc;
@@ -28,7 +27,7 @@
 	text-align: right;
 	font-size: 35px;
 	padding-right: 3%;
-	background-color: #a1a5a8;
+	background-color: #c0c2c4;
 	border-bottom: solid 1px #ccc;
 }
 
@@ -45,7 +44,137 @@
 
 /*チーム詳細画面のチャット画面のチャット内容の画面*/
 .teams_show_box_right_chat_smallbox_chat_screen {
-	height: 500px;
+	height: 450px;
 	background-color: white;
 	width: 100%;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
+
+
+/*チーム詳細画面のチャット画面の1つの行*/
+.teams_show_box_right_chat_smallbox_chat_row {
+/*	background-color: green;*/
+	width: 100%;
+	padding: 2% 4%;
+	text-align: left;
+}
+
+/*チーム詳細画面のチャット画面の行のユーザー画像*/
+.teams_show_box_right_chat_smallbox_image {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+
+/*チーム詳細画面のチャット画面の吹き出し*/
+.teams_show_box_right_chat_smallbox_chat_ballon {
+	max-width: 70%;
+	min-height: 50px;
+	padding: 3%;
+	background-color: white;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 25px;
+	border: solid 1px #B8BCC0;
+	font-size: 14px;
+	margin-left: 5%;
+	position: relative;
+}
+
+/*チーム詳細画面のチャット画面の吹き出しの三角*/
+.teams_show_box_right_chat_smallbox_chat_ballon:before {
+	content:"";
+	position: absolute;
+	top: 29%;
+	left: -18px;
+	border: solid 10px transparent;
+	border-right: solid 10px white;
+	z-index: 20;
+}
+
+/*チーム詳細画面のチャット画面の吹き出しの三角*/
+.teams_show_box_right_chat_smallbox_chat_ballon:after {
+	content:"";
+	position: absolute;
+	top: 29%;
+	left: -19px;
+	border: solid 10px transparent;
+	border-right: solid 10px #B8BCC0;
+	z-index: 10;
+}
+
+
+
+
+/*チーム詳細画面のチャット画面と入力画面の区切り*/
+.teams_show_box_right_chat_smallbox_border {
+	width: 100%;
+	background-color: #c0c2c4;
+	height: 5px;
+	border-top: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット画面のチャット内容入力フォーム*/
+.teams_show_box_right_chat_smallbox_chat_form_position {
+	width: 100%;
+}
+
+/*チーム詳細画面のチャット内容入力フォーム*/
+.teams_show_box_right_chat_smallbox_chat_form {
+	width: 100%;
+	height: 100px;
+	border: 0;
+	outline: none;
+	font-size: 16px;
+	resize: none;
+	vertical-align: top;
+}
+
+/*チーム詳細画面のチャット送信ボタンのための1行*/
+.teams_show_box_right_chat_smallbox_chat_form_row {
+	background-color: white;
+	text-align: right;
+}
+
+/*チーム詳細画面のチャットの送信ボタン*/
+.teams_show_box_right_chat_btn {
+	background-color: white;
+	padding: 2% 4%;
+	border: none;
+	box-shadow: -2px 0px 4px gray;
+	border: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット送信ボタンのマウス*/
+.teams_show_box_right_chat_btn:hover {
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

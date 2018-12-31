@@ -21,7 +21,7 @@
 		<div class="teams_show_left_box_btn_row">
 
 			<%= link_to "/teams/#{@team.id}", class:"teams_show_left_box_btn_row_link" do %>
-				<div class="teams_show_left_box_btn teams_show_left_box_btn_active">投稿</div>
+				<div class="teams_show_left_box_btn">投稿</div>
 			<% end %>
 
 			<%= link_to "/teams/#{@team.id}/member", class:"teams_show_left_box_btn_row_link" do %>
@@ -201,6 +201,8 @@
   		return FadeTransition;
 	};
 
+	$('.teams_show_left_box_btn').removeClass('teams_show_left_box_btn_active');
+	$('.teams_show_left_box_btn').eq(0).addClass('teams_show_left_box_btn_active')
 
 
 

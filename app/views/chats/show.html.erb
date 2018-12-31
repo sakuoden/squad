@@ -40,61 +40,47 @@
 	<!-- チーム詳細の左の箱fin -->
 
 
+
+
 	<!-- pjaxで入れ替える全体の箱 -->
 	<main id="barba-wrapper">
 	<div class="barba-container">
 
 
+		<!-- チーム詳細画面の右側の箱 -->
+		<div class="teams_show_box_right_chat_box">
 
-	<!-- チーム詳細画面の右側の箱 -->
-	<div class="teams_show_box_right_box">
+			<div class="teams_show_box_right_chat_smallbox">
 
-		<% @team.members.each do |member| %>
-
-		<div class="teams_show_box_right_member_a_row clearfix">
-
-			<!-- チームメンバーの右側の箱の画像の位置 -->
-			<div class="teams_show_box_right_member_a_row_image_position">
-				<%= attachment_image_tag member.user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class:"teams_show_box_right_member_a_row_image" %>
-			</div>
-			<!-- チームメンバーの右側の箱の画像の位置fin -->
-
-
-			<!-- チームメンバーの右側の箱の文字部分 -->
-			<div class="teams_show_box_right_member_a_row_letter">
-
-				<div class="teams_show_box_right_member_a_row_name_title">
-					名前
+				<!-- チーム詳細画面の右側のノートアイコンのある行 -->
+				<div class="teams_show_box_right_chat_smallbox_note_row">
+					<%= link_to "/", class:"teams_show_box_right_chat_small_box_note_link" do %>
+						<i class="fas fa-book-open tems_show_box_right_chat_small_box_icon"></i>
+					<% end %>
 				</div>
+				<!-- チーム詳細画面の右側のノートアイコンのある行fin -->
 
-				<div class="teams_show_box_right_member_a_row_name">
-					<%= member.user.name %>
-				</div>
+				<!-- チーム詳細画面の右側のトーク内容が入る箱 -->
+				<div class="teams_show_box_right_chat_smallbox_chat_screen">
+					<%= @chats.each do |chat| %>
+						<div class="chats" data-id=<%= chat.id %>>
+						</div>
+					<% end %>
 
-				<div class="teams_show_box_right_member_a_row_introduction_title">
-					ひとこと紹介
 				</div>
-
-				<div class="teams_show_box_right_member_a_row_introduction">
-					<%= member.introduction %>
-				</div>
+				<!-- チーム詳細画面の右側のトーク内容が入る箱fin -->
 
 			</div>
-			<!-- チームメンバーの右側の箱の文字部分fin -->
+
 
 		</div>
-
-		<% end %>
-		<!-- @team.members.eachのend -->
-
-
-	</div>
-	<!-- チーム詳細画面の右側の箱fin -->
+		<!-- チーム詳細画面の右側の箱fin -->
 
 
 	</div>
 	</main>
 	<!-- pjaxで入れ替える全体の箱fin -->
+
 
 
 <!-- チーム詳細画面全体の箱fin -->
@@ -122,9 +108,38 @@
 
 		Barba.Pjax.start();
 
+		$(function(){
+			setInterval(update, 10000);
+		});
+
+		function update(){
+			var chat_id = $('.chats:last').data('id')
+
+			$.ajax({
+				url: location.href,
+				type: 'GET',
+				data: {
+					chat: {id: chat_id}
+				},
+				dataType: 'json'
+			})
+
+		}
 
 	});
+
+
+
 </script>
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,51 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*-----------チーム詳細画面で遷移するチャットページ*/
+
+/*チーム詳細画面のチャット画面の全体の箱*/
+.teams_show_box_right_chat_box {
+	height: 1000px;
+/*	background-color: blue;*/
+	width: 500px;
+	padding: 0 2% 2% 2%;
+}
+
+/*チーム詳細画面のチャット画面のサイズ合わせの箱*/
+.teams_show_box_right_chat_smallbox {
+	height: 100%;
+/*	background-color: orange;*/
+	width: 100%;
+	border: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット画面のノートボタンの行*/
+.teams_show_box_right_chat_smallbox_note_row {
+/*	height: 50px;*/
+/*	background-color: brown;*/
+	width: 100%;
+	text-align: right;
+	font-size: 35px;
+	padding-right: 3%;
+	background-color: #a1a5a8;
+	border-bottom: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット画面のノートボタンのリンクについて*/
+.teams_show_box_right_chat_small_box_note_link {
+	text-decoration: none;
+	color: #333333;
+}
+
+/*チーム詳細画面のチャット画面のノートボタン*/
+.tems_show_box_right_chat_small_box_icon {
+	color: #333333;
+}
+
+/*チーム詳細画面のチャット画面のチャット内容の画面*/
+.teams_show_box_right_chat_smallbox_chat_screen {
+	height: 500px;
+	background-color: white;
+	width: 100%;
+}

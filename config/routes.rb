@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
  	resources :user_points, only: [:create]
 
+ 	resources :chats, only: [:show]
+
 end

@@ -63,7 +63,7 @@
 				<!-- チーム詳細画面の右側のトーク内容が入る箱 -->
 				<div class="teams_show_box_right_chat_smallbox_chat_screen">
 					<% @team.chats.each do |chat| %>
-
+					<%= link_to user_path(chat.user.id), class:"teams_show_right_box_post_user_link no-barba" do %>
 						<div class="teams_show_box_right_chat_smallbox_chat_row">
 
 							<%= attachment_image_tag chat.user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "teams_show_box_right_chat_smallbox_image" %>
@@ -75,6 +75,9 @@
 						</div>
 
 					<% end %>
+					<!-- link_toのend -->
+					<% end %>
+					<!-- @teams.chats.each の end -->
 				</div>
 				<!-- チーム詳細画面の右側のトーク内容が入る箱fin -->
 

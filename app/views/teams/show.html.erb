@@ -55,12 +55,16 @@
 					<!-- チーム詳細画面で投稿した内容 -->
 					<div class="teams_show_right_box_post">
 
+
 							<!-- チーム詳細画面で投稿した人 -->
+							<%= link_to user_path(post.user.id), class:"teams_show_right_box_post_user_link no-barba" do %>
 							<div class="teams_show_right_box_post_author clearfix">
 								<%= attachment_image_tag post.user, :image,  :fill, 40, 40, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_author_image" %>
 								<div class="teams_show_right_box_post_user_name"><%= post.user.name %></div>
+							<% end %>
 							</div>
 							<!-- チーム詳細画面で投稿した人 -->
+
 
 
 							<!-- チーム詳細画面で投稿した投稿画像 -->

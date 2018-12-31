@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
  	devise_for :users
 
- 	resources :users, only: [:show]
+ 	resources :users, only: [:show, :edit, :update]
  	get '/user' => 'users#mypage'
  	get '/user/edit' => 'users#mypage_edit'
  	patch '/user/edit' => 'users#mypage_update'

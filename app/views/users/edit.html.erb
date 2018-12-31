@@ -16,7 +16,7 @@
 
 
 
-	<%= form_for(@user, url: user_edit_path(id: current_user.id), html: {method: 'patch'}) do |f| %>
+	<%= form_for(@user, url: user_path(id: current_user.id), html: {method: 'patch'}) do |f| %>
 
 		<!-- ユーザーマイページ編集の右側の箱1(プロフィールを編集するページ) -->
 		<div class="users_mypage_edit_right_box users_mypage_edit_active">

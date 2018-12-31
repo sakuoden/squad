@@ -1,23 +1,24 @@
 class UsersController < ApplicationController
 
-	before_action :authenticate_user!, only: [:mypage, :mypage_edit, :mypage_update]
+	before_action :authenticate_user!, only: [:edit, :update]
 
 	def mypage
 	end
 
-	def mypage_edit
+	def edit
 		@user = User.find(current_user.id)
 	end
 
-	def mypage_update
+	def update
 		@user = User.find(params[:id])
 
 		if @user.update(user_params)
 			flash[:notice] = "変更の保存を完了しました"
-			redirect_to user_edit_path
+			redirect_to edit_user_path(@user.id
+				)
 		else
 			flash[:notice] = "変更の保存を失敗しました"
-			render 'users/mypage_edit'
+			render 'users/edit'
 		end
 	end
 

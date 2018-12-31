@@ -50,7 +50,7 @@
 	<div class="teams_show_box_right_box">
 
 		<% @team.members.each do |member| %>
-
+		<%= link_to user_path(member.user.id), class:"teams_show_right_box_post_user_link no-barba" do %>
 		<div class="teams_show_box_right_member_a_row clearfix">
 
 			<!-- チームメンバーの右側の箱の画像の位置 -->
@@ -86,6 +86,8 @@
 
 		<% end %>
 		<!-- @team.members.eachのend -->
+		<% end %>
+		<!-- link_to doのend -->
 
 
 	</div>

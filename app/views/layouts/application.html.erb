@@ -21,7 +21,7 @@
       <div class="header_wide clearfix">
 
         <!-- ヘッダー左側要素（タイトル） -->
-        <%= link_to "/", class: "header_left_link" do %>
+        <%= link_to "/", class: "header_left_link", class:"no-barba" do %>
           <div class="header_left">
             Squad
           </div>
@@ -47,17 +47,17 @@
         <% if user_signed_in? %>
           <!-- ヘッダー右側要素（リンク） -->
           <div class="footer_right clearfix">
-            <%= link_to new_team_path, class: "footer_right_link" do %>
+            <%= link_to new_team_path, class: "footer_right_link no-barba" do %>
               <div class="footer_right_link_btn">
                 チームを作る
               </div>
             <% end %>
-            <%= link_to "/user", class: "footer_right_link" do %>
+            <%= link_to user_path(current_user.id), class: "footer_right_link no-barba" do %>
               <div class="footer_right_link_btn">
                 マイページ
               </div>
             <% end %>
-            <%= link_to destroy_user_session_path, method: :delete, class: "footer_right_link" do %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "footer_right_link no-barba" do %>
               <div class="footer_right_link_btn">
                 ログアウト
               </div>
@@ -72,8 +72,8 @@
           <div class="footer_right clearfix">
             <div class="footer_right_link_blank">
             </div>
-            <%= link_to "ユーザー登録", new_user_registration_path, class: "footer_right_link" %>
-            <%= link_to "ログイン", new_user_session_path, class: "footer_right_link" %>
+            <%= link_to "ユーザー登録", new_user_registration_path, class: "footer_right_link no-barba" %>
+            <%= link_to "ログイン", new_user_session_path, class: "footer_right_link no-barba" %>
           </div>
             <!-- ヘッダー右側要素fin -->
         <% end %>
@@ -85,6 +85,18 @@
 
   </div>
   <!-- wrapfin -->
+
+<script>
+
+  $(document).ready(function(){
+
+
+
+  });
+
+
+</script>
+
 
 
   </body>

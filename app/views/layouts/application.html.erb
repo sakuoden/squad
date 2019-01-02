@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet">
-    <script src="javascripts/barba.min.js" type="text/javascript"></script>
+    <!-- <script src="javascripts/barba.min.js" type="text/javascript"></script> -->
   </head>
 
   <body>
@@ -47,19 +47,24 @@
         <% if user_signed_in? %>
           <!-- ヘッダー右側要素（リンク） -->
           <div class="footer_right clearfix">
+            <%= link_to "/map", class: "footer_right_link no-barba" do %>
+              <div class="footer_right_link_btn">
+                <i class="fas fa-map-marked-alt footer_right_link_btn_icon"></i>
+              </div>
+            <% end %>
             <%= link_to new_team_path, class: "footer_right_link no-barba" do %>
               <div class="footer_right_link_btn">
-                チームを作る
+                <i class="fas fa-handshake footer_right_link_btn_icon"></i>
+              </div>
+            <% end %>
+            <%= link_to "/users/#{current_user.id}/belong", class: "footer_right_link no-barba" do %>
+              <div class="footer_right_link_btn">
+                <i class="fas fa-users footer_right_link_btn_icon"></i>
               </div>
             <% end %>
             <%= link_to user_path(current_user.id), class: "footer_right_link no-barba" do %>
               <div class="footer_right_link_btn">
-                マイページ
-              </div>
-            <% end %>
-            <%= link_to destroy_user_session_path, method: :delete, class: "footer_right_link no-barba" do %>
-              <div class="footer_right_link_btn">
-                ログアウト
+                <i class="fas fa-user footer_right_link_btn_icon"></i>
               </div>
             <% end %>
           </div>
@@ -70,11 +75,22 @@
         <% else %>
           <!-- ヘッダー右側要素（リンク） -->
           <div class="footer_right clearfix">
-            <div class="footer_right_link_blank">
-            </div>
-            <%= link_to "ユーザー登録", new_user_registration_path, class: "footer_right_link no-barba" %>
-            <%= link_to "ログイン", new_user_session_path, class: "footer_right_link no-barba" %>
+            <%= link_to new_user_registration_path, class: "footer_right_link_before no-barba" do %>
+              <div class="footer_right_link_btn">
+                <i class="fas fa-file-signature"></i>
+              </div>
+            <% end %>
+
+
+            <%= link_to new_user_session_path, class: "footer_right_link_before no-barba" do %>
+              <div class="footer_right_link_btn">
+                <i class="fas fa-door-open"></i>
+              </div>
+            <% end %>
+
           </div>
+
+
             <!-- ヘッダー右側要素fin -->
         <% end %>
 

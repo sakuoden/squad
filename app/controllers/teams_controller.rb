@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-
 	before_action :authenticate_user!, only: [:new, :create]
 
 	def new
@@ -29,6 +28,7 @@ class TeamsController < ApplicationController
 	end
 
 
+
 	def member
 		@team = Team.find(params[:id])
 
@@ -43,60 +43,40 @@ class TeamsController < ApplicationController
 		@post_favorite_middles = PostFavoriteMiddle.all
 	end
 
+
 	def member_new
 		@team = Team.find(params[:id])
-		@members = @team.members
+		@member = Member.new
 
+		search = params[:search]
 
-		@result = params[:result]
-		if @result
-			if User.where(['name Like?', "%#{@result}%"]).exists?
-				@users = User.where(['name Like?', "%#{@result}%"])
-			else
-				@users = "ユーザーは存在しません"
-			end
-		elsif @result == ""
-			@users = User.all
+		if search == nil
+		elsif search == ""
+			flash[:notice] = "名前を入力してください。"
+		elsif User.where(['name Like?', "%#{search}%"]).exists?
+			@results = User.where(['name Like?', "%#{search}%"])
+			@member = Member.new
 		else
-			@users = nil
+			flash[:notice] = "検索されたユーザーは存在しません"
 		end
 
-		# ラジオボタンでやるので、選択式は諦める
-		# number = params[:value].to_i
-		# users = @users
-		# member_user = users[number]
+
 	end
 
 	def member_create
-		member = Member.new
-		member.user_id = params[:member]
-		member.team_id = params[:id]
-		member.save
-		# リダイレクトせずひとまずここまで後でやる
-
-	end
-
-	def member_edit
-		@team = Team.find(params[:team_id])
-		@user = User.find(params[:user_id])
-
-		@members = Member.where(team_id: @team.id)
-		@member = @members.find_by(user_id: @user.id)
-	end
-
-	def member_update
-		team = Team.find(params[:member][:team_id])
+		team = Team.find(params[:id])
 		user = User.find(params[:member][:user_id])
 
-		members = Member.where(team_id: team.id)
-		member = members.find_by(user_id: user.id)
-
-		if member.update!(member_position_params)
-			redirect_to "/teams/#{team.id}/member"
+		if team.members.where(user_id: user.id).exsists?
 		else
-			render 'teams/member_edit'
+			team.members.new(user_id: user.id)
+			team.save
 		end
+
+		redirect_to "/teams/#{@team.id}/member"
 	end
+
+
 
 
 	private

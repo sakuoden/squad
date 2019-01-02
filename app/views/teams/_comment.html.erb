@@ -1,6 +1,13 @@
 <% post.post_comments.each do |post_comment| %>
 	<% @user = User.find(post_comment.post_comment_user_id) %>
-	<%= @user.name %>
-	<%= "　" + post_comment.post_comment %><br>
+
+	<%= link_to user_path(@user.id), class:"link" do %>
+		<%= @user.name %>
+	<% end %>
+
+	<span class="users_show_post_comment_font">
+		<%= "　" + post_comment.post_comment %><br>
+	</span>
+
 
 <% end %>

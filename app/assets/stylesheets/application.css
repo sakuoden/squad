@@ -47,7 +47,7 @@ header {
 
 /*ヘッダーの要素の幅*/
 .header_wide {
-	width: 70%;
+	width: 700px;
 	margin: 0 auto;
 }
 
@@ -106,8 +106,9 @@ html,body {
 footer {
 	width: 100%;
 	background-color: #2a2d33;
-	height: 70px;
-	position: absolute;
+	height: 50px;
+	line-height: 49px;
+	position: fixed;
 	bottom: 0px;
 	border: solid 1px #23262b;
 	box-shadow: 0 -1px 3px 3px rgba(0,0,0,0.25);
@@ -116,30 +117,35 @@ footer {
 
 /*フッターの中身の要素の位置関係*/
 .footer_wide {
-	width: 70%;
+/*	background-color: gold;*/
+	width: 700px;
 	margin: 0 auto;
-}
-
-/*フッダー要素の中身の右側の位置(リンク3つの要素をまとめてfloat)*/
-.footer_right {
-	width: 40%;
-	float: right;
-	text-align: right;
-	line-height: 69px;
-}
-
-/*フッダー要素の右側のリンク関係*/
-.footer_right_link {
-	float: left;
-	text-decoration: none;
-	padding: 0 5%;
 }
 
 /*フッターの右側に表示されるボタン*/
 .footer_right_link {
 	color: white;
 	text-decoration: none;
+	float: left;
+	width: 175px;
+	text-align: center;
+	font-size: 23px;
 }
+
+/*フッターのログイン前のボタンのリンク*/
+.footer_right_link_before {
+	color: white;
+	text-decoration: none;
+	float: left;
+	width: 350px;
+	text-align: center;
+	font-size: 23px;
+}
+
+.footer_right_link_before:hover {
+	background-color: #31353c;
+}
+
 
 .footer_right_link:visited {
 	color: white;
@@ -148,6 +154,10 @@ footer {
 
 .footer_right_link:hover {
 	background-color: #31353c;
+}
+
+.footer_right_link_btn_icon {
+	color: white;
 }
 
 /*ログインしていないときに表示されるのの調整*/

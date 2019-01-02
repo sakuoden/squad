@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-
 	before_action :authenticate_user!, only: [:edit, :update]
-
-	def mypage
-	end
 
 	def edit
 		@user = User.find(current_user.id)
@@ -24,7 +20,17 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@post_comment = PostComment.new
 	end
+
+	def follow
+		@user = User.find(params[:id])
+	end
+
+	def belong
+		@user = User.find(params[:id])
+	end
+
 
 	private
 	def user_params

@@ -12,6 +12,12 @@
 			メールアドレスを変更
 		</div>
 
+		<%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしてよろしいですか？' }, class:"link" do %>
+		<div class="users_mypage_edit_left_box_content2 users_mypage_edit_left_box_btn">
+			ログアウト
+		</div>
+		<% end %>
+
 	</div>
 
 

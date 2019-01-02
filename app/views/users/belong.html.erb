@@ -1,6 +1,7 @@
 <!-- ユーザーマイページ左側の箱 -->
 <div class="users_mypage_box">
 
+
 	<% if @user.id == current_user.id %>
 	<div class="users_mypage_left_box_edit_page">
 		<%= link_to edit_user_path(@user.id), class:"no-barba" do %>
@@ -44,62 +45,29 @@
 
 
 
+
 	<!-- pjaxでの切り替えられる箱 -->
 	<main id="barba-wrapper">
 	<div class="barba-container">
 		<div class="users_show_main_content_box">
 
-			<% @user.posts.each do |post| %>
-			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
-				<div class="users_show_main_content_box_post">
+			<!-- マイページのユーザー所属チーム一覧のflex -->
+			<div class="user_show_main_content_box_teams_position">
 
-					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
+				<% @user.members.each do |member| %>
 
-					<!-- いいねとコメントの箱 -->
-					<div class="users_main_content_box_post_favorite_coment_box">
-
-						<%= render partial: 'teams/like_position', locals: {post: post} %>
-
-						<label for="teams_show_right_box_post_comment_form_id">
-							<i class="far fa-comment user_show_post_comment"></i>
-						</label>
-
+					<%= link_to team_path(member.team.id), class:"user_show_main_content_box_link no-barba" do %>
+					<div class="user_show_main_content_box_team_box">
+						<%= attachment_image_tag member.team, :team_image, :fill, 150, 150, fallback: "/images/no_image.jpg", class: "user_show_main_box_team_box_image" %>
+						<p><%= member.team.team_name %></p>
 					</div>
-					<!-- いいねとコメントの箱fin -->
+					<% end %>
+					<!-- link_to のend -->
 
-					<!-- マイページのユーザー投稿の文章の内容 -->
-					<div class="users_show_main_content_box_post_content">
-						<%= post.post_content %>
-					</div>
-					<!-- マイページのユーザー投稿の文章の内容fin -->
+				<% end %>
+				<!-- @user.members.eachのend -->
 
-
-					<!-- マイページのユーザーコメント1つ1つ -->
-					<div class="users_show_main_content_box_post_comment_box">
-						<%= render partial: 'teams/comment_position', locals: {post: post} %>
-					</div>
-					<!-- マイページのユーザーコメント1つ1つfin -->
-
-
-					<!-- マイページユーザー投稿のコメント投稿 -->
-					<div class="users_show_main_content_box_comment_form_position">
-
-						<%= f.text_field :post_comment, placeholder: "コメントを入力...", class:"users_show_main_content_box_post_comment_form", id:"teams_show_right_box_post_comment_form_id" %>
-
-
-						<%= f.hidden_field :post_id, :value => post.id %>
-						<%= button_tag type:"submit", class:"teams_show_right_bix_post_comment_btn" do %>
-							<i class="fab fa-telegram-plane users_show_right_main_content_comment_btn_plane"></i>
-						<% end %>
-
-					</div>
-
-				</div>
-			<% end %>
-			<!-- form_forのend -->
-			<% end %>
-			<!-- @user.posts.eachのend -->
-
+			</div>
 
 		</div>
 	</main>
@@ -114,8 +82,6 @@
 
 <script>
 	$(document).ready(function(){
-
-
 
 		Barba.Pjax.start();
 
@@ -158,20 +124,6 @@
 
 	});
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

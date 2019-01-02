@@ -1,0 +1,17 @@
+<% if team.follows.where(user_id: current_user.id).exists? %>
+
+	<%= link_to follow_path(team.id), method: :delete, class:"link no-barba", remote: true do %>
+		<div class="teams_show_users_follow_btn_after">
+			フォロー中
+		</div>
+	<% end %>
+
+<% else %>
+
+	<%= link_to follows_path(team_id: team.id), method: :post, class:"link no-barba", remote: true do %>
+		<div class="teams_show_users_follow_btn">
+			フォロー
+		</div>
+	<% end %>
+
+<% end %>

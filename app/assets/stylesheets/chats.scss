@@ -8,8 +8,7 @@
 .teams_show_box_right_chat_box {
 /*	height: 1000px;*/
 /*	background-color: blue;*/
-	width: 500px;
-	padding: 0 2% 0 2%;
+	width: 100%;
 }
 
 /*チーム詳細画面のチャット画面のサイズ合わせの箱*/
@@ -47,11 +46,19 @@
 	height: 450px;
 	background-color: white;
 	width: 100%;
-	position: relative;
+	display: flex;
+	flex-direction: column-reverse;
 	overflow-x: hidden;
 	overflow-y: scroll;
 }
 
+
+/*チーム画面のチャット画面の1つの行カレントユーザーの場合*/
+.teams_show_box_right_chat_smallbox_chat_row_current_user {
+	width: 100%;
+	padding: 2% 4%;
+	text-align: right;
+}
 
 /*チーム詳細画面のチャット画面の1つの行*/
 .teams_show_box_right_chat_smallbox_chat_row {
@@ -67,6 +74,35 @@
 	height: 50px;
 	border-radius: 25px;
 }
+
+/*チーム詳細画面のチャット画面の吹き出しカレントユーザーの場合*/
+.teams_show_box_right_chat_smallbox_chat_ballon_current_user {
+	max-width: 70%;
+	min-height: 50px;
+	padding: 3%;
+	background-color: white;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 25px;
+	border: solid 1px #B8BCC0;
+	font-size: 14px;
+	margin-right: 5%;
+	position: relative;
+	background-color:#5ae628;
+}
+
+/*チーム詳細画面のチャット画面の吹き出しの三角カレントユーザーの場合*/
+.teams_show_box_right_chat_smallbox_chat_ballon_current_user:before {
+	content:"";
+	position: absolute;
+	top: 29%;
+	right: -19px;
+	border: solid 10px transparent;
+	border-left: solid 10px #5ae628;
+	z-index: 20;
+}
+
+
 
 /*チーム詳細画面のチャット画面の吹き出し*/
 .teams_show_box_right_chat_smallbox_chat_ballon {

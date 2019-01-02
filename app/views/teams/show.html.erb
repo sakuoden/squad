@@ -1,224 +1,196 @@
-<!-- チーム詳細画面全体の箱 -->
-<div class="teams_show_box">
+<!-- ユーザーマイページ左側の箱 -->
+<div class="users_mypage_box">
 
-	<!-- チーム詳細の左の箱 -->
-	<div class="teams_show_left_box clearfix">
 
-		<!-- チーム詳細の左の箱の画像の位置 -->
-		<div class="teams_show_left_box_image_position">
-			<%= attachment_image_tag @team, :team_image, :fill, 300, 300, fallback: "/images/no_image.jpg", class: "teams_show_box_row1_image" %>
-		</div>
-		<!-- チーム詳細左の箱の画像の位置fin -->
 
-		<!-- チーム詳細の左側の箱のチーム名 -->
-		<div class="teams_show_left_box_team_name">
+	<!-- ユーザーマイページ上側の部分 -->
+	<div class="teams_show_left_box_image_position">
+
+		<div class="users_mypage_left_box_name">
 			<%= @team.team_name %>
 		</div>
-		<!-- チーム詳細の左側の箱のチーム名fin -->
 
-
-		<!-- チーム詳細画面のの左側のボタンの行 -->
-		<div class="teams_show_left_box_btn_row">
-
-			<%= link_to "/teams/#{@team.id}", class:"teams_show_left_box_btn_row_link" do %>
-				<div class="teams_show_left_box_btn">投稿</div>
-			<% end %>
-
-			<%= link_to "/teams/#{@team.id}/member", class:"teams_show_left_box_btn_row_link" do %>
-				<div class="teams_show_left_box_btn">メンバー</div>
-			<% end %>
-
-			<%= link_to "/chats/#{@team.id}", class:"teams_show_left_box_btn_row_link" do %>
-				<div class="teams_show_left_box_btn">トーク</div>
-			<% end %>
-
-		</div>
-		<!-- チーム詳細画面のの左側のボタンの行fin -->
-
+		<%= attachment_image_tag @team, :team_image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "teams_show_left_box_image" %>
 
 	</div>
-	<!-- チーム詳細の左の箱fin -->
+	<!-- ユーザーマイページ上側の部分fin -->
 
 
 
+	<!-- ユーザーマイページのフォロー、チーム招待の行 -->
+	<div class="teams_show_users_follow_invite_row">
 
-		<!-- pjaxで入れ替える全体の箱 -->
-		<main id="barba-wrapper">
-		<div class="barba-container">
+		<span id="teams_show_users_follow_position">
+			<%= render partial:'follows/follow', locals: {team: @team} %>
+		</span>
 
-		<!-- チーム詳細画面の右側の箱 -->
-		<div class="teams_show_box_right_box">
-			<% @posts.each do |post| %>
+		<%= link_to "/teams/#{@team.id}/member/new", class:"link no-barba" do %>
+			<div class="teams_show_users_invite_btn">
+				招待
+			</div>
+		<% end %>
 
-				<%= form_for(@post_comment, data: {remote: true}) do |f| %>
-
-					<!-- チーム詳細画面で投稿した内容 -->
-					<div class="teams_show_right_box_post">
-
-
-							<!-- チーム詳細画面で投稿した人 -->
-							<%= link_to user_path(post.user.id), class:"teams_show_right_box_post_user_link no-barba" do %>
-							<div class="teams_show_right_box_post_author clearfix">
-								<%= attachment_image_tag post.user, :image,  :fill, 40, 40, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_author_image" %>
-								<div class="teams_show_right_box_post_user_name"><%= post.user.name %></div>
-							<% end %>
-							</div>
-							<!-- チーム詳細画面で投稿した人 -->
+	</div>
+	<!-- ユーザーマイページのフォロー、チーム招待の行fin -->
 
 
 
-							<!-- チーム詳細画面で投稿した投稿画像 -->
-							<%= attachment_image_tag post, :post_image,  :fill, 300, 300, fallback: "no_image.jpg", class:"teams_show_rihgt_box_post_image" %>
-							<!-- チーム詳細画面で投稿した投稿画像fin -->
+	<!-- ユーザーマイページのフォロー、所属の位置 -->
+	<div class="users_show_follow_belong_position">
+
+		<%= link_to team_path(@team.id), class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+		<% end %>
 
 
-							<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱 -->
-							<div class="teams_show_right_box_post_good_comment_box">
-
-								<%= render partial: 'teams/like_position', locals: {post: post} %>
-
-									<label for="teams_show_right_box_post_comment_form_id">
-										<i class="far fa-comment"></i>
-									</label>
-							</div>
-							<!-- チーム詳細画面で投稿した内容へのいいね、コメントボタンの箱fin -->
+		<%= link_to "/teams/#{@team.id}/member", class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @team.members.count %></span><span> member</span>
+		<% end %>
 
 
-							<!-- チーム詳細画面で投稿した投稿内容 -->
-							<div class="teams_show_right_box_post_content">
-								<%= post.post_content %>
-							</div>
-							<!-- チーム詳細画面で投稿した投稿内容fin -->
+		<%= link_to chat_path(@team.id), class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= "#{@team.chats.count}" %></span><span> talk</span>
+		<% end %>
+
+	</div>
+	<!-- ユーザーマイページのフォロー、所属の位置fin -->
 
 
-							<!-- チーム詳細画面で投稿した内容に対するコメント -->
-							<div class="teams_show_right_box_post_content_comment">
 
-								<!-- チーム詳細画面の投稿内容に対するコメント1つ1つ -->
-								<div class="teams_show_right_box_content_one_comment">
-									<%= render partial: 'teams/comment_position', locals: {post: post} %>
-								</div>
-								<!-- チーム詳細画面の投稿内容に対するコメント1つ1つfin -->
+	<!-- pjaxでの切り替えられる箱 -->
+	<main id="barba-wrapper">
+	<div class="barba-container">
+		<div class="users_show_main_content_box">
 
-							</div>
-							<!-- チーム詳細画面で投稿した内容に対するコメントfin -->
+			<% @team.posts.each do |post| %>
+			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
+				<div class="users_show_main_content_box_post">
 
+					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
 
-							<!-- チーム詳細画面のコメント入力欄 -->
-							<div class="teams_show_right_box_post_comment_form_position clearfix">
-								<%= f.text_field :post_comment, placeholder: "コメントを入力", class:"teams_show_right_box_post_comment_form", id:"teams_show_right_box_post_comment_form_id" %>
-								<div class="teams_show_right_box_post_btn_position">
-									<%= f.hidden_field :post_id, :value => post.id %>
-									<%= button_tag type:"submit", class:"teams_show_right_box_post_btn" do %>
-										<i class="fab fa-telegram-plane"></i>
-									<% end %>
+					<!-- いいねとコメントの箱 -->
+					<div class="users_main_content_box_post_favorite_coment_box">
 
-								</div>
-							</div>
-							<!-- チーム詳細画面のコメント入力欄fin -->
+						<%= render partial: 'teams/like_position', locals: {post: post} %>
 
-
+						<label for="teams_show_right_box_post_comment_form_id">
+							<i class="far fa-comment user_show_post_comment"></i>
+						</label>
 
 					</div>
-					<!-- チーム詳細画面で投稿した内容fin -->
+					<!-- いいねとコメントの箱fin -->
 
-				<% end %>
-				<!-- form_forのend -->
-
-
-					<!-- チーム詳細画面のモーダル画面 -->
-					<div class="teams_show_favorite_count_modal_">
+					<!-- マイページのユーザー投稿の文章の内容 -->
+					<div class="users_show_main_content_box_post_content">
+						<%= post.post_content %>
 					</div>
-					<!-- チーム詳細画面のモーダル画面fin -->
+					<!-- マイページのユーザー投稿の文章の内容fin -->
 
+
+					<!-- マイページのユーザーコメント1つ1つ -->
+					<div class="users_show_main_content_box_post_comment_box">
+						<%= render partial: 'teams/comment_position', locals: {post: post} %>
+					</div>
+					<!-- マイページのユーザーコメント1つ1つfin -->
+
+
+					<!-- マイページユーザー投稿のコメント投稿 -->
+					<div class="users_show_main_content_box_comment_form_position">
+
+						<%= f.text_field :post_comment, placeholder: "コメントを入力...", class:"users_show_main_content_box_post_comment_form", id:"teams_show_right_box_post_comment_form_id" %>
+
+
+						<%= f.hidden_field :post_id, :value => post.id %>
+						<%= button_tag type:"submit", class:"teams_show_right_bix_post_comment_btn" do %>
+							<i class="fab fa-telegram-plane users_show_right_main_content_comment_btn_plane"></i>
+						<% end %>
+
+					</div>
+
+				</div>
 			<% end %>
-			<!-- @postのeachのend -->
+			<!-- form_forのend -->
+			<% end %>
+			<!-- @user.posts.eachのend -->
 
 
 		</div>
-		<!-- チーム詳細画面の右側の箱fin -->
-
-		</div>
-		</main>
-		<!-- pjaxで入れ替える全体の箱fin -->
+	</main>
+	</div>
+	<!-- pjaxでの切り替えられる箱fin -->
 
 
 
-<!-- チーム詳細画面全体の箱fin -->
-</div>
 
 
-<% if @team.members.where(user_id: current_user.id).exists? %>
-	<!-- チーム詳細画面の画像投稿ボタン -->
-	<%= link_to new_post_path(team_id: @team.id), class:"teams_show_new_post_btn_link" do %>
-		<div class="teams_show_new_post_btn">
-			<i class="fas fa-camera"></i>
-			<p>投稿</p>
-		</div>
+	<% if @team.members.where(user_id: current_user.id).exists? %>
+		<!-- チーム詳細画面の画像投稿ボタン -->
+		<%= link_to new_post_path(team_id: @team.id), class:"teams_show_new_post_btn_link" do %>
+			<div class="teams_show_new_post_btn">
+				<i class="fas fa-camera"></i>
+				<p>投稿</p>
+			</div>
+		<% end %>
+		<!-- チーム詳細画面の投稿ボタンfin -->
 	<% end %>
-	<!-- チーム詳細画面の投稿ボタンfin -->
-<% end %>
 
 
 
 
+
+
+</div>
+<!-- ユーザーマイページ左側の箱fin -->
 
 
 <script>
 	$(document).ready(function(){
 
+
+
 		Barba.Pjax.start();
 
-	var FadeTransition = Barba.BaseTransition.extend({
- 		start: function() {
+		var FadeTransition = Barba.BaseTransition.extend({
+	 		start: function() {
 
-	    Promise
-    	 .all([this.newContainerLoading, this.fadeOut()])
-     	 .then(this.fadeIn.bind(this));
-  		},
+		    Promise
+	    	 .all([this.newContainerLoading, this.fadeOut()])
+	     	 .then(this.fadeIn.bind(this));
+	  		},
 
-	fadeOut: function() {
-    	return $(this.oldContainer).animate({ opacity: 0 }).promise();
-  	},
+		fadeOut: function() {
+	    	return $(this.oldContainer).animate({ opacity: 0 }).promise();
+	  	},
 
-	fadeIn: function() {
+		fadeIn: function() {
 
-    	var _this = this;
-    	var $el = $(this.newContainer);
+	    	var _this = this;
+	    	var $el = $(this.newContainer);
 
-	    $(this.oldContainer).hide();
+		    $(this.oldContainer).hide();
 
-		$el.css({
-	  		visibility : 'visible',
-	  		opacity : 0
-		});
+			$el.css({
+		  		visibility : 'visible',
+		  		opacity : 0
+			});
 
-	    $el.animate({ opacity: 1 }, 400, function() {
-	      _this.done();
-	    });
+		    $el.animate({ opacity: 1 }, 400, function() {
+		      _this.done();
+		    });
 
-		  }
+			  }
 
-		});
+			});
 
-	Barba.Pjax.getTransition = function() {
-  		return FadeTransition;
-	};
+		Barba.Pjax.getTransition = function() {
+	  		return FadeTransition;
+		};
 
-	$('.teams_show_left_box_btn').removeClass('teams_show_left_box_btn_active');
-	$('.teams_show_left_box_btn').eq(0).addClass('teams_show_left_box_btn_active')
-
-
-
-	$('.teams_show_left_box_btn').click(function(){
-
-		$('.teams_show_left_box_btn').removeClass('teams_show_left_box_btn_active');
-		$(this).addClass('teams_show_left_box_btn_active');
-
-	});
 
 	});
 </script>
+
+
 
 
 

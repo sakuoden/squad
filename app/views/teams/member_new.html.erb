@@ -1,143 +1,72 @@
-<!-- URLを直接入力した場合 -->
-<% if @members.where(user_id: current_user.id).exists? %>
+<div class="teams_member_new_box">
 
-	<!-- メンバーだった場合 -->
+	<%= form_tag("/teams/#{@team.id}/member/new", method: :get) do %>
 
-	<!-- メンバー新規加入画面の箱 -->
-	<div class="teams_member_new_member">
+		<div class="teams_member_search_position">
+			<%= text_field_tag :search, "", placeholder:"名前を入力...", class:"teams_member_serch_form" %>
 
-		<div class="teams_member_new_member_title">
-			<%= @team.team_name + "　メンバー招待" %>
-		</div>
-
-
-		<!-- メンバー新規加入画面の検索フォーム -->
-		<div class="teams_member_new_member_search_form_position">
-			<%= form_tag "/teams/#{@team.id}/member/new", method: :get do %>
-				<%= text_field_tag :result, "",placeholder: "名前を入力してください", class:"teams_member_new_member_search_form" %>
-				<%= submit_tag("検索") %>
+			<%= button_tag type:"submit", class:"teams_member_search_btn" do %>
+				<i class="fas fa-search teams_member_search_btn_icon"></i>
 			<% end %>
 		</div>
-		<!-- メンバー新規加入画面の検索フォームfin -->
+
+	<% end %>
+	<!-- form_tagのend -->
+
+</div>
+
+<div class="teams_member_new_box">
+
+	<% if flash[:notice] %>
+
+		<div class="teams_member_flash"><%= flash[:notice] %></div>
+
+	<% else %>
+
+		<%= form_for(@member, url: "/teams/#{@team.id}/member/create", html: {method: :post}) do |f| %>
+
+			<% if @results %>
+				<div class="teams_member_new_box_flex">
+				<% @results.each do |result| %>
+
+					<label for="teams_member_new_id_<%= result.id %>">
+						<div class="teams_member_search_result_box">
+							<%= attachment_image_tag result, :image, :fill, 150, 150, fallback: "/images/no_image.jpg", class: "teams_member_new_user_image" %>
+							<%= f.radio_button :user_id, "#{result.id}", id:"teams_member_new_id_#{result.id}", class:"teams_member_new_radio_button" %>
+							<%= result.name %>
+						</div>
+					</label>
+
+				<% end %>
+				<!-- @resuluts.eachのend -->
+				</div>
+
+				<div class="teams_member_new_btn_position">
+				<%= f.submit "チームに招待する", class:"teams_member_new_btn" %>
+				</div>
+			<% end %>
+			<!-- if @results のend -->
 
 
-		<!-- メンバー検索結果 -->
-		<!-- メンバーに追加する人を送るform -->
-		<%= form_tag "/teams/#{@team.id}/member/create", method: :post do %>
-
-			<!-- メンバー検索結果の位置 -->
-			<div class="teams_member_new_member_search_result_position">
-				<table>
-					<tr>
-						<th></th>
-						<th></th>
-						<th>名前</th>
-						<th>所属チーム</th>
-					</tr>
-						<% if @users != nil %>
-							<% if @users == "ユーザーは存在しません" %>
-								<div class="search_result_no_user"><%= @users %></div>
-
-							<%else %>
-							<!-- メンバー新規加入画面の検索結果 -->
-							<% @users.each do |user| %>
-
-								<tr class="teams_member_new_member_search_result">
-									<td>
-										<%= radio_button_tag :member, user.id %>
-									</td>
-									<td>
-										<%= attachment_image_tag user, :image, :fill, 200, 200,fallback:"/images/no_image.jpg", class:"teams_member_new_member_search_result_image"  %>
-									</td>
-									<td>
-										<%= user.name %>
-									</td>
-									<td>
-										<% user.teams.each do |team| %>
-										<%= team.team_name %>
-										<br>
-										<% end %>
-									</td>
-
-								</tr>
-
-							<% end %>
-							<!-- eachのend -->
-
-							<% end %>
-							<!-- ユーザーは存在しませんのend -->
-							<!-- メンバー新規加入画面の検索結果fin -->
-						<% end %>
-				</table>
-			</div>
 
 
-			<!-- メンバー新規加入画面のメンバー追加ボタンの位置 -->
-			<div class="temes_member_new_member_new_member_btn_position">
-				<%= submit_tag("メンバーを追加する") %>
-			</div>
-			<!-- メンバー新規加入画面のメンバー追加ボタンの位置fin -->
 
 		<% end %>
-		<!-- メンバーに追加する人を送るform fin -->
-		<!-- メンバー検索結果fin -->
+		<!-- form_forのend -->
 
+	<% end %>
+	<!-- if flashのend -->
 
-	</div>
-	<!-- メンバー新規加入画面の箱end -->
+</div>
 
 
 <script>
 	$(document).ready(function(){
 
-
-//ラジオボタンでやるので選択式は諦める
-//		$('.teams_member_new_member_search_result').click(function(){
-
-//			$('.teams_member_new_member_search_result').removeClass('teams_member_new_member_search_result_action');
-
-//			$('.teams_member_new_member_search_result_hidden').remove('.teams_member_new_member_search_result_hidden')
-
-//			$(this).addClass('teams_member_new_member_search_result_action');
-
-
-//			var number = $('.teams_member_new_member_search_result').index(this);
-//			$(this).append(`<input type="hidden" name="number" value=${number} class="teams_member_new_member_search_result_hidden">`);
-
-
-//		});
-
-
-
+		$('.teams_member_search_result_box').click(function(){
+			$('.teams_member_search_result_box').removeClass('teams_member_search_resuli_box_active');
+			$(this).addClass('teams_member_search_resuli_box_active');
+		});
 
 	});
 </script>
-
-
-
-<% else %>
-
-	<!-- メンバーじゃなかった場合 -->
-	<% redirect_to '/' %>
-
-<% end %>
-<!-- URLを直接入力した場合fin -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

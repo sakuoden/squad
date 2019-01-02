@@ -7,42 +7,6 @@
 	<div class="teams_new_box_wide">
 
 
-		<!-- チーム新規作成画面のタイトル -->
-		<div class="teams_new_box_title">
-			チーム新規作成
-		</div>
-		<!-- チーム新規作成画面のタイトルfin -->
-
-
-		<!-- チーム新規作成画面のチーム名入力のフォームのタイトル(チーム) -->
-		<div class="teams_new_box_team_name_form_title">
-			チーム名
-		</div>
-		<!-- チーム新規作成画面のチーム名入力フォームのタイトル(チーム)fin -->
-
-
-		<!-- チーム新規作成画面のチーム名入力のフォームの位置 -->
-		<div class="teams_new_box_team_name_form_position">
-			<%= f.text_field :team_name, class: "teams_new_box_team_neme_form" %>
-		</div>
-		<!-- チーム新規作成画面のチーム名入力フォームの位置fin-->
-
-		<!-- チーム新規作成画面の画像選択フォーム -->
-		<div class="teams_new_box_team_image_form_position">
-			<%= f.attachment_field :team_image, class: "teams_new_box_team_image_form" %>
-		</div>
-		<!-- チーム新規作成画面の画像選択フォームfin-->
-
-	</div>
-	<!-- チーム新規作成画面の箱の中の幅(プレビュー含めず)fin -->
-
-
-		<!-- チーム新規作成画面の画像のプレビュー表示 -->
-		<div class="teams_new_box_team_image_preview_position">
-			<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "teams_new_box_team_image_preview" %>
-		</div>
-		<!-- チーム新規作成画面の画像のプレビュー表示fin -->
-
 
 
 		<!-- チーム新規作成画面の都道県の入力フォーム -->
@@ -98,6 +62,31 @@
 								  ],{}, class:"teams_new_box_place_select" %>
 		</div>
 		<!-- チーム新規作成画面の都道県の入力フォームfin -->
+
+
+
+
+		<!-- チーム新規作成画面のチーム名入力のフォームの位置 -->
+		<div class="teams_new_box_team_name_form_position">
+			<%= f.text_field :team_name, placeholder:"チーム名を入力...", class: "teams_new_box_team_neme_form" %>
+		</div>
+		<!-- チーム新規作成画面のチーム名入力フォームの位置fin-->
+
+		<!-- チーム新規作成画面の画像選択フォーム -->
+		<div class="teams_new_box_team_image_form_position">
+			<%= f.attachment_field :team_image, class: "teams_new_box_team_image_form" %>
+		</div>
+		<!-- チーム新規作成画面の画像選択フォームfin-->
+
+	</div>
+	<!-- チーム新規作成画面の箱の中の幅(プレビュー含めず)fin -->
+
+
+		<!-- チーム新規作成画面の画像のプレビュー表示 -->
+		<div class="teams_new_box_team_image_preview_position">
+			<%= attachment_image_tag @user, :image, :fill, 300, 300, fallback: "/images/no_image.jpg", class: "teams_new_box_team_image_preview" %>
+		</div>
+		<!-- チーム新規作成画面の画像のプレビュー表示fin -->
 
 
 

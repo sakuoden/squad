@@ -134,28 +134,41 @@
 /*ユーザーマイページの左側の箱*/
 .users_mypage_box {
 	background-color: white;
-	width: 30%;
+	width: 600px;
 	margin: 0 auto;
 	margin-top: 2%;
 	margin-bottom: 2%;
-	padding: 1% 2%;
-	border: solid 1px #e6ecf0;
+	padding: 1%;
+	border: solid 2px #DDD;
 }
 
 /*ユーザーマイページの左側の箱のプロフ画像の位置*/
 .users_mypage_left_box_image_position {
-	width: 100%;
+	padding: 1% 3%;
+	display: flex;
+}
+
+/*チーム詳細画面の左側の箱のプロフ画像の位置*/
+.teams_show_left_box_image_position {
+/*	background-color: gold;*/
 	text-align: center;
 }
 
 /*ユーザーマイページの左側の箱のプロフ画像*/
 .users_mypage_left_box_image {
-	border-radius: 100px;
+	width: 100px;
+	height: 100px;
 }
+
+/*チーム詳細画面の左側のプロフ画像*/
+.teams_show_left_box_image {
+	width: 200px;
+	height: 200px;
+}
+
 
 /*ユーザーマイページの左側の編集ページへのリンク*/
 .users_mypage_left_box_edit_page {
-	margin-top: 5%;
 	text-align: right;
 }
 
@@ -165,57 +178,204 @@
 	font-size: 20px;
 }
 
-
-/*ユーザーマイページの左側のタイトル(名前)*/
-.users_mypage_left_box_title_name {
-	margin-top: 5%;
-	font-size: 20px;
-	font-weight: bold;
-}
-
 /*ユーザーマイページの左側の名前*/
 .users_mypage_left_box_name {
-	margin-left: 7%;
-	font-size: 16px;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 3% 5%;
+	color: #222;
 }
 
-/*ユーザーマイページの左側のタイトル(所属チーム)*/
-.users_mypage_left_box_title_team {
-	margin-top: 10%;
-	font-size: 20px;
+
+
+
+
+/*ユーザーマイページのフォロー、所属の位置*/
+.users_show_follow_belong_position {
+/*	background-color: yellow;*/
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 3%;
+}
+
+/*ユーザーマイページのフォロー、所属のリンク*/
+.users_show_follow_belong_link {
+/*	background-color: blue;*/
+	text-decoration: none;
+	color: #333333;
+	width: 30%;
+	text-align: center;
+}
+
+/*ユーザーマイページのフォローと所属の数のフォント*/
+.user_show_follow_belong_count {
+	font-size: 25px;
 	font-weight: bold;
 }
 
-/*ユーザーマイページの左側の所属チーム*/
-.users_mypage_left_box_team {
-/*	background-color: red;
-	height: 100px;*/
+
+
+
+
+
+
+/*pjaxで切り替えられる箱*/
+.users_show_main_content_box {
+/*	background-color: green;*/
+	padding: 3%;
+	border-top: solid 1px #DDD;
+}
+
+
+/*マイページのユーザー投稿一覧の位置*/
+.users_show_main_content_box_post {
+/*	background-color: green;*/
+	width: 500px;
+	margin: 0 auto;
+	margin-bottom: 3%;
+}
+
+/*マイページのユーザー投稿の画像*/
+.user_show_main_content_box_post_image {
+	width: 500px;
+	height: 500px;
+	vertical-align: top;
+}
+
+/*マイページのユーザー投稿のいいね、コメントの箱*/
+.users_main_content_box_post_favorite_coment_box {
+/*	background-color: yellow;*/
+	width: 100%;
+	height: 30px;
+	border: solid 1px #c1c1c1;
+	border-top: none;
+	padding-left: 2%;
+}
+
+/*マイページのユーザー投稿のいいね前*/
+.user_show_post_before_favorite_favorite {
+	font-size: 30px;
+}
+
+/*マイページのユーザー投稿のいいね後*/
+.user_show_post_after_favorite_favorite {
+	font-size: 30px;
+	color: red;
+}
+
+/*マイページのユーザー投稿のいいねの数*/
+.user_show_post_favorite_count {
+	font-size: 25px;
+}
+
+/*マイページのユーザー投稿のコメント*/
+.user_show_post_comment {
+	font-size: 30px;
 	margin-left: 7%;
-	margin-top: 3%;
-	overflow-y: scroll;
+}
+
+/*マイページのユーザー投稿のコメントにマウスを乗っける*/
+.user_show_post_comment:hover {
+	cursor: pointer;
+}
+
+
+/*マイページのユーザー投稿の文章の内容*/
+.users_show_main_content_box_post_content {
+	width: 100%;
+	height: 100px;
+	border: solid 1px #c1c1c1;
+	border-top: none;
 	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
-/*ユーザーマイページの左側の所属チームの行*/
-.users_mypage_left_box_team_row {
-	font-size: 16px;
+/*マイページのユーザーコメントの箱*/
+.users_show_main_content_box_post_comment_box {
+/*	background-color: gold;*/
+	width: 100%;
+	max-height: 800px;
+	border: solid 1px #c1c1c1;
+	border-top: none;
+	border-bottom: none;
+}
+
+/*マイページのコメント1つ1つ*/
+.link {
+	text-decoration: none;
+	color: #333333;
+	font-size: 14px;
+}
+
+/*マイページのコメントの大きさ*/
+.users_show_post_comment_font {
+	font-size: 14px;
+}
+
+/*マイページのコメント入力フォームとボタンのflex*/
+.users_show_main_content_box_comment_form_position {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+/*マイページのコメント入力フォーム*/
+.users_show_main_content_box_post_comment_form {
+	width: 100%;
+	height: 40px;
+	outline: none;
+}
+
+/*マイページのコメント入力のボタン*/
+.teams_show_right_bix_post_comment_btn {
+	background-color: white;
+	padding: 1px;
+	width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*マイページのユーザー所属チーム一覧のflex*/
+.user_show_main_content_box_teams_position {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/*マイページのユーザーへのリンク*/
+.user_show_main_content_box_link {
+	text-decoration: none;
+	color: #333333;
+}
+
+/*マイページのユーザー所属チーム一覧のチームの箱*/
+.user_show_main_content_box_team_box {
+/*	background-color: red;*/
+	width: 150px;
+}
+
+/*マイページのユーザー所属チーム一覧のチーム画像*/
+.user_show_main_box_team_box_image {
+	width: 150px;
+	height: 150px;
+}
+
+/*マイページユーザー所属チームのチーム名*/
+.user_show_main_content_box_team_box p {
 	overflow-x: scroll;
-	height: 35px;
-	white-space: nowrap;
+	overflow-y: hidden;
+	text-align: center;
 }
 
-/*ユーザーマイページのポイントタイトル*/
-.users_mypage_point_title {
-	margin-top: 10%;
-	font-size: 20px;
-	font-weight: bold;
-}
-
-/*ユーザーマイページのポイント*/
-.users_mypage_point {
-	margin-left: 7%;
-	font-size: 16px;
-}
 
 
 
@@ -229,11 +389,11 @@
 /*ユーザーマイページ編集全体の箱*/
 .users_mypage_edit_box {
 	height: 500px;
-	width: 65%;
+	width: 600px;
 	margin: 0 auto;
 	margin-top: 2%;
 	margin-bottom: 2%;
-	border: solid 1px #e6ecf0;
+	border: solid 2px #DDD;
 	background-color: white;
 }
 
@@ -242,14 +402,15 @@
 	height: 100%;
 	width: 30%;
 	float: left;
-	border-right: solid 1px #666666;
+	border-right: solid 1px #DDD;
 }
+
 
 /*ユーザーマイページ編集のプロフィールを編集*/
 .users_mypage_edit_left_box_content1 {
 	height: 100px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 100px;
 	margin-top: 30%;
 	color: #B2B2B2;
@@ -259,7 +420,7 @@
 .users_mypage_edit_left_box_content2 {
 	height: 100px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 100px;
 	color: #B2B2B2;
 }
@@ -268,14 +429,14 @@
 .users_mypage_edit_left_box_content3{
 	height: 100px;
 	text-align: center;
-	font-size: 18px;
+	font-size: 14px;
 	line-height: 100px;
 	color: #B2B2B2;
 }
 
 /*ユーザーマイページ編集の文字色*/
 .users_mypage_edit_left_box_active {
-	font-size: 20px;
+	font-size: 16px;
 	color: #0C0C0C;
 }
 
@@ -316,27 +477,30 @@
 
 /*ユーザーマイページ編集の画像選択ボタン*/
 .users_mypage_edit_right_upload {
-	margin-left: 35%;
+	width: 200px;
+	margin: 0 auto;
+	margin-top: 3%;
 }
 
 /*ユーザーマイページ編集の名前のテーブル*/
 .users_mypage_edit_right_row2 table {
-	width: 40%;
+	width: 60%;
 	margin: 0 auto;
 	margin-top: 7%;
-	font-size: 20px;
+	font-size: 14px;
 }
 
 /*ユーザーマイページ編集のテーブルの名前の枠*/
 .users_mypage_edit_right_row2_name{
 	width: 100%;
 	height: 30px;
-	font-size: 16px;
+	font-size: 14px;
+	outline: none;
 }
 
 /*ユーザーマイページ編集のプロフィールの編集変更のボタンの位置*/
 .user_mypage_edit_right_box_save_btn_potition {
-	width: 45%;
+	width: 60%;
 	margin: 0 auto;
 	margin-top: 8%;
 }
@@ -347,7 +511,7 @@
 	padding: 3%;
 	width: 100%;
 	color: white;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 /*ユーザー登録ボタンにマウスを置いたとき*/

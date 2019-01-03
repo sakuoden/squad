@@ -348,6 +348,7 @@
 .user_show_main_content_box_teams_position {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
 

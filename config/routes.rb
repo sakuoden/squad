@@ -14,6 +14,7 @@ Rails.application.routes.draw do
  	get '/teams/:id/member/new' => 'teams#member_new'
  	post '/teams/:id/member/create' => 'teams#member_create'
 	get '/teams/:id/member' => 'teams#member'
+	post '/teams/:id/member/:id/invite' => 'teams#invite'
 
  	resources :posts, only: [:new, :create]
 

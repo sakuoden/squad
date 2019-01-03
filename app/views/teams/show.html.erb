@@ -24,10 +24,12 @@
 			<%= render partial:'follows/follow', locals: {team: @team} %>
 		</span>
 
-		<%= link_to "/teams/#{@team.id}/member/new", class:"link no-barba" do %>
-			<div class="teams_show_users_invite_btn">
-				招待
-			</div>
+		<% if @team.members.where(user_id: current_user.id).exists? %>
+			<%= link_to "/teams/#{@team.id}/member/new", class:"link no-barba" do %>
+				<div class="teams_show_users_invite_btn">
+					招待
+				</div>
+			<% end %>
 		<% end %>
 
 	</div>

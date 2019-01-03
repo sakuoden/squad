@@ -1,13 +1,6 @@
 class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
-	def current_ymt
-		@t = Time.new
-		@ty = @t.year.to_s
-		@tm = @t.month.to_s
-		@tt = @t.day.to_s
-		return @ty + @tm + @tt
-	end
 
  	protected
 

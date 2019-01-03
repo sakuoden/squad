@@ -64,18 +64,20 @@ class TeamsController < ApplicationController
 	end
 
 	def member_create
-		team = Team.find(params[:id])
-		user = User.find(params[:member][:user_id])
+		@team = Team.find(params[:id])
+		@user = User.find(params[:member][:user_id])
 
-		if team.members.where(user_id: user.id).exsists?
-		else
-			team.members.new(user_id: user.id)
-			team.save
-		end
+
+		# if @team.members.where(user_id: @user.id).exists?
+		# else
+			TeamMailer.invite_notification(@user, @team).deliver
+		# end
 
 		redirect_to "/teams/#{@team.id}/member"
 	end
 
+	def invite
+	end
 
 
 

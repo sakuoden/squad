@@ -1,0 +1,153 @@
+<!-- ユーザーマイページ左側の箱 -->
+<div class="users_mypage_box">
+
+	<% if @user.id == current_user.id %>
+	<div class="users_mypage_left_box_edit_page">
+		<%= link_to edit_user_path(@user.id), class:"no-barba" do %>
+			<i class="fas fa-ellipsis-h"></i>
+		<% end %>
+	</div>
+	<% end %>
+
+	<!-- ユーザーマイページ上側の部分 -->
+	<div class="users_mypage_left_box_image_position">
+
+		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class: "users_mypage_left_box_image" %>
+
+		<div class="users_mypage_left_box_name">
+			<%= @user.name %>
+		</div>
+
+	</div>
+	<!-- ユーザーマイページ上側の部分fin -->
+
+
+	<!-- ユーザーマイページのフォロー、所属の位置 -->
+	<div class="users_show_follow_belong_position">
+
+		<%= link_to user_path(@user.id), class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+		<% end %>
+
+
+		<%= link_to "/users/#{@user.id}/follow", class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+		<% end %>
+
+
+		<%= link_to "/users/#{@user.id}/belong", class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+		<% end %>
+
+	</div>
+	<!-- ユーザーマイページのフォロー、所属の位置fin -->
+
+
+
+
+	<!-- pjaxでの切り替えられる箱 -->
+	<main id="barba-wrapper">
+	<div class="barba-container">
+		<div class="users_show_main_content_box">
+
+			<!-- マイページのユーザー所属チーム一覧のflex -->
+			<div class="user_show_main_content_box_teams_position">
+
+				<% @user.follows.each do |follow| %>
+
+					<%= link_to team_path(follow.team.id), class:"user_show_main_content_box_link no-barba" do %>
+					<div class="user_show_main_content_box_team_box">
+						<%= attachment_image_tag follow.team, :team_image, :fill, 150, 150, fallback: "/images/no_image.jpg", class: "user_show_main_box_team_box_image" %>
+						<p><%= follow.team.team_name %></p>
+					</div>
+					<% end %>
+					<!-- link_to のend -->
+
+				<% end %>
+				<!-- @user.members.eachのend -->
+
+			</div>
+			<!-- マイページのユーザー所属チーム一覧のflex end -->
+
+
+		</div>
+	</main>
+	</div>
+	<!-- pjaxでの切り替えられる箱fin -->
+
+
+
+</div>
+<!-- ユーザーマイページ左側の箱fin -->
+
+
+<script>
+	$(document).ready(function(){
+
+
+
+		Barba.Pjax.start();
+
+		var FadeTransition = Barba.BaseTransition.extend({
+	 		start: function() {
+
+		    Promise
+	    	 .all([this.newContainerLoading, this.fadeOut()])
+	     	 .then(this.fadeIn.bind(this));
+	  		},
+
+		fadeOut: function() {
+	    	return $(this.oldContainer).animate({ opacity: 0 }).promise();
+	  	},
+
+		fadeIn: function() {
+
+	    	var _this = this;
+	    	var $el = $(this.newContainer);
+
+		    $(this.oldContainer).hide();
+
+			$el.css({
+		  		visibility : 'visible',
+		  		opacity : 0
+			});
+
+		    $el.animate({ opacity: 1 }, 400, function() {
+		      _this.done();
+		    });
+
+			  }
+
+			});
+
+		Barba.Pjax.getTransition = function() {
+	  		return FadeTransition;
+		};
+
+
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

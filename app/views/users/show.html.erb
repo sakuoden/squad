@@ -1,48 +1,184 @@
-<!-- ユーザー詳細ページの箱(他の人から見た) -->
-<div class="users_show_box clearfix">
+<!-- ユーザーマイページ左側の箱 -->
+<div class="users_mypage_box">
 
-	<!-- ユーザーマイページ左側の箱 -->
-	<div class="users_show_left_box">
-		<div class="users_show_left_box_position">
+	<% if @user.id == current_user.id %>
+	<div class="users_mypage_left_box_edit_page">
+		<%= link_to edit_user_path(@user.id), class:"no-barba" do %>
+			<i class="fas fa-ellipsis-h"></i>
+		<% end %>
+	</div>
+	<% end %>
 
-			<!-- ユーザーマイページ左側の箱のプロフ画像 -->
-			<div class="users_show_left_box_image_position">
-				<%= attachment_image_tag current_user, :image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "users_show_left_box_image" %>
-			</div>
+	<!-- ユーザーマイページ上側の部分 -->
+	<div class="users_mypage_left_box_image_position">
 
-			<div class="users_show_left_box_inviting_btn_position">
-				<%= link_to user_edit_path do %>
-					<div class="users_show_left_box_inviting_btn">
-						チームに招待する
+		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class: "users_mypage_left_box_image" %>
+
+		<div class="users_mypage_left_box_name">
+			<%= @user.name %>
+		</div>
+
+	</div>
+	<!-- ユーザーマイページ上側の部分fin -->
+
+
+	<!-- ユーザーマイページのフォロー、所属の位置 -->
+	<div class="users_show_follow_belong_position">
+
+		<%= link_to user_path(@user.id), class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+		<% end %>
+
+
+		<%= link_to "/users/#{@user.id}/follow", class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+		<% end %>
+
+
+		<%= link_to "/users/#{@user.id}/belong", class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+		<% end %>
+
+	</div>
+	<!-- ユーザーマイページのフォロー、所属の位置fin -->
+
+
+
+	<!-- pjaxでの切り替えられる箱 -->
+	<main id="barba-wrapper">
+	<div class="barba-container">
+		<div class="users_show_main_content_box">
+
+			<% @user.posts.each do |post| %>
+			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
+				<div class="users_show_main_content_box_post">
+
+					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
+
+					<!-- いいねとコメントの箱 -->
+					<div class="users_main_content_box_post_favorite_coment_box">
+
+						<%= render partial: 'teams/like_position', locals: {post: post} %>
+
+						<label for="teams_show_right_box_post_comment_form_id">
+							<i class="far fa-comment user_show_post_comment"></i>
+						</label>
+
 					</div>
-				<% end %>
-			</div>
+					<!-- いいねとコメントの箱fin -->
 
-			<div class="users_show_left_box_title_name">
-				名前
-			</div>
+					<!-- マイページのユーザー投稿の文章の内容 -->
+					<div class="users_show_main_content_box_post_content">
+						<%= post.post_content %>
+					</div>
+					<!-- マイページのユーザー投稿の文章の内容fin -->
 
-			<div class="users_show_left_box_name">
-				<%= current_user.name %>
-			</div>
 
-			<div class="users_show_left_box_title_team">
-				所属チーム
-			</div>
+					<!-- マイページのユーザーコメント1つ1つ -->
+					<div class="users_show_main_content_box_post_comment_box">
+						<%= render partial: 'teams/comment_position', locals: {post: post} %>
+					</div>
+					<!-- マイページのユーザーコメント1つ1つfin -->
 
-			<div class="users_show_left_box_team">
-				※所属チームを作成してからここに追記※
-			</div>
+
+					<!-- マイページユーザー投稿のコメント投稿 -->
+					<div class="users_show_main_content_box_comment_form_position">
+
+						<%= f.text_field :post_comment, placeholder: "コメントを入力...", class:"users_show_main_content_box_post_comment_form", id:"teams_show_right_box_post_comment_form_id" %>
+
+
+						<%= f.hidden_field :post_id, :value => post.id %>
+						<%= button_tag type:"submit", class:"teams_show_right_bix_post_comment_btn" do %>
+							<i class="fab fa-telegram-plane users_show_right_main_content_comment_btn_plane"></i>
+						<% end %>
+
+					</div>
+
+				</div>
+			<% end %>
+			<!-- form_forのend -->
+			<% end %>
+			<!-- @user.posts.eachのend -->
+
 
 		</div>
+	</main>
 	</div>
-	<!-- ユーザーマイページ左側の箱fin -->
+	<!-- pjaxでの切り替えられる箱fin -->
 
 
-	<!-- ユーザーマイページ右側の箱(ユーザーが投稿したコンテンツ) -->
-	<div class="users_show_right_box">
-	</div>
-	<!-- ユーザーマイページ右側の箱fin -->
 
 </div>
-<!-- ユーザー詳細ページの箱(他の人から見た)fin -->
+<!-- ユーザーマイページ左側の箱fin -->
+
+
+<script>
+	$(document).ready(function(){
+
+
+
+		Barba.Pjax.start();
+
+		var FadeTransition = Barba.BaseTransition.extend({
+	 		start: function() {
+
+		    Promise
+	    	 .all([this.newContainerLoading, this.fadeOut()])
+	     	 .then(this.fadeIn.bind(this));
+	  		},
+
+		fadeOut: function() {
+	    	return $(this.oldContainer).animate({ opacity: 0 }).promise();
+	  	},
+
+		fadeIn: function() {
+
+	    	var _this = this;
+	    	var $el = $(this.newContainer);
+
+		    $(this.oldContainer).hide();
+
+			$el.css({
+		  		visibility : 'visible',
+		  		opacity : 0
+			});
+
+		    $el.animate({ opacity: 1 }, 400, function() {
+		      _this.done();
+		    });
+
+			  }
+
+			});
+
+		Barba.Pjax.getTransition = function() {
+	  		return FadeTransition;
+		};
+
+
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

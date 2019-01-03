@@ -9,7 +9,6 @@ class PostFavoritesController < ApplicationController
 			@post.post_favorites.new(post_favorite_user: current_user.id)
 			@post.save
 		end
-
 	end
 
 	def destroy

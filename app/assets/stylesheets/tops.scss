@@ -2,6 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*-------------トップページ--------------*/
+
+.tops_main_contents {
+/*	background-color: grey;*/
+	width: 700px;
+	margin: 0 auto;
+	padding: 3% 1%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+/*トップページの1つ1つの箱*/
+.tops_main_team_box {
+/*	background-color: blue;*/
+	width: 200px;
+	border: solid 2px #DDD;
+	background-color: white;
+	margin-bottom: 5%;
+}
+
+/*トップページの1つ1つの箱の画像*/
+.tops_top_main_image {
+	width: 100%;
+	height: 200px;
+	vertical-align: top;
+}
+
+/*トップページの1つ1つの箱の名前*/
+.tops_main_team_name {
+	text-align: center;
+	padding: 3% 0;
+	border-top: solid 1px #DDD;
+}
+
+
+
+
+
+/*-------------トップページのマップ画面--------------*/
+
 .tops_top_flash_massage {
 	width: 20%;
 	height: 30px;
@@ -24,7 +65,6 @@
 	margin-top: 2%;
 	margin-bottom: 2%;
 }
-
 
 
 
@@ -113,7 +153,7 @@
 
 /*モーダルのテーブルの1つずつ*/
 .top_map_modal_box_a_team td:nth-child(2) {
-	width: 200px;
+	width: 150px;
 	padding-left: 3%;
 }
 

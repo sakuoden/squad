@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-
 	before_action :authenticate_user!, only: [:new, :create]
 
 	def new
@@ -29,69 +28,62 @@ class TeamsController < ApplicationController
 	end
 
 
+
 	def member
 		@team = Team.find(params[:id])
+
+		@favorites = Favorite.where(team_id: @team.id)
+
+
+		@posts = Post.where(team_id: @team.id)
+		@post_favorite = PostFavorite.find_by(post_favorite_user: current_user.id)
+
+		@post_comment = PostComment.new
+
+		@post_favorite_middles = PostFavoriteMiddle.all
 	end
+
 
 	def member_new
 		@team = Team.find(params[:id])
-		@members = @team.members
+		@member = Member.new
 
+		search = params[:search]
 
-		@result = params[:result]
-		if @result
-			if User.where(['name Like?', "%#{@result}%"]).exists?
-				@users = User.where(['name Like?', "%#{@result}%"])
-			else
-				@users = "ユーザーは存在しません"
-			end
-		elsif @result == ""
-			@users = User.all
+		if search == nil
+		elsif search == ""
+			flash[:notice] = "名前を入力してください。"
+		elsif User.where(['name Like?', "%#{search}%"]).exists?
+			@results = User.where(['name Like?', "%#{search}%"])
+			@member = Member.new
 		else
-			@users = nil
+			flash[:notice] = "検索されたユーザーは存在しません"
 		end
 
-		# ラジオボタンでやるので、選択式は諦める
-		# number = params[:value].to_i
-		# users = @users
-		# member_user = users[number]
+
 	end
 
 	def member_create
-		member = Member.new
-		member.user_id = params[:member]
-		member.team_id = params[:id]
-		member.save
-		# リダイレクトせずひとまずここまで後でやる
+		@team = Team.find(params[:id])
+		@user = User.find(params[:member][:user_id])
 
+
+		# if @team.members.where(user_id: @user.id).exists?
+		# else
+			TeamMailer.invite_notification(@user, @team).deliver
+		# end
+
+		redirect_to "/teams/#{@team.id}/member"
 	end
 
-	def member_edit
-		@team = Team.find(params[:team_id])
-		@user = User.find(params[:user_id])
-
-		@members = Member.where(team_id: @team.id)
-		@member = @members.find_by(user_id: @user.id)
+	def invite
 	end
 
-	def member_update
-		team = Team.find(params[:member][:team_id])
-		user = User.find(params[:member][:user_id])
-
-		members = Member.where(team_id: team.id)
-		member = members.find_by(user_id: user.id)
-
-		if member.update!(member_position_params)
-			redirect_to "/teams/#{team.id}/member"
-		else
-			render 'teams/member_edit'
-		end
-	end
 
 
 	private
 	def team_params
-		params.require(:team).permit(:team_name, :team_image)
+		params.require(:team).permit(:team_name, :team_image, :place)
 	end
 
 	def member_position_params

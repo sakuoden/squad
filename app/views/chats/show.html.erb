@@ -1,0 +1,234 @@
+<!-- ユーザーマイページ左側の箱 -->
+<div class="users_mypage_box">
+
+
+
+	<!-- ユーザーマイページ上側の部分 -->
+	<div class="teams_show_left_box_image_position">
+
+		<div class="users_mypage_left_box_name">
+			<%= @team.team_name %>
+		</div>
+
+		<%= attachment_image_tag @team, :team_image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "teams_show_left_box_image" %>
+
+	</div>
+	<!-- ユーザーマイページ上側の部分fin -->
+
+
+
+	<!-- ユーザーマイページのフォロー、チーム招待の行 -->
+	<div class="teams_show_users_follow_invite_row">
+
+		<span id="teams_show_users_follow_position">
+			<%= render partial:'follows/follow', locals: {team: @team} %>
+		</span>
+
+		<%= link_to "/teams/#{@team.id}/member/new", class:"link no-barba" do %>
+			<div class="teams_show_users_invite_btn">
+				招待
+			</div>
+		<% end %>
+
+	</div>
+	<!-- ユーザーマイページのフォロー、チーム招待の行fin -->
+
+
+
+	<!-- ユーザーマイページのフォロー、所属の位置 -->
+	<div class="users_show_follow_belong_position">
+
+		<%= link_to team_path(@team.id), class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+		<% end %>
+
+
+		<%= link_to "/teams/#{@team.id}/member", class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= @team.members.count %></span><span> member</span>
+		<% end %>
+
+
+		<%= link_to chat_path(@team.id), class:"users_show_follow_belong_link" do %>
+			<span class="user_show_follow_belong_count"><%= "#{@team.chats.count}" %></span><span> talk</span>
+		<% end %>
+
+	</div>
+	<!-- ユーザーマイページのフォロー、所属の位置fin -->
+
+
+
+	<!-- pjaxでの切り替えられる箱 -->
+	<main id="barba-wrapper">
+	<div class="barba-container">
+
+		<div class="users_show_main_content_box">
+
+
+
+		<%= form_for @chat do |f| %>
+		<!-- チーム詳細画面の右側の箱 -->
+		<div class="teams_show_box_right_chat_box">
+
+			<div class="teams_show_box_right_chat_smallbox">
+
+				<!-- チーム詳細画面の右側のノートアイコンのある行 -->
+				<div class="teams_show_box_right_chat_smallbox_note_row">
+					<%= link_to "/", class:"teams_show_box_right_chat_small_box_note_link" do %>
+						<i class="fas fa-book-open tems_show_box_right_chat_small_box_icon"></i>
+					<% end %>
+				</div>
+				<!-- チーム詳細画面の右側のノートアイコンのある行fin -->
+
+				<!-- チーム詳細画面の右側のトーク内容が入る箱 -->
+				<div class="teams_show_box_right_chat_smallbox_chat_screen">
+					<% @team.chats.each do |chat| %>
+					<% if chat.user.id == current_user.id %>
+
+						<div class="teams_show_box_right_chat_smallbox_chat_row_current_user">
+
+							<div class="teams_show_box_right_chat_smallbox_chat_ballon_current_user">
+								<%= chat.chat_comment %>
+							</div>
+
+
+							<%= link_to user_path(chat.user.id), class:"link no-barba" do %>
+
+								<%= attachment_image_tag chat.user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "teams_show_box_right_chat_smallbox_image" %>
+
+							<% end %>
+							<!-- link_toのend -->
+
+
+						</div>
+
+
+
+
+					<% else %>
+						<div class="teams_show_box_right_chat_smallbox_chat_row">
+
+							<%= link_to user_path(chat.user.id), class:"link no-barba" do %>
+
+									<%= attachment_image_tag chat.user, :image, :fill, 50, 50, fallback: "no_image.jpg", class: "teams_show_box_right_chat_smallbox_image" %>
+
+							<% end %>
+							<!-- link_toのend -->
+
+							<div class="teams_show_box_right_chat_smallbox_chat_ballon">
+								<%= chat.chat_comment %>
+							</div>
+
+						</div>
+
+					<% end %>
+					<!-- if chat.userのend -->
+					<% end %>
+					<!-- @teams.chats.each の end -->
+				</div>
+				<!-- チーム詳細画面の右側のトーク内容が入る箱fin -->
+
+				<div class="teams_show_box_right_chat_smallbox_border"></div>
+
+				<div class="teams_show_box_right_chat_smallbox_chat_form_position">
+					<%= f.text_area :chat_comment, class:"teams_show_box_right_chat_smallbox_chat_form" %>
+				</div>
+
+				<div class="teams_show_box_right_chat_smallbox_chat_form_row">
+					<%= f.hidden_field :team, :value => @team.id %>
+					<%= button_tag type:"submit", class:"teams_show_box_right_chat_btn" do %>
+						<i class="fab fa-telegram-plane"></i>
+					<% end %>
+				</div>
+
+
+
+			</div>
+
+		</div>
+		<!-- チーム詳細画面の右側の箱fin -->
+		<% end %>
+
+
+
+		</div>
+	</main>
+	</div>
+	<!-- pjaxでの切り替えられる箱fin -->
+
+
+
+
+
+	<% if @team.members.where(user_id: current_user.id).exists? %>
+		<!-- チーム詳細画面の画像投稿ボタン -->
+		<%= link_to new_post_path(team_id: @team.id), class:"teams_show_new_post_btn_link" do %>
+			<div class="teams_show_new_post_btn">
+				<i class="fas fa-camera"></i>
+				<p>投稿</p>
+			</div>
+		<% end %>
+		<!-- チーム詳細画面の投稿ボタンfin -->
+	<% end %>
+
+
+
+
+
+
+</div>
+<!-- ユーザーマイページ左側の箱fin -->
+
+
+<script>
+	$(document).ready(function(){
+
+
+
+		Barba.Pjax.start();
+
+		var FadeTransition = Barba.BaseTransition.extend({
+	 		start: function() {
+
+		    Promise
+	    	 .all([this.newContainerLoading, this.fadeOut()])
+	     	 .then(this.fadeIn.bind(this));
+	  		},
+
+		fadeOut: function() {
+	    	return $(this.oldContainer).animate({ opacity: 0 }).promise();
+	  	},
+
+		fadeIn: function() {
+
+	    	var _this = this;
+	    	var $el = $(this.newContainer);
+
+		    $(this.oldContainer).hide();
+
+			$el.css({
+		  		visibility : 'visible',
+		  		opacity : 0
+			});
+
+		    $el.animate({ opacity: 1 }, 400, function() {
+		      _this.done();
+		    });
+
+			  }
+
+			});
+
+		Barba.Pjax.getTransition = function() {
+	  		return FadeTransition;
+		};
+
+
+	});
+</script>
+
+
+
+
+
+
+

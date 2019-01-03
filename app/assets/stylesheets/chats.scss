@@ -1,0 +1,216 @@
+// Place all the styles related to the chats controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*-----------チーム詳細画面で遷移するチャットページ*/
+
+/*チーム詳細画面のチャット画面の全体の箱*/
+.teams_show_box_right_chat_box {
+/*	height: 1000px;*/
+/*	background-color: blue;*/
+	width: 100%;
+}
+
+/*チーム詳細画面のチャット画面のサイズ合わせの箱*/
+.teams_show_box_right_chat_smallbox {
+/*	background-color: orange;*/
+	width: 100%;
+	border: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット画面のノートボタンの行*/
+.teams_show_box_right_chat_smallbox_note_row {
+/*	height: 50px;*/
+/*	background-color: brown;*/
+	width: 100%;
+	text-align: right;
+	font-size: 35px;
+	padding-right: 3%;
+	background-color: #c0c2c4;
+	border-bottom: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット画面のノートボタンのリンクについて*/
+.teams_show_box_right_chat_small_box_note_link {
+	text-decoration: none;
+	color: #333333;
+}
+
+/*チーム詳細画面のチャット画面のノートボタン*/
+.tems_show_box_right_chat_small_box_icon {
+	color: #333333;
+}
+
+/*チーム詳細画面のチャット画面のチャット内容の画面*/
+.teams_show_box_right_chat_smallbox_chat_screen {
+	height: 450px;
+	background-color: white;
+	width: 100%;
+	display: flex;
+	flex-direction: column-reverse;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+
+/*チーム画面のチャット画面の1つの行カレントユーザーの場合*/
+.teams_show_box_right_chat_smallbox_chat_row_current_user {
+	width: 100%;
+	padding: 2% 4%;
+	text-align: right;
+}
+
+/*チーム詳細画面のチャット画面の1つの行*/
+.teams_show_box_right_chat_smallbox_chat_row {
+/*	background-color: green;*/
+	width: 100%;
+	padding: 2% 4%;
+	text-align: left;
+}
+
+/*チーム詳細画面のチャット画面の行のユーザー画像*/
+.teams_show_box_right_chat_smallbox_image {
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+}
+
+/*チーム詳細画面のチャット画面の吹き出しカレントユーザーの場合*/
+.teams_show_box_right_chat_smallbox_chat_ballon_current_user {
+	max-width: 70%;
+	min-height: 50px;
+	padding: 3%;
+	background-color: white;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 25px;
+	border: solid 1px #B8BCC0;
+	font-size: 14px;
+	margin-right: 5%;
+	position: relative;
+	background-color:#5ae628;
+}
+
+/*チーム詳細画面のチャット画面の吹き出しの三角カレントユーザーの場合*/
+.teams_show_box_right_chat_smallbox_chat_ballon_current_user:before {
+	content:"";
+	position: absolute;
+	top: 29%;
+	right: -19px;
+	border: solid 10px transparent;
+	border-left: solid 10px #5ae628;
+	z-index: 20;
+}
+
+
+
+/*チーム詳細画面のチャット画面の吹き出し*/
+.teams_show_box_right_chat_smallbox_chat_ballon {
+	max-width: 70%;
+	min-height: 50px;
+	padding: 3%;
+	background-color: white;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 25px;
+	border: solid 1px #B8BCC0;
+	font-size: 14px;
+	margin-left: 5%;
+	position: relative;
+}
+
+/*チーム詳細画面のチャット画面の吹き出しの三角*/
+.teams_show_box_right_chat_smallbox_chat_ballon:before {
+	content:"";
+	position: absolute;
+	top: 29%;
+	left: -18px;
+	border: solid 10px transparent;
+	border-right: solid 10px white;
+	z-index: 20;
+}
+
+/*チーム詳細画面のチャット画面の吹き出しの三角*/
+.teams_show_box_right_chat_smallbox_chat_ballon:after {
+	content:"";
+	position: absolute;
+	top: 29%;
+	left: -19px;
+	border: solid 10px transparent;
+	border-right: solid 10px #B8BCC0;
+	z-index: 10;
+}
+
+
+
+
+/*チーム詳細画面のチャット画面と入力画面の区切り*/
+.teams_show_box_right_chat_smallbox_border {
+	width: 100%;
+	background-color: #c0c2c4;
+	height: 5px;
+	border-top: solid 1px #ccc;
+	border-bottom: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット画面のチャット内容入力フォーム*/
+.teams_show_box_right_chat_smallbox_chat_form_position {
+	width: 100%;
+}
+
+/*チーム詳細画面のチャット内容入力フォーム*/
+.teams_show_box_right_chat_smallbox_chat_form {
+	width: 100%;
+	height: 100px;
+	border: 0;
+	outline: none;
+	font-size: 16px;
+	resize: none;
+	vertical-align: top;
+}
+
+/*チーム詳細画面のチャット送信ボタンのための1行*/
+.teams_show_box_right_chat_smallbox_chat_form_row {
+	background-color: white;
+	text-align: right;
+}
+
+/*チーム詳細画面のチャットの送信ボタン*/
+.teams_show_box_right_chat_btn {
+	background-color: white;
+	padding: 2% 4%;
+	border: none;
+	box-shadow: -2px 0px 4px gray;
+	border: solid 1px #ccc;
+}
+
+/*チーム詳細画面のチャット送信ボタンのマウス*/
+.teams_show_box_right_chat_btn:hover {
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<form id="form">
+	<input type="submit">
+</form>
+
+<script>
+
+	var dispatcher = new WebSocketRails("localhost:3000/WebSocket");
+	var form = document.getElementById("form");
+
+	form.onsubmit = function(e){
+		disapatcher.trigger("send_message");
+		e.preventDefault();
+	}
+
+	dispatcher.bind("spread_message", function(data){
+		console.log(data.msg);
+	});
+
+
+</script>

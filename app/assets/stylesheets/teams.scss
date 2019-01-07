@@ -145,7 +145,15 @@
 	color: white;
 }
 
-
+/*チーム詳細ページの地域のspan*/
+.teams_show_place_icon {
+	text-align: left;
+	font-size: 14px;
+	background-color: #F6891F;
+	width: 80px;
+	text-align: center;
+	border-radius: 30px;
+}
 
 
 
@@ -230,7 +238,7 @@
 
 /**/
 .teams_show_box_right_member_a_row_letter {
-	background-color: gold;
+/*	background-color: gold;*/
 	width: 70%;
 /*	max-height: 200px;*/
 	float: left;

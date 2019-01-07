@@ -6,7 +6,103 @@
 		<!-- ユーザーマイページ上側の部分 -->
 	<div class="teams_show_left_box_image_position">
 
-		<div class="users_mypage_left_box_name">
+<div class="users_mypage_left_box_name">
+			<% case @team.place %>
+				<% when "1" %>
+				<div class="teams_show_place_icon">北海道</div>
+				<% when "2" %>
+				<div class="teams_show_place_icon">青森県</div>
+				<% when "3" %>
+				<div class="teams_show_place_icon">岩手県</div>
+				<% when "4" %>
+				<div class="teams_show_place_icon">宮城県</div>
+				<% when "5" %>
+				<div class="teams_show_place_icon">秋田県</div>
+				<% when "6" %>
+				<div class="teams_show_place_icon">山形県</div>
+				<% when "7" %>
+				<div class="teams_show_place_icon">福島県</div>
+				<% when "8" %>
+				<div class="teams_show_place_icon">茨城県</div>
+				<% when "9" %>
+				<div class="teams_show_place_icon">栃木県</div>
+				<% when "10" %>
+				<div class="teams_show_place_icon">群馬県</div>
+				<% when "11" %>
+				<div class="teams_show_place_icon">埼玉県</div>
+				<% when "12" %>
+				<div class="teams_show_place_icon">千葉県</div>
+				<% when "13" %>
+				<div class="teams_show_place_icon">東京都</div>
+				<% when "14" %>
+				<div class="teams_show_place_icon">神奈川県</div>
+				<% when "15" %>
+				<div class="teams_show_place_icon">新潟県</div>
+				<% when "16" %>
+				<div class="teams_show_place_icon">富山県</div>
+				<% when "17" %>
+				<div class="teams_show_place_icon">石川県</div>
+				<% when "18" %>
+				<div class="teams_show_place_icon">福井県</div>
+				<% when "19" %>
+				<div class="teams_show_place_icon">山梨県</div>
+				<% when "20" %>
+				<div class="teams_show_place_icon">長野県</div>
+				<% when "21" %>
+				<div class="teams_show_place_icon">岐阜県</div>
+				<% when "22" %>
+				<div class="teams_show_place_icon">静岡県</div>
+				<% when "23" %>
+				<div class="teams_show_place_icon">愛知県</div>
+				<% when "24" %>
+				<div class="teams_show_place_icon">三重県</div>
+				<% when "25" %>
+				<div class="teams_show_place_icon">滋賀県</div>
+				<% when "26" %>
+				<div class="teams_show_place_icon">京都府</div>
+				<% when "27" %>
+				<div class="teams_show_place_icon">大阪府</div>
+				<% when "28" %>
+				<div class="teams_show_place_icon">兵庫県</div>
+				<% when "29" %>
+				<div class="teams_show_place_icon">奈良県</div>
+				<% when "30" %>
+				<div class="teams_show_place_icon">和歌山県</div>
+				<% when "31" %>
+				<div class="teams_show_place_icon">鳥取県</div>
+				<% when "32" %>
+				<div class="teams_show_place_icon">島根県</div>
+				<% when "33" %>
+				<div class="teams_show_place_icon">岡山県</div>
+				<% when "34" %>
+				<div class="teams_show_place_icon">広島県</div>
+				<% when "35" %>
+				<div class="teams_show_place_icon">山口県</div>
+				<% when "36" %>
+				<div class="teams_show_place_icon">徳島県</div>
+				<% when "37" %>
+				<div class="teams_show_place_icon">香川県</div>
+				<% when "38" %>
+				<div class="teams_show_place_icon">愛媛県</div>
+				<% when "39" %>
+				<div class="teams_show_place_icon">高知県</div>
+				<% when "40" %>
+				<div class="teams_show_place_icon">福岡県</div>
+				<% when "41" %>
+				<div class="teams_show_place_icon">佐賀県</div>
+				<% when "42" %>
+				<div class="teams_show_place_icon">長崎県</div>
+				<% when "43" %>
+				<div class="teams_show_place_icon">熊本県</div>
+				<% when "44" %>
+				<div class="teams_show_place_icon">大分県</div>
+				<% when "45" %>
+				<div class="teams_show_place_icon">宮崎県</div>
+				<% when "46" %>
+				<div class="teams_show_place_icon">鹿児島県</div>
+				<% when "47" %>
+				<div class="teams_show_place_icon">沖縄県</div>
+			<% end %>
 			<%= @team.team_name %>
 		</div>
 
@@ -73,7 +169,7 @@
 
 				<!-- チームメンバーの右側の箱の画像の位置 -->
 				<div class="teams_show_box_right_member_a_row_image_position">
-					<%= attachment_image_tag member.user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class:"teams_show_box_right_member_a_row_image" %>
+					<%= attachment_image_tag member.user, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"teams_show_box_right_member_a_row_image" %>
 				</div>
 				<!-- チームメンバーの右側の箱の画像の位置fin -->
 
@@ -121,7 +217,7 @@
 	<% if @team.members.where(user_id: current_user.id).exists? %>
 		<!-- チーム詳細画面の画像投稿ボタン -->
 		<%= link_to new_post_path(team_id: @team.id), class:"teams_show_new_post_btn_link" do %>
-			<div class="teams_show_new_post_btn">
+			<div class="teams_show_new_post_btn no-barba">
 				<i class="fas fa-camera"></i>
 				<p>投稿</p>
 			</div>

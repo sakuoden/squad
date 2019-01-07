@@ -238,7 +238,7 @@
 
 /*マイページのユーザー投稿の画像*/
 .user_show_main_content_box_post_image {
-	width: 500px;
+	width: 100%;
 	height: 500px;
 	vertical-align: top;
 }
@@ -348,6 +348,7 @@
 .user_show_main_content_box_teams_position {
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
 

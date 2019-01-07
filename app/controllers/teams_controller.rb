@@ -2,15 +2,17 @@ class TeamsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
 	def new
-		@team = Team.new
+		@user = current_user
+		@team = current_user.teams.new
 	end
 
 	def create
 		@user = current_user
 		@team = @user.teams.new(team_params)
 		if @user.save
-			flash[:notice] = "チームの作成を完了しました"
-			redirect_to '/'
+			@member = Member.new(user_id: @user.id, team_id: @team.id)
+			@member.save
+			redirect_to "/teams/#{@team.id}"
 		end
 	end
 

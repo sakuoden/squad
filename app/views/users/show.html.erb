@@ -12,7 +12,7 @@
 	<!-- ユーザーマイページ上側の部分 -->
 	<div class="users_mypage_left_box_image_position">
 
-		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class: "users_mypage_left_box_image" %>
+		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "users_mypage_left_box_image" %>
 
 		<div class="users_mypage_left_box_name">
 			<%= @user.name %>
@@ -53,7 +53,7 @@
 			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
 				<div class="users_show_main_content_box_post">
 
-					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
+					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "no_image.jpg", class:"user_show_main_content_box_post_image" %>
 
 					<!-- いいねとコメントの箱 -->
 					<div class="users_main_content_box_post_favorite_coment_box">

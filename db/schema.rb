@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_01_122308) do
+ActiveRecord::Schema.define(version: 2019_01_04_064503) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "team_id"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 2019_01_01_122308) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "post_image_id"
+    t.string "post_image_id"
     t.text "post_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

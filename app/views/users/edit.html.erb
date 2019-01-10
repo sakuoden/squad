@@ -36,7 +36,7 @@
 			<!-- 画像のプレビュー表示と画像を選ぶボタン -->
 			<div class="users_mypage_edit_right_row1">
 				<div class="users_mypage_edit_right_image">
-					<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "no_image.jpg", class: "users_mypage_edit_right_image2", id:"users_mypage_edit_preview" %>
+					<%= attachment_image_tag @user, :image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "users_mypage_edit_right_image2", id:"users_mypage_edit_preview" %>
 				</div>
 
 				<div class="users_mypage_edit_right_upload">

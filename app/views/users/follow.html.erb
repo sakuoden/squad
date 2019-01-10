@@ -12,7 +12,7 @@
 	<!-- ユーザーマイページ上側の部分 -->
 	<div class="users_mypage_left_box_image_position">
 
-		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "users_mypage_left_box_image" %>
+		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class: "users_mypage_left_box_image" %>
 
 		<div class="users_mypage_left_box_name">
 			<%= @user.name %>
@@ -57,7 +57,7 @@
 
 					<%= link_to team_path(follow.team.id), class:"user_show_main_content_box_link no-barba" do %>
 					<div class="user_show_main_content_box_team_box">
-						<%= attachment_image_tag follow.team, :team_image, :fill, 150, 150, fallback: "no_image.jpg", class: "user_show_main_box_team_box_image" %>
+						<%= attachment_image_tag follow.team, :team_image, :fill, 150, 150, fallback: "/images/no_image.jpg", class: "user_show_main_box_team_box_image" %>
 						<p><%= follow.team.team_name %></p>
 					</div>
 					<% end %>

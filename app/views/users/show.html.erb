@@ -68,9 +68,15 @@
 					<!-- いいねとコメントの箱fin -->
 
 					<!-- マイページのユーザー投稿の文章の内容 -->
-					<div class="users_show_main_content_box_post_content">
+					<% if post.post_comments.present? %>
+						<div class="users_show_main_content_box_post_content" data-post="<%=post.id%>">
 						<%= post.post_content %>
-					</div>
+						</div>
+					<% else %>
+						<div class="users_show_main_content_box_post_content2" data-post="<%=post.id%>">
+						<%= post.post_content %>
+						</div>
+					<% end %>
 					<!-- マイページのユーザー投稿の文章の内容fin -->
 
 

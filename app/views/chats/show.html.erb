@@ -135,17 +135,23 @@
 	<div class="users_show_follow_belong_position">
 
 		<%= link_to team_path(@team.id), class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+			</div>
 		<% end %>
 
 
 		<%= link_to "/teams/#{@team.id}/member", class:"users_show_follow_belong_link" do %>
+		<div class="user_show_count_under_line">
 			<span class="user_show_follow_belong_count"><%= @team.members.count %></span><span> member</span>
+		</div>
 		<% end %>
 
 
 		<%= link_to chat_path(@team.id), class:"users_show_follow_belong_link" do %>
+		<div class="user_show_count_under_line select_action_under_line">
 			<span class="user_show_follow_belong_count"><%= "#{@team.chats.count}" %></span><span> talk</span>
+		</div>
 		<% end %>
 
 	</div>
@@ -317,6 +323,11 @@
 		Barba.Pjax.getTransition = function() {
 	  		return FadeTransition;
 		};
+
+		$('.user_show_count_under_line').click(function(){
+			$('.user_show_count_under_line').removeClass('select_action_under_line');
+			$(this).addClass('select_action_under_line');
+		});
 
 
 	});

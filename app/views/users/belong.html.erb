@@ -27,17 +27,21 @@
 	<div class="users_show_follow_belong_position">
 
 		<%= link_to user_path(@user.id), class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+			</div>
 		<% end %>
-
 
 		<%= link_to "/users/#{@user.id}/follow", class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+			</div>
 		<% end %>
 
-
 		<%= link_to "/users/#{@user.id}/belong", class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+			<div class="user_show_count_under_line select_action_under_line">
+				<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+			</div>
 		<% end %>
 
 	</div>
@@ -121,6 +125,10 @@
 	  		return FadeTransition;
 		};
 
+		$('.user_show_count_under_line').click(function(){
+			$('.user_show_count_under_line').removeClass('select_action_under_line');
+			$(this).addClass('select_action_under_line');
+		});
 
 	});
 </script>

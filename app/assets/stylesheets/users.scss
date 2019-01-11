@@ -208,6 +208,11 @@
 	text-align: center;
 }
 
+/*カウントのアンダーライン*/
+.select_action_under_line {
+	border-bottom: solid 2px #B3B3B3;
+}
+
 /*ユーザーマイページのフォローと所属の数のフォント*/
 .user_show_follow_belong_count {
 	font-size: 25px;

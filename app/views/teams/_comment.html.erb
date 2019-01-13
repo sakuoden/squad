@@ -2,7 +2,7 @@
 	<% @user = User.find(post_comment.post_comment_user_id) %>
 
 	<%= link_to user_path(@user.id), class:"link" do %>
-		<%= @user.name %>
+		<p class="comment_name_link"><%= @user.name %></p>
 	<% end %>
 
 	<span class="users_show_post_comment_font">

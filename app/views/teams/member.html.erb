@@ -135,17 +135,23 @@
 	<div class="users_show_follow_belong_position">
 
 		<%= link_to team_path(@team.id), class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+			</div>
 		<% end %>
 
 
 		<%= link_to "/teams/#{@team.id}/member", class:"users_show_follow_belong_link" do %>
+		<div class="user_show_count_under_line select_action_under_line">
 			<span class="user_show_follow_belong_count"><%= @team.members.count %></span><span> member</span>
+		</div>
 		<% end %>
 
 
 		<%= link_to chat_path(@team.id), class:"users_show_follow_belong_link" do %>
+		<div class="user_show_count_under_line">
 			<span class="user_show_follow_belong_count"><%= "#{@team.chats.count}" %></span><span> talk</span>
+		</div>
 		<% end %>
 
 	</div>
@@ -169,7 +175,7 @@
 
 				<!-- チームメンバーの右側の箱の画像の位置 -->
 				<div class="teams_show_box_right_member_a_row_image_position">
-					<%= attachment_image_tag member.user, :image, :fill, 100, 100, fallback: "no_image.jpg", class:"teams_show_box_right_member_a_row_image" %>
+					<%= attachment_image_tag member.user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class:"teams_show_box_right_member_a_row_image" %>
 				</div>
 				<!-- チームメンバーの右側の箱の画像の位置fin -->
 
@@ -276,6 +282,11 @@
 		Barba.Pjax.getTransition = function() {
 	  		return FadeTransition;
 		};
+
+		$('.user_show_count_under_line').click(function(){
+			$('.user_show_count_under_line').removeClass('select_action_under_line');
+			$(this).addClass('select_action_under_line');
+		});
 
 
 	});

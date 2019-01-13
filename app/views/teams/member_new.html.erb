@@ -31,7 +31,7 @@
 
 					<label for="teams_member_new_id_<%= result.id %>">
 						<div class="teams_member_search_result_box">
-							<%= attachment_image_tag result, :image, :fill, 150, 150, fallback: "no_image.jpg", class: "teams_member_new_user_image" %>
+							<%= attachment_image_tag result, :image, :fill, 150, 150, fallback: "/images/no_image.jpg", class: "teams_member_new_user_image" %>
 							<%= f.radio_button :user_id, "#{result.id}", id:"teams_member_new_id_#{result.id}", class:"teams_member_new_radio_button" %>
 							<%= result.name %>
 						</div>

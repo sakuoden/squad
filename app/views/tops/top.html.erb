@@ -5,7 +5,7 @@
 
 		<%= link_to team_path(post.team.id), class:"link" do %>
 		<div class="tops_main_team_box">
-			<%= attachment_image_tag post, :post_image, :fill, 200, 200, fallback:"no_image.jpg", class:"tops_top_main_image" %>
+			<%= attachment_image_tag post, :post_image, :fill, 200, 200, fallback:"/images/no_image.jpg", class:"tops_top_main_image" %>
 
 			<div class="tops_main_team_name">
 				<%= post.team.team_name %>

@@ -1,3 +1,4 @@
+<!-- チーム詳細画面 -->
 <!-- ユーザーマイページ左側の箱 -->
 <div class="users_mypage_box">
 
@@ -106,7 +107,7 @@
 			<%= @team.team_name %>
 		</div>
 
-		<%= attachment_image_tag @team, :team_image, :fill, 200, 200, fallback: "no_image.jpg", class: "teams_show_left_box_image" %>
+		<%= attachment_image_tag @team, :team_image, :fill, 200, 200, fallback: "/images/no_image.jpg", class: "teams_show_left_box_image" %>
 
 	</div>
 	<!-- ユーザーマイページ上側の部分fin -->
@@ -137,22 +138,27 @@
 	<div class="users_show_follow_belong_position">
 
 		<%= link_to team_path(@team.id), class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+			<div class="user_show_count_under_line select_action_under_line">
+				<span class="user_show_follow_belong_count"><%= @team.posts.count %></span><span> post</span>
+			</div>
 		<% end %>
 
 
 		<%= link_to "/teams/#{@team.id}/member", class:"users_show_follow_belong_link" do %>
+		<div class="user_show_count_under_line">
 			<span class="user_show_follow_belong_count"><%= @team.members.count %></span><span> member</span>
+		</div>
 		<% end %>
 
 
 		<%= link_to chat_path(@team.id), class:"users_show_follow_belong_link" do %>
+		<div class="user_show_count_under_line">
 			<span class="user_show_follow_belong_count"><%= "#{@team.chats.count}" %></span><span> talk</span>
+		</div>
 		<% end %>
 
 	</div>
 	<!-- ユーザーマイページのフォロー、所属の位置fin -->
-
 
 
 	<!-- pjaxでの切り替えられる箱 -->
@@ -160,11 +166,13 @@
 	<div class="barba-container">
 		<div class="users_show_main_content_box">
 
-			<% @team.posts.each do |post| %>
+			<% array1 = @team.posts[0..4] %>
+
+			<% array1.each do |post| %>
 			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
 				<div class="users_show_main_content_box_post">
 
-					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "no_image.jpg", class:"user_show_main_content_box_post_image" %>
+					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
 
 					<!-- いいねとコメントの箱 -->
 					<div class="users_main_content_box_post_favorite_coment_box">
@@ -178,10 +186,17 @@
 					</div>
 					<!-- いいねとコメントの箱fin -->
 
+
 					<!-- マイページのユーザー投稿の文章の内容 -->
-					<div class="users_show_main_content_box_post_content">
+					<% if post.post_comments.present? %>
+						<div class="users_show_main_content_box_post_content" data-post="<%=post.id%>">
 						<%= post.post_content %>
-					</div>
+						</div>
+					<% else %>
+						<div class="users_show_main_content_box_post_content2" data-post="<%=post.id%>">
+						<%= post.post_content %>
+						</div>
+					<% end %>
 					<!-- マイページのユーザー投稿の文章の内容fin -->
 
 
@@ -189,6 +204,8 @@
 					<div class="users_show_main_content_box_post_comment_box">
 						<%= render partial: 'teams/comment_position', locals: {post: post} %>
 					</div>
+
+
 					<!-- マイページのユーザーコメント1つ1つfin -->
 
 
@@ -202,7 +219,6 @@
 						<%= button_tag type:"submit", class:"teams_show_right_bix_post_comment_btn" do %>
 							<i class="fab fa-telegram-plane users_show_right_main_content_comment_btn_plane"></i>
 						<% end %>
-
 					</div>
 
 				</div>
@@ -210,6 +226,13 @@
 			<!-- form_forのend -->
 			<% end %>
 			<!-- @user.posts.eachのend -->
+
+			<div class="user_show_add_post_position">
+			</div>
+
+			<div class="user_show_loading_box">
+				<img src='/images/load2.gif'>
+			</div>
 
 
 		</div>
@@ -244,8 +267,7 @@
 <script>
 	$(document).ready(function(){
 
-
-
+		//pjax
 		Barba.Pjax.start();
 
 		var FadeTransition = Barba.BaseTransition.extend({
@@ -285,9 +307,74 @@
 		};
 
 
+
+		//アンダーラインの動作
+		$('.user_show_count_under_line').click(function(){
+			$('.user_show_count_under_line').removeClass('select_action_under_line');
+			$(this).addClass('select_action_under_line');
+		});
+
+
+
+		// ページローディングのajax
+		let n = 0;
+		let flag = false;
+		$(window).scroll(function(){
+
+			const total = $(document).height();
+			const scroll = $(window).height() + $(window).scrollTop();
+			const trigger = total - scroll;
+
+			if (!flag && trigger <= 50 ){
+				flag = true;
+				$.ajax({
+					url: '/teams/<%=@team.id%>/show_add_post',
+					type: 'get',
+					dataType: 'html',
+					beforeSend: function(){
+
+						$('.user_show_loading_box').addClass('user_show_loading_block');
+
+					}
+				})
+				.done (function(data){
+
+					const add_post1 = $(data).find(`.users_show_main_content_box_post:eq(${n})`);
+					const add_post2 = $(data).find(`.users_show_main_content_box_post:eq(${n+1})`);
+					const add_post3 = $(data).find(`.users_show_main_content_box_post:eq(${n+2})`);
+					const add_post4 = $(data).find(`.users_show_main_content_box_post:eq(${n+3})`);
+					const add_post5 = $(data).find(`.users_show_main_content_box_post:eq(${n+4})`);
+
+					$('.user_show_loading_block').removeClass('user_show_loading_block');
+
+
+					$('.user_show_add_post_position').append(add_post1);
+					$('.user_show_add_post_position').append(add_post2);
+					$('.user_show_add_post_position').append(add_post3);
+					$('.user_show_add_post_position').append(add_post4);
+					$('.user_show_add_post_position').append(add_post5);
+
+					n = n + 5
+
+				})
+				.fail(function(){
+					alert('読み込みに失敗しました')
+				});
+
+			}
+
+			if (trigger >=51) {
+				flag = false;
+			}
+
+
+		});
+
+
+
+
 	});
 </script>
-
 
 
 

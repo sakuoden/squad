@@ -12,7 +12,7 @@
 	<!-- ユーザーマイページ上側の部分 -->
 	<div class="users_mypage_left_box_image_position">
 
-		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "users_mypage_left_box_image" %>
+		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class: "users_mypage_left_box_image" %>
 
 		<div class="users_mypage_left_box_name">
 			<%= @user.name %>
@@ -26,17 +26,21 @@
 	<div class="users_show_follow_belong_position">
 
 		<%= link_to user_path(@user.id), class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+			<div class="user_show_count_under_line select_action_under_line">
+				<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+			</div>
 		<% end %>
-
 
 		<%= link_to "/users/#{@user.id}/follow", class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+			</div>
 		<% end %>
 
-
 		<%= link_to "/users/#{@user.id}/belong", class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+			</div>
 		<% end %>
 
 	</div>
@@ -53,7 +57,7 @@
 			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
 				<div class="users_show_main_content_box_post">
 
-					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "no_image.jpg", class:"user_show_main_content_box_post_image" %>
+					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
 
 					<!-- いいねとコメントの箱 -->
 					<div class="users_main_content_box_post_favorite_coment_box">
@@ -68,9 +72,15 @@
 					<!-- いいねとコメントの箱fin -->
 
 					<!-- マイページのユーザー投稿の文章の内容 -->
-					<div class="users_show_main_content_box_post_content">
+					<% if post.post_comments.present? %>
+						<div class="users_show_main_content_box_post_content" data-post="<%=post.id%>">
 						<%= post.post_content %>
-					</div>
+						</div>
+					<% else %>
+						<div class="users_show_main_content_box_post_content2" data-post="<%=post.id%>">
+						<%= post.post_content %>
+						</div>
+					<% end %>
 					<!-- マイページのユーザー投稿の文章の内容fin -->
 
 
@@ -155,6 +165,10 @@
 	  		return FadeTransition;
 		};
 
+		$('.user_show_count_under_line').click(function(){
+			$('.user_show_count_under_line').removeClass('select_action_under_line');
+			$(this).addClass('select_action_under_line');
+		});
 
 	});
 </script>

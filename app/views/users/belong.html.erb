@@ -13,7 +13,7 @@
 	<!-- ユーザーマイページ上側の部分 -->
 	<div class="users_mypage_left_box_image_position">
 
-		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "no_image.jpg", class: "users_mypage_left_box_image" %>
+		<%= attachment_image_tag @user, :image, :fill, 100, 100, fallback: "/images/no_image.jpg", class: "users_mypage_left_box_image" %>
 
 		<div class="users_mypage_left_box_name">
 			<%= @user.name %>
@@ -27,17 +27,21 @@
 	<div class="users_show_follow_belong_position">
 
 		<%= link_to user_path(@user.id), class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= @user.posts.count %></span><span> post</span>
+			</div>
 		<% end %>
-
 
 		<%= link_to "/users/#{@user.id}/follow", class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+			<div class="user_show_count_under_line">
+				<span class="user_show_follow_belong_count"><%= @user.follows.count %></span><span> follow</span>
+			</div>
 		<% end %>
 
-
 		<%= link_to "/users/#{@user.id}/belong", class:"users_show_follow_belong_link" do %>
-			<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+			<div class="user_show_count_under_line select_action_under_line">
+				<span class="user_show_follow_belong_count"><%= "#{@user.members.count}" %></span><span> belong</span>
+			</div>
 		<% end %>
 
 	</div>
@@ -58,7 +62,7 @@
 
 					<%= link_to team_path(member.team.id), class:"user_show_main_content_box_link no-barba" do %>
 					<div class="user_show_main_content_box_team_box">
-						<%= attachment_image_tag member.team, :team_image, :fill, 150, 150, fallback: "no_image.jpg", class: "user_show_main_box_team_box_image" %>
+						<%= attachment_image_tag member.team, :team_image, :fill, 150, 150, fallback: "/images/no_image.jpg", class: "user_show_main_box_team_box_image" %>
 						<p><%= member.team.team_name %></p>
 					</div>
 					<% end %>
@@ -121,6 +125,10 @@
 	  		return FadeTransition;
 		};
 
+		$('.user_show_count_under_line').click(function(){
+			$('.user_show_count_under_line').removeClass('select_action_under_line');
+			$(this).addClass('select_action_under_line');
+		});
 
 	});
 </script>

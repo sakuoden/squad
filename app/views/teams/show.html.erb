@@ -161,13 +161,14 @@
 	<!-- ユーザーマイページのフォロー、所属の位置fin -->
 
 
-
 	<!-- pjaxでの切り替えられる箱 -->
 	<main id="barba-wrapper">
 	<div class="barba-container">
 		<div class="users_show_main_content_box">
 
-			<% @team.posts.each do |post| %>
+			<% array1 = @team.posts[0..4] %>
+
+			<% array1.each do |post| %>
 			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
 				<div class="users_show_main_content_box_post">
 
@@ -218,7 +219,6 @@
 						<%= button_tag type:"submit", class:"teams_show_right_bix_post_comment_btn" do %>
 							<i class="fab fa-telegram-plane users_show_right_main_content_comment_btn_plane"></i>
 						<% end %>
-
 					</div>
 
 				</div>
@@ -226,6 +226,13 @@
 			<!-- form_forのend -->
 			<% end %>
 			<!-- @user.posts.eachのend -->
+
+			<div class="user_show_add_post_position">
+			</div>
+
+			<div class="user_show_loading_box">
+				<img src='/images/load2.gif'>
+			</div>
 
 
 		</div>
@@ -260,6 +267,7 @@
 <script>
 	$(document).ready(function(){
 
+		//pjax
 		Barba.Pjax.start();
 
 		var FadeTransition = Barba.BaseTransition.extend({
@@ -298,15 +306,75 @@
 	  		return FadeTransition;
 		};
 
+
+
+		//アンダーラインの動作
 		$('.user_show_count_under_line').click(function(){
 			$('.user_show_count_under_line').removeClass('select_action_under_line');
 			$(this).addClass('select_action_under_line');
 		});
 
 
+
+		// ページローディングのajax
+		let n = 0;
+		let flag = false;
+		$(window).scroll(function(){
+
+			const total = $(document).height();
+			const scroll = $(window).height() + $(window).scrollTop();
+			const trigger = total - scroll;
+
+			if (!flag && trigger <= 50 ){
+				flag = true;
+				$.ajax({
+					url: '/teams/<%=@team.id%>/show_add_post',
+					type: 'get',
+					dataType: 'html',
+					beforeSend: function(){
+
+						$('.user_show_loading_box').addClass('user_show_loading_block');
+
+					}
+				})
+				.done (function(data){
+
+					const add_post1 = $(data).find(`.users_show_main_content_box_post:eq(${n})`);
+					const add_post2 = $(data).find(`.users_show_main_content_box_post:eq(${n+1})`);
+					const add_post3 = $(data).find(`.users_show_main_content_box_post:eq(${n+2})`);
+					const add_post4 = $(data).find(`.users_show_main_content_box_post:eq(${n+3})`);
+					const add_post5 = $(data).find(`.users_show_main_content_box_post:eq(${n+4})`);
+
+					$('.user_show_loading_block').removeClass('user_show_loading_block');
+
+
+					$('.user_show_add_post_position').append(add_post1);
+					$('.user_show_add_post_position').append(add_post2);
+					$('.user_show_add_post_position').append(add_post3);
+					$('.user_show_add_post_position').append(add_post4);
+					$('.user_show_add_post_position').append(add_post5);
+
+					n = n + 5
+
+				})
+				.fail(function(){
+					alert('読み込みに失敗しました')
+				});
+
+			}
+
+			if (trigger >=51) {
+				flag = false;
+			}
+
+
+		});
+
+
+
+
 	});
 </script>
-
 
 
 

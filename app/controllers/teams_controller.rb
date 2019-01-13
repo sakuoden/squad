@@ -81,6 +81,18 @@ class TeamsController < ApplicationController
 	def invite
 	end
 
+	def show_add_post
+		@team = Team.find(params[:id])
+		@favorites = Favorite.where(team_id: @team.id)
+
+
+		@posts = Post.where(team_id: @team.id)
+		@post_favorite = PostFavorite.find_by(post_favorite_user: current_user.id)
+
+		@post_comment = PostComment.new
+
+		@post_favorite_middles = PostFavoriteMiddle.all
+	end
 
 
 	private

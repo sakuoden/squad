@@ -1,0 +1,59 @@
+<% array2 = @team.posts[5..-1] %>
+<% array2.each do |post| %>
+<%= form_for(@post_comment, data: {remote: true}) do |f| %>
+	<div class="users_show_main_content_box_post">
+
+		<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
+
+		<!-- いいねとコメントの箱 -->
+		<div class="users_main_content_box_post_favorite_coment_box">
+
+			<%= render partial: 'teams/like_position', locals: {post: post} %>
+
+			<label for="teams_show_right_box_post_comment_form_id">
+				<i class="far fa-comment user_show_post_comment"></i>
+			</label>
+
+		</div>
+		<!-- いいねとコメントの箱fin -->
+
+
+		<!-- マイページのユーザー投稿の文章の内容 -->
+		<% if post.post_comments.present? %>
+			<div class="users_show_main_content_box_post_content" data-post="<%=post.id%>">
+			<%= post.post_content %>
+			</div>
+		<% else %>
+			<div class="users_show_main_content_box_post_content2" data-post="<%=post.id%>">
+			<%= post.post_content %>
+			</div>
+		<% end %>
+		<!-- マイページのユーザー投稿の文章の内容fin -->
+
+
+		<!-- マイページのユーザーコメント1つ1つ -->
+		<div class="users_show_main_content_box_post_comment_box">
+			<%= render partial: 'teams/comment_position', locals: {post: post} %>
+		</div>
+
+
+		<!-- マイページのユーザーコメント1つ1つfin -->
+
+
+		<!-- マイページユーザー投稿のコメント投稿 -->
+		<div class="users_show_main_content_box_comment_form_position">
+
+			<%= f.text_field :post_comment, placeholder: "コメントを入力...", class:"users_show_main_content_box_post_comment_form", id:"teams_show_right_box_post_comment_form_id" %>
+
+
+			<%= f.hidden_field :post_id, :value => post.id %>
+			<%= button_tag type:"submit", class:"teams_show_right_bix_post_comment_btn" do %>
+				<i class="fab fa-telegram-plane users_show_right_main_content_comment_btn_plane"></i>
+			<% end %>
+		</div>
+
+	</div>
+<% end %>
+<!-- form_forのend -->
+<% end %>
+<!-- @user.posts.eachのend -->

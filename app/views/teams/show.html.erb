@@ -166,7 +166,7 @@
 	<div class="barba-container">
 		<div class="users_show_main_content_box">
 
-			<% array1 = @team.posts[0..4] %>
+			<% array1 = @team.posts[0..2] %>
 
 			<% array1.each do |post| %>
 			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
@@ -231,7 +231,7 @@
 			</div>
 
 			<div class="user_show_loading_box">
-				<img src='/images/load2.gif'>
+				<img src='/images/load3.gif'>
 			</div>
 
 
@@ -341,20 +341,15 @@
 
 					const add_post1 = $(data).find(`.users_show_main_content_box_post:eq(${n})`);
 					const add_post2 = $(data).find(`.users_show_main_content_box_post:eq(${n+1})`);
-					const add_post3 = $(data).find(`.users_show_main_content_box_post:eq(${n+2})`);
-					const add_post4 = $(data).find(`.users_show_main_content_box_post:eq(${n+3})`);
-					const add_post5 = $(data).find(`.users_show_main_content_box_post:eq(${n+4})`);
+
 
 					$('.user_show_loading_block').removeClass('user_show_loading_block');
 
 
 					$('.user_show_add_post_position').append(add_post1);
 					$('.user_show_add_post_position').append(add_post2);
-					$('.user_show_add_post_position').append(add_post3);
-					$('.user_show_add_post_position').append(add_post4);
-					$('.user_show_add_post_position').append(add_post5);
 
-					n = n + 5
+					n = n + 2
 
 				})
 				.fail(function(){

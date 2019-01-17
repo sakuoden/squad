@@ -173,17 +173,9 @@
 
 			<div class="teams_show_box_right_chat_smallbox">
 
-				<!-- チーム詳細画面の右側のノートアイコンのある行 -->
-				<div class="teams_show_box_right_chat_smallbox_note_row">
-					<%= link_to "/", class:"teams_show_box_right_chat_small_box_note_link" do %>
-						<i class="fas fa-book-open tems_show_box_right_chat_small_box_icon"></i>
-					<% end %>
-				</div>
-				<!-- チーム詳細画面の右側のノートアイコンのある行fin -->
-
 				<!-- チーム詳細画面の右側のトーク内容が入る箱 -->
 				<div class="teams_show_box_right_chat_smallbox_chat_screen">
-					<% @team.chats.each do |chat| %>
+					<% @team.chats.reverse.each do |chat| %>
 					<% if chat.user.id == current_user.id %>
 
 						<div class="teams_show_box_right_chat_smallbox_chat_row_current_user">
@@ -202,8 +194,6 @@
 
 
 						</div>
-
-
 
 
 					<% else %>

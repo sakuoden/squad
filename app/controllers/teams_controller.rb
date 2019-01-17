@@ -72,7 +72,7 @@ class TeamsController < ApplicationController
 
 		# if @team.members.where(user_id: @user.id).exists?
 		# else
-			TeamMailer.invite_notification(@user, @team).deliver
+		# TeamMailer.invite_notification(@user, @team).deliver
 		# end
 
 		redirect_to "/teams/#{@team.id}/member"

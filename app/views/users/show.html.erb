@@ -57,7 +57,9 @@
 			<%= form_for(@post_comment, data: {remote: true}) do |f| %>
 				<div class="users_show_main_content_box_post">
 
+				<div class="users_show_responsive_image_position">
 					<%= attachment_image_tag post, :post_image, :fill, 500, 500, fallback: "/images/no_image.jpg", class:"user_show_main_content_box_post_image" %>
+				</div>
 
 					<!-- いいねとコメントの箱 -->
 					<div class="users_main_content_box_post_favorite_coment_box">

@@ -597,3 +597,158 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************スマホ対応********************/
+@media screen and (max-width:425px) {
+
+
+
+
+/*----------------------------------------------チームの新規作成画面----------------------------------------------*/
+
+/*チーム新規作成の箱*/
+.teams_new_box {
+/*	background-color: grey;*/
+/*	height: 600px;*/
+	width: 100%;
+	margin: 0 auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 5%;
+	background-color: white;
+    border: 2px solid #DDD
+}
+
+/*チーム新規作成の箱の幅*/
+.teams_new_box_wide {
+	width: 300px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+/*チーム新規作成画面のチーム名入力フォームの位置*/
+.teams_new_box_team_name_form_position {
+/*	height: 40px;
+	background-color: red;*/
+	width: 100%;
+	margin-bottom: 10%;
+}
+
+/*チーム新規作成画面のチーム名入力フォーム*/
+.teams_new_box_team_neme_form{
+	width: 100%;
+	height: 30px;
+	font-size: 14px;
+	color: #333333;
+	outline: none;
+}
+
+#teams_new_box_team_image_form {
+	display:none;
+}
+
+/*チーム新規作成画面の画像のプレビュー表示*/
+.teams_new_box_team_image_preview{
+	width: 300px;
+	height: 300px;
+	border: dotted 2px #666666;
+	margin-bottom: 5%;
+	background-color: #CCCCCC;
+}
+
+.teams_new_box_team_image_preview p {
+	line-height: 300px;
+	text-align: center;
+}
+
+.teams_new_box_team_image_preview:hover {
+	cursor: pointer;
+}
+
+.teams_new_box_preview_image {
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+
+
+
+/*チーム新規作成画面の都道府県選択フォームの位置*/
+.teams_new_box_place_form_position {
+/*	background-color: pink;*/
+	height: 50px;
+	width: 300px;
+	margin: 0 auto;
+	margin-bottom: 8%;
+}
+
+
+/*チーム新規作成画面の新規作成ボタンの位置*/
+.teams_new_box_new_team_btn_position {
+	text-align: center;
+}
+
+/*チーム新規作成画面の新規作成ボタン*/
+.teams_new_box_new_team_btn {
+	margin-bottom: 3%;
+	padding: 2%;
+	width: 300px;
+	background-color: #00D868;
+	color: white;
+}
+
+/*チーム新規作成画面の新規作成ボタンにマウスを置いたとき*/
+.teams_new_box_new_team_btn:hover {
+	background: linear-gradient(to bottom, #00F275, #00FF7F);
+	cursor: pointer;
+}
+
+/*チーム新規作成画面の新規作成ボタンを押したとき*/
+.user_mypage_edit_right_box_save_btn:active {
+	outline: none;
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

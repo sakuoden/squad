@@ -220,17 +220,6 @@
 
 
 
-	<% if @team.members.where(user_id: current_user.id).exists? %>
-		<!-- チーム詳細画面の画像投稿ボタン -->
-		<%= link_to new_post_path(team_id: @team.id), class:"teams_show_new_post_btn_link" do %>
-			<div class="teams_show_new_post_btn no-barba">
-				<i class="fas fa-camera"></i>
-				<p>投稿</p>
-			</div>
-		<% end %>
-		<!-- チーム詳細画面の投稿ボタンfin -->
-	<% end %>
-
 
 
 

@@ -620,6 +620,10 @@
 
 
 
+
+
+
+
 /*****************************************スマホ対応********************/
 @media screen and (max-width:425px) {
 
@@ -728,6 +732,117 @@
 /*チーム新規作成画面の新規作成ボタンを押したとき*/
 .user_mypage_edit_right_box_save_btn:active {
 	outline: none;
+}
+
+
+
+
+/*----------------------------------------------------チームメンバー新規加入画面----------------------------------------------------*/
+
+/*メンバー招待画面の全体の箱*/
+.teams_member_new_box {
+/*	height: 600px;*/
+	background-color: white;
+	width: 100%;
+	margin:0 auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 2%;
+	border: solid 2px #DDD;
+}
+
+/*メンバー招待画面のメンバー検索のフォームの位置*/
+.teams_member_search_position {
+/*	background-color: yellow;*/
+	width: 100%;
+/*	height: 40px;*/
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+/*メンバー招待画面のメンバー検索フォーム*/
+.teams_member_serch_form {
+	width: 60%;
+	height: 40px;
+	border: solid 1px #c1c1c1;
+	border-right: none;
+	outline: none;
+}
+
+.teams_member_search_btn {
+	width: 10%;
+	background-color: white;
+	outline: none;
+	border: none;
+	border: solid 1px #c1c1c1;
+}
+
+.teams_member_search_btn:hover {
+	cursor: pointer;
+}
+
+.teams_member_flash {
+	width: 100%;
+	background-color: #FFC0CB;
+	color: #FF4500;
+	text-align: center;
+}
+
+
+
+.teams_member_search_result_box {
+	height: 200px;
+/*	background-color: gold;*/
+	width: 150px;
+	border: solid 1px #c1c1c1;
+	text-align: center;
+}
+
+.teams_member_search_result_box:hover {
+	cursor: pointer;
+}
+
+/*選択されたリアルとボックス*/
+.teams_member_search_resuli_box_active {
+	border: solid 4px #3399FF;
+}
+
+.teams_member_new_box_flex {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.teams_member_new_user_image {
+	width: 100%;
+	height: 150px;
+	vertical-align: top;
+}
+
+.teams_member_new_radio_button {
+	display: none;
+}
+
+.teams_member_new_btn_position {
+/*	background-color: blue;*/
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 5%;
+	text-align: center;
+}
+
+.teams_member_new_btn {
+	width: 100%;
+	background-color: white;
+	padding: 2%;
+	border: solid 1px #c1c1c1;
+	outline: none;
+}
+
+.teams_member_new_btn:hover {
+	cursor: pointer;
 }
 
 

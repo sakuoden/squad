@@ -11,6 +11,7 @@ class TeamsController < ApplicationController
 		@team = @user.teams.new(team_params)
 		if @user.save
 			@member = Member.new(user_id: @user.id, team_id: @team.id)
+			@member.member_status = "加入"
 			@member.save
 			redirect_to "/teams/#{@team.id}"
 		end
@@ -48,7 +49,7 @@ class TeamsController < ApplicationController
 
 	def member_new
 		@team = Team.find(params[:id])
-		@member = Member.new
+		@invitation = Invitation.new
 
 		search = params[:search]
 
@@ -57,25 +58,23 @@ class TeamsController < ApplicationController
 			flash[:notice] = "名前を入力してください。"
 		elsif User.where(['name Like?', "%#{search}%"]).exists?
 			@results = User.where(['name Like?', "%#{search}%"])
-			@member = Member.new
+			@invitation = Invitation.new
 		else
 			flash[:notice] = "検索されたユーザーは存在しません"
 		end
-
-
 	end
 
 	def member_create
-		@team = Team.find(params[:id])
-		@user = User.find(params[:member][:user_id])
+		team = Team.find(params[:id])
+		user = User.find(current_user.id)
 
+		member = Member.new(team_id: team.id, user_id: user.id, member_status:"加入")
+		member.save
 
-		# if @team.members.where(user_id: @user.id).exists?
-		# else
-		# TeamMailer.invite_notification(@user, @team).deliver
-		# end
+		invitations = Invitation.where(team_id: team.id)
+		invitation = invitations.find_by(user_id: user.id)
+		invitation.destroy
 
-		redirect_to "/teams/#{@team.id}/member"
 	end
 
 	def invite

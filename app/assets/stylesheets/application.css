@@ -77,12 +77,124 @@ header {
 	cursor: pointer;
 }
 
-/*ヘッダー要素のポイントのリンク*/
-.header_right_link {
+
+
+
+.header_right_bell_position {
 	float: right;
-	height: 70px;
-	line-height: 69px;
+	margin-top: 3%;
+	position: relative;
 }
+
+.header_right_bell {
+	color: white;
+	font-size: 28px;
+
+}
+
+.header_right_bell:hover {
+	cursor: pointer;
+}
+
+.header_right_balloon {
+	position: absolute;
+	top: 45px;
+	left: -140px;
+	display: inline-block;
+	background-color: white;
+	width: 300px;
+	max-height: 400px;
+	border: solid 1px #555;
+	border-bottom: none;
+	padding-top: 3%;
+}
+
+.header_right_balloon:before {
+	content: "";
+	border: solid 12px transparent;
+	border-bottom: solid 12px #FFF;
+	position: absolute;
+	top: -24px;
+	left: 138px;
+	z-index: 2;
+}
+
+.header_right_balloon:after {
+	content: "";
+	border: solid 12px transparent;
+	border-bottom: solid 12px #555;
+	position: absolute;
+	top: -25px;
+	left: 138px;
+	z-index: 1;
+}
+
+/*今だけ消す*/
+.header_right_balloon_none {
+	/*display: none;*/
+}
+
+.header_right_invite_row {
+/*	background-color: orange;*/
+	width: 100%;
+	padding: 2%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-bottom: solid 1px #555;
+}
+
+.header_right_team_name {
+/*	background-color: blue;*/
+	flex: 1;
+}
+
+.header_right_team_name p {
+	font-size: 14px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+.header_right_yes_btn {
+	background-color: #5AE628;
+	font-size: 14px;
+	width: 40px;
+	line-height: 30px;
+	height: 30px;
+	text-align: center;
+	margin-left: 1%;
+	color: white;
+}
+
+.header_right_yes_btn:hover {
+	cursor: pointer;
+	background-color: #7DEB56;
+}
+
+.header_right_yes_btn:active {
+ 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.header_right_no_btn {
+	background-color: #E82727;
+	font-size: 14px;
+	width: 40px;
+	line-height: 30px;
+	height: 30px;
+	text-align: center;
+	margin-left: 1%;
+	color: white;
+}
+
+.header_right_no_btn:hover {
+	cursor: pointer;
+	background-color: #ED5454;
+}
+
+.header_right_no_btn:active {
+ 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
 
 
 html,body {
@@ -161,13 +273,17 @@ footer {
 	color: white;
 }
 
+
+
+
+
+
 /*ログインしていないときに表示されるのの調整*/
 .footer_right_link_blank {
 	width: 100px;
 	height: 1px;
 	float: left;
 }
-
 
 
 /*戻るボタンのリンク設定*/

@@ -73,20 +73,16 @@
 		<!-- チーム新規作成画面のチーム名入力フォームの位置fin-->
 
 		<!-- チーム新規作成画面の画像選択フォーム -->
-		<div class="teams_new_box_team_image_form_position">
-			<%= f.attachment_field :team_image, class: "teams_new_box_team_image_form" %>
-		</div>
+		<%= f.attachment_field :team_image, id:"teams_new_box_team_image_form" %>
+		<label for="teams_new_box_team_image_form">
+			<div class="teams_new_box_team_image_preview">
+				<p>画像を選択してください</p>
+			</div>
+		</label>
 		<!-- チーム新規作成画面の画像選択フォームfin-->
 
 	</div>
 	<!-- チーム新規作成画面の箱の中の幅(プレビュー含めず)fin -->
-
-
-		<!-- チーム新規作成画面の画像のプレビュー表示 -->
-		<div class="teams_new_box_team_image_preview_position">
-			<%= attachment_image_tag @user, :image, :fill, 300, 300, fallback: "/images/no_image.jpg", class: "teams_new_box_team_image_preview" %>
-		</div>
-		<!-- チーム新規作成画面の画像のプレビュー表示fin -->
 
 
 
@@ -111,17 +107,38 @@
 	$('document').ready(function(){
 
 	// プレビューを表示させる
-	$('.teams_new_box_team_image_form').change(function(){
+		let n = 0;
 
-		if (this.files && this.files[0]) {
-			var reader = new FileReader();
+		$('#teams_new_box_team_image_form').on('change', function(e){
+			n ++
 
-			reader.onload = function(e) {
-				$('.teams_new_box_team_image_preview').attr('src', e.target.result)
+			if (n < 2) {
+				const reader = new FileReader();
+
+				const file = e.target.files[0];
+
+				reader.readAsDataURL(file);
+
+				$('.teams_new_box_team_image_preview').append('<img>');
+
+				reader.onload = function(e){
+					$('.teams_new_box_team_image_preview > p').css('display', 'none');
+					$('img').attr('src', e.target.result).addClass('teams_new_box_preview_image');
+				};
+			} else {
+				const reader = new FileReader();
+
+				const file = e.target.files[0];
+
+				reader.readAsDataURL(file);
+
+				reader.onload = function(e) {
+					$('img').attr('src', e.target.result);
+				};
 			}
-			reader.readAsDataURL(this.files[0]);
-		}
-	});
+
+
+		});
 
 
 	});

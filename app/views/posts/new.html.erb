@@ -60,8 +60,8 @@
 				$('.post_new_image_form').append('<img>');
 
 				reader.onload = function(e){
-					$('.post_new_image_form > p').css('display', 'none')
-					$('img').attr('src', e.target.result).addClass('post_image_preview')
+					$('.post_new_image_form > p').css('display', 'none');
+					$('img').attr('src', e.target.result).addClass('post_image_preview');
 				};
 			} else {
 				const reader = new FileReader();
@@ -71,7 +71,7 @@
 				reader.readAsDataURL(file);
 
 				reader.onload = function(e) {
-					$('img').attr('src', e.target.result).addClass('post_image_preview')
+					$('img').attr('src', e.target.result);
 				};
 			}
 

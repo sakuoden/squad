@@ -179,3 +179,247 @@
 
 
 
+
+
+
+/******************************タブレット対応***************************/
+@media screen and (max-width:1024px) {
+
+
+
+
+/*-------------トップページ--------------*/
+
+.tops_main_contents {
+/*	background-color: grey;*/
+	width: 800px;
+	margin: 0 auto;
+	padding: 3% 1%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+/*トップページの1つ1つの箱*/
+.tops_main_team_box {
+/*	background-color: blue;*/
+	width: 200px;
+	border: solid 2px #DDD;
+	background-color: white;
+	margin-bottom: 5%;
+}
+
+/*トップページの1つ1つの箱の画像*/
+.tops_top_main_image {
+	width: 100%;
+	height: 200px;
+	vertical-align: top;
+}
+
+/*トップページの1つ1つの箱の名前*/
+.tops_main_team_name {
+	text-align: center;
+	padding: 3% 0;
+	border-top: solid 1px #DDD;
+}
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/********************************スマホ対応************************/
+@media screen and (max-width:425px) {
+
+
+
+/*-------------トップページ--------------*/
+
+.tops_main_contents {
+/*	background-color: grey;*/
+	width: 100%;
+	margin: 0 auto;
+	padding: 3% 1%;
+	display: flex;
+}
+
+/*トップページの1つ1つの箱*/
+.tops_main_team_box {
+/*	background-color: blue;*/
+	width: 150px;
+	border: solid 2px #DDD;
+	background-color: white;
+	margin-bottom: 5%;
+}
+
+/*トップページの1つ1つの箱の画像*/
+.tops_top_main_image {
+	width: 100%;
+	height: 150px;
+	vertical-align: top;
+}
+
+/*トップページの1つ1つの箱の名前*/
+.tops_main_team_name {
+	text-align: center;
+	padding: 3% 0;
+	border-top: solid 1px #DDD;
+}
+
+
+
+
+}
+
+
+
+
+/*-------------トップページのマップ画面--------------*/
+
+.tops_top_flash_massage {
+	width: 20%;
+	height: 30px;
+	line-height: 30px;
+	background-color: #00aced;
+	fint-size: 20px;
+	color: white;
+	margin-top: 1%;
+	margin-bottom: 2%;
+	margin-left: 1%;
+	text-align: center;
+	border-radius: 30px;
+	box-shadow: 0 0 10px 1px #A3A3A3;
+}
+
+/*マップの位置*/
+.top_map_position {
+	width: 100px;
+	margin: 0 auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+
+
+/*モーダル全体*/
+.top_map_all_modal {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	display: none;
+}
+
+/*モーダルの部分*/
+.top_map_modal {
+	background-color: #e6ecf0;
+	width: 50%;
+	height: 500px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+	z-index: 20;
+	padding: 2%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	box-shadow: 0 0 10px 1px #000000;
+}
+
+
+/*モーダルの閉じるボタン*/
+.top_map_modal_close_position {
+	width: 100%;
+	text-align: right;
+}
+
+/*モーダルの閉じるボタン*/
+.fa-window-close {
+	font-size: 18px;
+}
+
+/*モーダルの閉じるボタンのマウスオーバー*/
+.fa-window-close:hover {
+	cursor: pointer;
+	cursor: hand;
+}
+
+
+/*モーダル部分のタイトル*/
+.top_map_modal_title {
+/*	background-color: pink;*/
+	text-align: center;
+	font-size: 19px;
+	margin-bottom: 3%;
+}
+
+
+/*モーダル画面のリンク*/
+.tops_map_modal_link {
+	text-decoration: none;
+	color: #333333;
+}
+
+/*モーダル画面のチーム1つずつの箱*/
+.top_map_modal_box_a_team {
+/*	background-color: yellow;*/
+	width: 90%;
+	margin: 0 auto;
+	padding: 1% 2%;
+	border-top: solid 2px #808080;
+}
+
+/*モーダル画面のチーム1つずつの箱の画像*/
+.top_map_modal_box_a_team_image {
+	width: 100px;
+	height: 100px;
+}
+
+/*モーダルのテーブルの1つずつ*/
+.top_map_modal_box_a_team td:nth-child(1) {
+	width: 100px;
+}
+
+/*モーダルのテーブルの1つずつ*/
+.top_map_modal_box_a_team td:nth-child(2) {
+	width: 150px;
+	padding-left: 3%;
+}
+
+/*モーダルのテーブルの1つずつ*/
+.top_map_modal_box_a_team td:nth-child(3) {
+	width: 150px;
+}
+
+/*モーダルのチーム1つずつの最後の場合の線*/
+.top_map_modal_box_last_border {
+	width: 90%;
+	margin: 0 auto;
+	border-top: solid 2px #808080;
+}
+
+
+
+
+
+
+

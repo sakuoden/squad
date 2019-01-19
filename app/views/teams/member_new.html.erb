@@ -17,13 +17,13 @@
 
 <div class="teams_member_new_box">
 
-	<% if flash[:notice] %>
+	<% if flash[:invite_notice] %>
 
-		<div class="teams_member_flash"><%= flash[:notice] %></div>
+		<div class="teams_member_flash"><%= flash[:invite_notice] %></div>
 
 	<% else %>
 
-		<%= form_for(@member, url: "/teams/#{@team.id}/member/create", html: {method: :post}) do |f| %>
+		<%= form_for(@invitation, url: invitations_path, html: {method: :post}) do |f| %>
 
 			<% if @results %>
 				<div class="teams_member_new_box_flex">
@@ -42,6 +42,7 @@
 				</div>
 
 				<div class="teams_member_new_btn_position">
+				<%= f.hidden_field :team_id, :value=> @team.id %>
 				<%= f.submit "チームに招待する", class:"teams_member_new_btn" %>
 				</div>
 			<% end %>

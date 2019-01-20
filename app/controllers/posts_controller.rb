@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
   def new
   	@team = Team.find(params[:team_id])
   	@members = Member.where(team_id: @team.id)

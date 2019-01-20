@@ -1,4 +1,5 @@
 class FollowsController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@team = Team.find(params[:team_id])
 		@team.follows.new(user_id: current_user.id)

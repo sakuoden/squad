@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :invitations, only: [:create, :destroy]
 
 	get '/' => 'tops#top'
- 	get '/map' => 'tops#map'
 
  	devise_for :users
 

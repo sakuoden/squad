@@ -12,13 +12,16 @@
 			メールアドレスを変更
 		</div>
 
-		<%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしてよろしいですか？' }, class:"link" do %>
-		<div class="users_mypage_edit_left_box_content2 users_mypage_edit_left_box_btn">
+
+		<div class="users_mypage_edit_left_box_content3 users_mypage_edit_left_box_btn">
 			ログアウト
 		</div>
+
+		<%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしてよろしいですか？' }, class:"link" do %>
 		<% end %>
 
 	</div>
+
 
 
 
@@ -26,12 +29,6 @@
 
 		<!-- ユーザーマイページ編集の右側の箱1(プロフィールを編集するページ) -->
 		<div class="users_mypage_edit_right_box users_mypage_edit_active">
-			<!-- フラッシュメッセージ -->
-			<% if flash[:notice] %>
-			<div class="users_mypage_edit_right_box_flash">
-				<%= flash[:notice] %>
-			</div>
-			<% end %>
 
 			<!-- 画像のプレビュー表示と画像を選ぶボタン -->
 			<div class="users_mypage_edit_right_row1">
@@ -47,12 +44,14 @@
 
 			<!-- 名前の入力欄 -->
 			<div class="users_mypage_edit_right_row2">
-				<table>
-					<tr>
-						<td>名前</td>
-						<td><%= f.text_field :name, class: "users_mypage_edit_right_row2_name" %></td>
-					</tr>
-				</table>
+
+				<div class="users_mypage_edit_name">
+					名前
+				</div>
+				<div class="users_mypage_edit_name_form">
+					<%= f.text_field :name, class: "users_mypage_edit_right_row2_name" %>
+				</div>
+
 			</div>
 			<!-- 名前の入力欄fin -->
 
@@ -67,19 +66,16 @@
 
 
 
-
-
 		<!-- ユーザーマイページ編集の右側の箱2(メールアドレスを変更するページ) -->
 		<div class="users_mypage_edit_right_box">
 
 			<!-- メールアドレスの入力欄 -->
 			<div class="users_mypage_edit_right_box2_row">
-				<table>
-					<tr>
-						<td>メールアドレス</td>
-						<td><%= f.text_field :email, class: "users_mypage_edit_right_row2_name" %></td>
-					</tr>
-				</table>
+				<div class="users_mypage_add_form_position">
+
+						<div><%= f.text_field :email, class: "users_mypage_edit_right_row2_name" %></div>
+
+				</div>
 			</div>
 			<!-- メールアドレスの入力欄fin -->
 
@@ -95,8 +91,30 @@
 
 	<% end %>
 
+
+
+
+		<!-- ユーザーマイページ編集の右側の箱3(ログアウトのページ) -->
+		<div class="users_mypage_edit_right_box">
+
+			<%= link_to destroy_user_session_path, class:"user_mypage_edit_sign_out_btn_link" do %>
+				<div class="user_mypage_edit_sign_out_btn">
+					ログアウト
+				</div>
+			<% end %>
+
+		</div>
+		<!-- ユーザーマイページ編集の右側の箱3(ログアウトのページ)fin -->
+
+
+
+
+
+
 </div>
 <!-- ユーザーマイページ編集全体の箱fin -->
+
+
 
 
 

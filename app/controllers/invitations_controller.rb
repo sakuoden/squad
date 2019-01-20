@@ -1,4 +1,5 @@
 class InvitationsController < ApplicationController
+  before_action :authenticate_user!
   def create
     user = User.find(params[:invitation][:user_id])
     team = Team.find(params[:invitation][:team_id])

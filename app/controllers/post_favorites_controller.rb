@@ -1,4 +1,5 @@
 class PostFavoritesController < ApplicationController
+	before_action :authenticate_user!
 	def create
 		@post = Post.find(params[:post_id])
 		@post.post_favorite_middles.new(post_favorite_id: current_user.id)

@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-	before_action :authenticate_user!, only: [:new, :create]
+	before_action :authenticate_user!
 
 	def new
 		@user = current_user
